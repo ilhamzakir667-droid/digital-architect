@@ -9,11 +9,11 @@ html {
     scroll-behavior: smooth;
 }
 
-/* 2. БАЗОВЫЕ НАСТРОЙКИ & АНИМАЦИИ В СТИЛЕ APPLE */
+/* 2. БАЗОВЫЕ НАСТРОЙКИ */
 body {
-    background-color: #000000; /* Абсолютный черный Apple */
-    color: #f5f5f7; /* Мягкий белый премиальный оттенок */
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #000000;
+    color: #f5f5f7;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -22,17 +22,23 @@ body {
 }
 
 @keyframes appleFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.98) translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+    from { opacity: 0; transform: scale(0.98) translateY(30px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* 3. ШАПКА (МИНИМАЛИЗМ) */
+/* СОЧНЫЕ ДОБАВЛЕНИЯ: ГРАДИЕНТЫ И СВЕЧЕНИЕ */
+.text-gradient {
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); /* Сочный неоновый циан-синий */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.accent-glow {
+    color: #00f2fe;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+}
+
+/* 3. ШАПКА */
 .header {
     display: flex;
     justify-content: space-between;
@@ -50,7 +56,7 @@ body {
 }
 
 .nav a {
-    color: #86868b; /* Серый цвет Apple */
+    color: #86868b;
     text-decoration: none;
     margin-left: 48px;
     font-size: 14px;
@@ -59,10 +65,10 @@ body {
 }
 
 .nav a:hover {
-    color: #f5f5f7;
+    color: #00f2fe; /* Подсветка меню при наведении */
 }
 
-/* 4. ГЛАВНЫЙ ЭКРАН (ОГРОМНЫЙ ФОКУС) */
+/* 4. ГЛАВНЫЙ ЭКРАН */
 .hero {
     min-height: 85vh;
     display: flex;
@@ -86,10 +92,10 @@ body {
 }
 
 .hero-title {
-    font-size: 64px; /* Массивный шрифт Apple */
+    font-size: 64px;
     font-weight: 600;
     line-height: 1.08;
-    letter-spacing: -2.5px; /* Плотное сжатие */
+    letter-spacing: -2.5px;
     color: #ffffff;
     margin-bottom: 36px;
 }
@@ -103,7 +109,7 @@ body {
     max-width: 720px;
 }
 
-/* 5. ИНТЕРАКТИВНЫЕ КНОПКИ */
+/* 5. КНОПКИ */
 .hero-actions {
     display: flex;
     gap: 28px;
@@ -111,19 +117,20 @@ body {
 
 .btn-primary {
     display: inline-block;
-    background-color: #0071e3; /* Фирменный синий акцент Apple */
-    color: #ffffff;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); /* Сочная кнопка */
+    color: #000000;
     padding: 18px 38px;
     text-decoration: none;
     font-size: 16px;
-    font-weight: 500;
-    border-radius: 24px; /* Округлые кнопки */
+    font-weight: 600;
+    border-radius: 24px;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 20px rgba(0, 242, 254, 0.2);
 }
 
 .btn-primary:hover {
-    background-color: #147ce5;
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px rgba(0, 242, 254, 0.4);
 }
 
 .btn-secondary {
@@ -139,12 +146,12 @@ body {
 }
 
 .btn-secondary:hover {
-    border-color: #86868b;
-    background-color: rgba(255, 255, 255, 0.03);
+    border-color: #00f2fe;
+    background-color: rgba(0, 242, 254, 0.02);
     transform: scale(1.02);
 }
 
-/* 6. БЛОК ФИЛОСОФИИ (BENTO GRID STYLE) */
+/* 6. БЛОК ФИЛОСОФИИ (BENTO) */
 .philosophy-section {
     padding: 160px 120px;
     background-color: #000000;
@@ -173,22 +180,23 @@ body {
 }
 
 .philosophy-item {
-    background-color: #161617; /* Серый bento-фон Apple */
+    background-color: #161617;
     border: 1px solid #222224;
     padding: 56px 40px;
-    border-radius: 18px; /* Стильное скругление */
+    border-radius: 18px;
     transition: all 0.5s cubic-bezier(0.15, 0.85, 0.35, 1);
 }
 
 .philosophy-item:hover {
-    border-color: #424245;
+    border-color: #00f2fe; /* Неоновая рамка при наведении */
     background-color: #1d1d1f;
-    transform: translateY(-4px) scale(1.01);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 242, 254, 0.05);
 }
 
 .philosophy-num {
     font-size: 13px;
-    color: #86868b;
+    color: #00f2fe; /* Сочные цифры */
     font-family: monospace;
     display: block;
     margin-bottom: 28px;
@@ -209,10 +217,10 @@ body {
     font-weight: 400;
 }
 
-/* 6.5 БЛОК ПРОЦЕССА (APPLE WORKFLOW LAYOUT) */
+/* 6.5 БЛОК ПРОЦЕССА */
 .workflow-section {
     padding: 160px 120px;
-    background: linear-gradient(180deg, #000000 0%, #111112 100%); /* Мягкий градиентный переход */
+    background: linear-gradient(180deg, #000000 0%, #09090b 100%);
     width: 100%;
 }
 
@@ -229,7 +237,7 @@ body {
 }
 
 .workflow-step:hover {
-    border-bottom-color: #424245;
+    border-bottom-color: #00f2fe;
 }
 
 .step-meta {
@@ -248,7 +256,7 @@ body {
 
 .step-status {
     font-size: 11px;
-    color: #0071e3; /* Выделение этапа синим */
+    color: #00f2fe; /* Сочный статус этапа */
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: 600;
@@ -274,7 +282,7 @@ body {
     font-weight: 400;
 }
 
-/* 7. БЛОК КОНТАКТОВ (PREMIUM FOOTER) */
+/* 7. БЛОК КОНТАКТОВ */
 .contact-section {
     padding: 160px 120px;
     background-color: #000000;
@@ -319,13 +327,14 @@ body {
 }
 
 .telegram {
-    background-color: #f5f5f7;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
     color: #000000;
+    font-weight: 600;
 }
 
 .telegram:hover {
-    background-color: #ffffff;
     transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 242, 254, 0.3);
 }
 
 .email {
@@ -334,12 +343,12 @@ body {
 }
 
 .email:hover {
-    border-color: #86868b;
-    background-color: rgba(255, 255, 255, 0.03);
+    border-color: #00f2fe;
+    background-color: rgba(0, 242, 254, 0.02);
     transform: scale(1.02);
 }
 
-/* 8. МОБИЛЬНАЯ АДАПТАЦИЯ (ИДЕАЛЬНЫЙ ТЕЛЕФОННЫЙ РЕЖИМ) */
+/* 8. МОБИЛЬНАЯ АДАПТАЦИЯ */
 @media (max-width: 1024px) {
     .header, .hero, .philosophy-section, .workflow-section, .contact-section {
         padding-left: 48px;
@@ -348,71 +357,22 @@ body {
 }
 
 @media (max-width: 768px) {
-    .header {
-        padding: 32px 24px;
-    }
-    .nav {
-        display: none;
-    }
-    .hero {
-        padding: 0 24px;
-        min-height: auto;
-        margin-top: 60px;
-        margin-bottom: 100px;
-    }
-    .hero-title {
-        font-size: 40px;
-        letter-spacing: -1.5px;
-    }
-    .hero-description {
-        font-size: 18px;
-    }
-    .hero-actions {
-        flex-direction: column;
-        gap: 16px;
-    }
-    .btn-primary, .btn-secondary {
-        text-align: center;
-    }
-    .philosophy-section, .workflow-section, .contact-section {
-        padding: 100px 24px;
-    }
-    .philosophy-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    .philosophy-item {
-        padding: 40px 32px;
-    }
-    .workflow-step {
-        flex-direction: column;
-        gap: 20px;
-        padding: 40px 0;
-    }
-    .step-meta {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .step-body {
-        width: 100%;
-    }
-    .step-title {
-        font-size: 22px;
-    }
-    .step-text {
-        font-size: 16px;
-    }
-    .contact-heading {
-        font-size: 38px;
-        letter-spacing: -1px;
-    }
-    .contact-links {
-        flex-direction: column;
-        gap: 16px;
-    }
-    .contact-btn {
-        text-align: center;
-    }
+    .header { padding: 32px 24px; }
+    .nav { display: none; }
+    .hero { padding: 0 24px; min-height: auto; margin-top: 60px; margin-bottom: 100px; }
+    .hero-title { font-size: 40px; letter-spacing: -1.5px; }
+    .hero-description { font-size: 18px; }
+    .hero-actions { flex-direction: column; gap: 16px; }
+    .btn-primary, .btn-secondary { text-align: center; }
+    .philosophy-section, .workflow-section, .contact-section { padding: 100px 24px; }
+    .philosophy-grid { grid-template-columns: 1fr; gap: 24px; }
+    .philosophy-item { padding: 40px 32px; }
+    .workflow-step { flex-direction: column; gap: 20px; padding: 40px 0; }
+    .step-meta { width: 100%; flex-direction: row; justify-content: space-between; align-items: center; }
+    .step-body { width: 100%; }
+    .step-title { font-size: 22px; }
+    .step-text { font-size: 16px; }
+    .contact-heading { font-size: 38px; letter-spacing: -1px; }
+    .contact-links { flex-direction: column; gap: 16px; }
+    .contact-btn { text-align: center; }
 }
