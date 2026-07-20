@@ -1,6 +1,3 @@
-/* ==========================================================================
-   ОБЩИЕ СТИЛИ И СБРОС
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -9,59 +6,54 @@
 }
 
 body {
-    background-color: #000000;
+    background-color: #0d0d0d;
     color: #ffffff;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    cursor: none; /* Прячем стандартную стрелку мышки на десктопах */
+    cursor: none;
 }
 
 .section-container {
     max-width: 1440px;
     margin: 0 auto;
     width: 100%;
+    padding: 0 80px;
 }
 
-/* КАСТОМНЫЙ КУРСОР-ПУЗЫРЬ */
+/* КАСТОМНЫЙ КУРСОР */
 .custom-cursor {
     width: 20px;
     height: 20px;
-    border: 2px solid #00f2fe;
-    background-color: rgba(0, 242, 254, 0.05);
+    border: 2px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
-    pointer-events: none; /* Пузырь не должен мешать кликам */
+    pointer-events: none;
     z-index: 9999;
     transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Эффект увеличения пузыря при наведении */
 .custom-cursor.cursor-hover {
     width: 50px;
     height: 50px;
-    background-color: rgba(0, 242, 254, 0.15);
-    border-color: #4facfe;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #e1ff00;
 }
 
-.custom-cursor.cursor-leave {
-    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Градиентный текст */
+/* ТЕКСТОВЫЙ ГРАДИЕНТ */
 .text-gradient {
-    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    background: linear-gradient(135deg, #e1ff00 0%, #ffffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
 
-/* Анимация плавного появления при скролле */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateY(30px);
+    transition: all 0.8s ease;
 }
 
 .reveal.active {
@@ -69,48 +61,14 @@ body {
     transform: translateY(0);
 }
 
-/* Кнопки */
-.btn {
-    display: inline-block;
-    padding: 16px 32px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-.btn-primary:hover {
-    background-color: #e8e8ed;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   ШАПКА САЙТА (HEADER)
-   ========================================================================== */
+/* ШАПКА */
 .site-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(13, 13, 13, 0.8);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -125,11 +83,11 @@ body {
 }
 
 .logo {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: #ffffff;
     text-decoration: none;
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
 }
 
 .main-nav {
@@ -142,7 +100,6 @@ body {
     color: #86868b;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 400;
     transition: color 0.3s ease;
 }
 
@@ -151,122 +108,121 @@ body {
 }
 
 .main-nav a.nav-cta {
-    color: #00f2fe;
-    border: 1px solid rgba(0, 242, 254, 0.3);
-    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 22px;
     border-radius: 20px;
-    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
-.main-nav a.nav-cta:hover {
-    background-color: rgba(0, 242, 254, 0.05);
-    border-color: #00f2fe;
-}
-
-/* ==========================================================================
-   ГЛАВНЫЙ ЭКРАН С АНИМАЦИЕЙ СФЕР
-   ========================================================================== */
+/* ГЛАВНЫЙ ЭКРАН С CANVAS */
 .hero-section {
-    padding: 220px 80px 140px 80px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
     position: relative;
     overflow: hidden;
+    background-color: #070707;
 }
 
-.hero-container {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-title {
-    font-size: 80px;
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -2.5px;
-    margin-bottom: 32px;
-}
-
-.hero-subtitle {
-    font-size: 22px;
-    line-height: 1.5;
-    color: #86868b;
-    max-width: 720px;
-    margin-bottom: 48px;
-    font-weight: 400;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-}
-
-.hero-background-effects {
+#particle-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    pointer-events: none;
 }
 
-/* Сферы с бесконечной плавной анимацией движения */
-.glow-orb {
+.hero-container {
+    position: relative;
+    z-index: 2;
+    pointer-events: none; /* Пропускаем мышь, чтобы шар реагировал */
+}
+
+.hero-title {
+    font-size: 84px;
+    font-weight: 500;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    min-height: 100px;
+}
+
+#changing-text {
+    display: inline-block;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    color: #ffffff;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: #86868b;
+    max-width: 440px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    pointer-events: auto; /* Возвращаем кликабельность кнопкам */
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary { background-color: #ffffff; color: #000000; }
+.btn-primary:hover { background-color: #e1ff00; }
+
+.btn-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+.btn-secondary:hover { background-color: rgba(255, 255, 255, 0.05); }
+
+/* Подвал главного экрана */
+.hero-footer-info {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(140px);
-    opacity: 0.3;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #444;
+    z-index: 2;
 }
 
-.orb-1 {
-    width: 500px;
-    height: 500px;
-    background: #00f2fe;
-    top: -50px;
-    right: -50px;
-    animation: floatOrb1 18s infinite alternate ease-in-out;
-}
+.status-indicator { color: #e1ff00; font-family: monospace; }
+.scroll-down { color: #ffffff; text-decoration: none; }
 
-.orb-2 {
-    width: 450px;
-    height: 450px;
-    background: #4facfe;
-    bottom: -100px;
-    left: -100px;
-    animation: floatOrb2 22s infinite alternate ease-in-out;
-}
-
-@keyframes floatOrb1 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-150px, 80px) scale(1.15); }
-}
-
-@keyframes floatOrb2 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(180px, -100px) scale(0.9); }
-}
-
-/* ==========================================================================
-   БЛОК: ФИЛОСОФИЯ
-   ========================================================================== */
-.philosophy-section {
-    padding: 140px 80px;
+/* ФИЛОСОФИЯ И ПРЕИМУЩЕСТВА */
+.philosophy-section, .advantages-section, .pricing-section, .contact-section {
+    padding: 120px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.section-tag {
-    font-size: 12px;
+.section-tag, .adv-subtitle, .pricing-subtitle {
+    font-size: 11px;
     color: #86868b;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.section-title {
-    font-size: 56px;
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -1.5px;
-    margin-bottom: 72px;
+.section-title, .adv-title, .pricing-main-title {
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    margin-bottom: 60px;
 }
 
 .philosophy-grid {
@@ -275,455 +231,49 @@ body {
     gap: 40px;
 }
 
-.phil-card {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 32px;
-}
-
-.phil-num {
-    font-size: 13px;
-    color: #86868b;
-    font-family: monospace;
-    display: block;
-    margin-bottom: 24px;
-}
-
-.phil-card h3 {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 16px;
-    color: #ffffff;
-}
-
-.phil-card p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #86868b;
-}
-
-/* ==========================================================================
-   БЛОК: КАЧЕСТВО И ПРЕИМУЩЕСТВА
-   ========================================================================== */
-.advantages-section {
-    padding: 140px 80px;
-    width: 100%;
-    position: relative;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.advantages-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 80px;
-    align-items: flex-start;
-}
-
-.advantages-left {
-    position: sticky;
-    top: 120px;
-}
-
-.adv-subtitle {
-    font-size: 12px;
-    color: #86868b;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
-}
-
-.adv-title {
-    font-size: 56px;
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -1.5px;
-    color: #ffffff;
-    margin-bottom: 32px;
-}
-
-.adv-description {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #86868b;
-    max-width: 480px;
-    margin-bottom: 56px;
-}
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 40px;
-}
-
-.metric-item {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.metric-num {
-    font-size: 38px;
-    font-weight: 600;
-    letter-spacing: -1px;
-}
-
-.metric-label {
-    font-size: 13px;
-    color: #86868b;
-}
-
-.advantages-right {
-    background-color: rgba(10, 10, 10, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 40px;
-    backdrop-filter: blur(10px);
-}
-
-.adv-right-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 10px;
-}
-
-.adv-right-title {
-    font-size: 14px;
-    color: #ffffff;
-}
-
-.adv-status-badge {
-    font-size: 12px;
-    color: #00f2fe;
-}
-
-.adv-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.adv-list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
-}
-
-.adv-list-item:last-child {
-    border-bottom: none;
-}
-
-.adv-item-content h3 {
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 6px;
-    transition: color 0.3s ease;
-}
-
-.adv-item-content p {
-    font-size: 14px;
-    color: #86868b;
-}
-
-.adv-checkmark {
-    font-size: 16px;
-    color: #86868b;
-    transition: all 0.3s ease;
-}
-
-.adv-list-item:hover {
-    border-bottom-color: rgba(0, 242, 254, 0.3);
-}
-
-.adv-list-item:hover .adv-item-content h3 {
-    color: #00f2fe;
-}
-
-.adv-list-item:hover .adv-checkmark {
-    color: #00f2fe;
-    transform: scale(1.2);
-}
-
-/* ==========================================================================
-   БЛОК: ТАРИФЫ
-   ========================================================================== */
-.pricing-section {
-    padding: 140px 80px;
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.pricing-subtitle {
-    font-size: 12px;
-    color: #86868b;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
-}
-
-.pricing-main-title {
-    font-size: 56px;
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -1.5px;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.pricing-main-desc {
-    font-size: 17px;
-    color: #86868b;
-    max-width: 600px;
-    margin-bottom: 72px;
-}
-
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-    overflow: hidden;
-    background-color: rgba(10, 10, 10, 0.3);
-}
-
-.price-card {
-    padding: 60px 40px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    transition: background-color 0.4s ease;
-}
-
-.price-card:last-child {
-    border-right: none;
-}
-
-.price-card:hover {
-    background-color: rgba(255, 255, 255, 0.01);
-}
-
-.hit-card {
-    border: 2px solid #ffffff;
-    margin: -1px;
-    z-index: 2;
-    border-radius: 24px;
-}
-
-.hit-badge {
-    position: absolute;
-    top: -12px;
-    left: 40px;
-    background-color: #ffffff;
-    color: #000000;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 14px;
-    border-radius: 4px;
-}
-
-.card-num {
-    font-size: 13px;
-    color: #86868b;
-    margin-bottom: 24px;
-    display: block;
-}
-
-.card-title {
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-
-.card-desc {
-    font-size: 14px;
-    color: #86868b;
-    min-height: 44px;
-    margin-bottom: 40px;
-}
-
-.card-price {
-    font-size: 44px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 48px;
-}
-
-.card-price .rub {
-    font-size: 28px;
-    color: #86868b;
-}
-
-.card-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 60px;
-    flex-grow: 1;
-}
-
-.card-features li {
-    font-size: 14px;
-    color: #e8e8ed;
-    display: flex;
-    gap: 12px;
-}
-
-.price-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 16px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 15px;
-    transition: all 0.3s ease;
-}
-
-.price-btn:hover {
-    border-color: #00f2fe;
-    color: #00f2fe;
-}
-
-.btn-hit {
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    font-weight: 600;
-}
-
-.btn-hit:hover {
-    background-color: #e8e8ed;
-    color: #000000;
-}
-
-.price-btn.secondary-style:hover {
-    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-    color: #000000;
-}
-
-/* ==========================================================================
-   ПОРТФОЛИО, КОНТАКТЫ И ФУТЕР
-   ========================================================================== */
-.portfolio-section {
-    padding: 140px 80px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.project-card {
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.project-img-placeholder {
-    width: 100%;
-    height: 380px;
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-.project-info {
-    padding: 32px;
-}
-
-.project-category {
-    font-size: 12px;
-    color: #00f2fe;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.project-info h3 {
-    font-size: 24px;
-    margin-bottom: 12px;
-}
-
-.project-info p {
-    color: #86868b;
-    font-size: 15px;
-}
-
-.contact-section {
-    padding: 140px 80px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.contact-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 80px;
-}
-
-.contact-title {
-    font-size: 56px;
-    font-weight: 600;
-    margin-bottom: 32px;
-}
-
-.contact-desc {
-    color: #86868b;
-    font-size: 17px;
-    margin-bottom: 48px;
-}
-
-.contact-info-list p {
-    margin-bottom: 12px;
-    font-size: 16px;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-form input, .contact-form textarea {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 18px;
-    border-radius: 12px;
-    color: #ffffff;
-    font-family: inherit;
-}
-
-.site-footer {
-    padding: 48px 80px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    color: #86868b;
-    font-size: 13px;
-}
-
-.back-to-top {
-    color: #ffffff;
-    text-decoration: none;
-}
+.phil-card { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; }
+.phil-num { font-size: 12px; color: #444; display: block; margin-bottom: 16px; }
+.phil-card h3 { font-size: 20px; margin-bottom: 12px; }
+.phil-card p { color: #86868b; font-size: 15px; line-height: 1.6; }
+
+.advantages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.adv-description { color: #86868b; margin-bottom: 40px; line-height: 1.6; }
+.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.metric-num { font-size: 32px; font-weight: 600; }
+.metric-label { font-size: 12px; color: #666; }
+
+.advantages-right { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 40px; border-radius: 16px; }
+.adv-right-header { display: flex; justify-content: space-between; margin-bottom: 30px; font-size: 13px; }
+.adv-list-item { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.adv-item-content h3 { font-size: 16px; margin-bottom: 4px; }
+.adv-item-content p { font-size: 13px; color: #666; }
+
+/* ТАРИФЫ */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.price-card { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05); padding: 48px 32px; border-radius: 16px; display: flex; flex-direction: column; position: relative; }
+.hit-card { border-color: #ffffff; }
+.hit-badge { position: absolute; top: -10px; left: 32px; background: #ffffff; color: #000; font-size: 10px; font-weight: 700; padding: 2px 10px; border-radius: 4px; }
+.card-num { font-size: 12px; color: #444; margin-bottom: 16px; }
+.card-title { font-size: 24px; margin-bottom: 24px; }
+.card-price { font-size: 36px; font-weight: 600; margin-bottom: 32px; }
+.card-features { list-style: none; margin-bottom: 40px; flex-grow: 1; display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: #86868b; }
+.price-btn { padding: 14px; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.1); color: #fff; text-decoration: none; font-size: 14px; transition: all 0.3s ease; }
+.price-btn:hover { border-color: #e1ff00; color: #e1ff00; }
+.btn-hit { background: #fff; color: #000; border: none; font-weight: 500; }
+
+/* КОНТАКТЫ И ФУТЕР */
+.contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.contact-title { font-size: 48px; margin-bottom: 20px; }
+.contact-desc { color: #86868b; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.contact-form input, .contact-form textarea { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 16px; border-radius: 8px; color: #fff; font-family: inherit; }
+.site-footer { padding: 40px 0; text-align: center; font-size: 12px; color: #444; border-top: 1px solid rgba(255, 255, 255, 0.05); }
 
 /* АДАПТИВНОСТЬ */
-@media (max-width: 1200px) {
-    body { cursor: auto; } /* Возвращаем стандартную мышь на мобилках */
+@media (max-width: 1024px) {
+    body { cursor: auto; }
     .custom-cursor { display: none; }
-    .hero-section, .philosophy-section, .advantages-section, .pricing-section, .portfolio-section, .contact-section { padding-left: 40px; padding-right: 40px; }
-    .pricing-grid, .philosophy-grid, .portfolio-grid, .contact-container, .advantages-grid { grid-template-columns: 1fr; gap: 40px; }
-    .advantages-left { position: static; }
-    .price-card { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-    .hit-card { margin: 0; }
+    .section-container, .hero-footer-info { padding: 0 40px; }
+    .philosophy-grid, .advantages-grid, .pricing-grid, .contact-container { grid-template-columns: 1fr; gap: 40px; }
+    .hero-title { font-size: 48px; }
 }
