@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>digital.architect — Разработка высокотехнологичных сайтов и веб-приложений</title>
+    <title>КАСКАДИЯ — Разработка сайтов и веб-приложений</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <!-- НАВИГАЦИЯ (ШАПКА) -->
     <header class="site-header">
         <div class="header-container">
-            <a href="#" class="logo">digital.architect</a>
+            <a href="#" class="logo">КАСКАДИЯ</a>
             <nav class="main-nav">
                 <a href="#about">Философия</a>
                 <a href="#advantages">Преимущества</a>
@@ -28,19 +28,27 @@
         </div>
     </header>
 
-    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <!-- ГЛАВНЫЙ ЭКРАН С 3D МАТРИЧНЫМ ШАРОМ -->
     <section class="hero-section">
-        <div class="hero-background-effects">
-            <div class="glow-orb orb-1"></div>
-            <div class="glow-orb orb-2"></div>
-        </div>
+        <!-- Холст для нашего интерактивного 3D-шара -->
+        <canvas id="particle-canvas"></canvas>
+
         <div class="section-container hero-container">
-            <h1 class="hero-title">Проектируем <br><span class="text-gradient">цифровую архитектуру</span> <br>вашего бизнеса</h1>
-            <p class="hero-subtitle">Создаем кастомные веб-приложения, премиальные лендинги и высоконагруженные системы с чистым кодом и pixel-perfect дизайном.</p>
+            <!-- Сменяющийся текстовый заголовок -->
+            <h1 class="hero-title"><span id="changing-text">Создаём сайты</span></h1>
+            
+            <p class="hero-subtitle">Веб-студия полного цикла. Проектируем и разрабатываем сайты, которые привлекают клиентов.</p>
+            
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Начать проект</a>
-                <a href="#portfolio" class="btn btn-secondary">Смотреть кейсы</a>
+                <a href="#contact" class="btn btn-primary">Обсудить проект →</a>
+                <a href="#portfolio" class="btn btn-secondary">Наши работы</a>
             </div>
+        </div>
+        
+        <div class="hero-footer-info">
+            <span class="brand-copy">КАСКАДИЯ © 2026</span>
+            <span class="status-indicator">● ПРИНИМАЕМ ЗАКАЗЫ</span>
+            <a href="#about" class="scroll-down">СМОТРЕТЬ ↓</a>
         </div>
     </section>
 
@@ -72,87 +80,25 @@
     <!-- БЛОК: КАЧЕСТВО И ПРЕИМУЩЕСТВА -->
     <section id="advantages" class="advantages-section reveal">
         <div class="section-container advantages-grid">
-            
             <div class="advantages-left">
                 <p class="adv-subtitle">// Почему мы</p>
                 <h2 class="adv-title">Качество<br>без переплат.</h2>
-                <p class="adv-description">
-                    Мы не раздуваем бюджеты. Каждый проект получает продуманный дизайн, чистый код и внимание к деталям — по честной и прозрачной цене.
-                </p>
-                
+                <p class="adv-description">Мы не раздуваем бюджеты. Каждый проект получает продуманный дизайн, чистый код и внимание к деталям — по честной цене.</p>
                 <div class="metrics-grid">
-                    <div class="metric-item">
-                        <span class="metric-num text-gradient">20+</span>
-                        <span class="metric-label">Проектов</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-num text-gradient">3 года</span>
-                        <span class="metric-label">На рынке</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-num text-gradient">100%</span>
-                        <span class="metric-label">Довольных клиентов</span>
-                    </div>
+                    <div class="metric-item"><span class="metric-num text-gradient">20+</span><span class="metric-label">Проектов</span></div>
+                    <div class="metric-item"><span class="metric-num text-gradient">3 года</span><span class="metric-label">На рынке</span></div>
+                    <div class="metric-item"><span class="metric-num text-gradient">100%</span><span class="metric-label">Довольных клиентов</span></div>
                 </div>
             </div>
-
             <div class="advantages-right">
-                <div class="adv-right-header">
-                    <span class="adv-right-title">Наши преимущества</span>
-                    <span class="adv-status-badge">● Всё под контролем</span>
-                </div>
-                
+                <div class="adv-right-header"><span class="adv-right-title">Наши преимущества</span><span class="adv-status-badge">● Всё под контролем</span></div>
                 <div class="adv-list">
-                    <div class="adv-list-item">
-                        <div class="adv-item-content">
-                            <h3>Бюджетно</h3>
-                            <p>Честные цены без скрытых платежей и накруток за бренд.</p>
-                        </div>
-                        <span class="adv-checkmark">✓</span>
-                    </div>
-                    
-                    <div class="adv-list-item">
-                        <div class="adv-item-content">
-                            <h3>Быстро</h3>
-                            <p>Средний срок разработки кастомного лендинга — от 7 дней.</p>
-                        </div>
-                        <span class="adv-checkmark">✓</span>
-                    </div>
-
-                    <div class="adv-list-item">
-                        <div class="adv-item-content">
-                            <h3>Качественно</h3>
-                            <p>Pixel-perfect дизайн и чистый, оптимизированный код.</p>
-                        </div>
-                        <span class="adv-checkmark">✓</span>
-                    </div>
-
-                    <div class="adv-list-item">
-                        <div class="adv-item-content">
-                            <h3>Адаптивно</h3>
-                            <p>Идеальное отображение на любых смартфонах, планшетах и мониторах.</p>
-                        </div>
-                        <span class="adv-checkmark">✓</span>
-                    </div>
-
-                    <div class="adv-list-item">
-                        <div class="adv-item-content">
-                            <h3>С поддержкой</h3>
-                            <p>Помогаем, консультируем и развиваем проект после запуска.</p>
-                        </div>
-                        <span class="adv-checkmark">✓</span>
-                    </div>
-
-                    <div class="adv-list-item">
-                        <div class="adv-item-content">
-                            <h3>Под ключ</h3>
-                            <p>От проектирования архитектуры до деплоя и настройки хостинга.</p>
-                        </div>
-                        <span class="adv-checkmark">✓</span>
-                    </div>
+                    <div class="adv-list-item"><div class="adv-item-content"><h3>Бюджетно</h3><p>Честные цены без скрытых платежей.</p></div><span class="adv-checkmark">✓</span></div>
+                    <div class="adv-list-item"><div class="adv-item-content"><h3>Быстро</h3><p>Средний срок разработки кастомного лендинга — от 7 дней.</p></div><span class="adv-checkmark">✓</span></div>
+                    <div class="adv-list-item"><div class="adv-item-content"><h3>Качественно</h3><p>Pixel-perfect дизайн и чистый код.</p></div><span class="adv-checkmark">✓</span></div>
+                    <div class="adv-list-item"><div class="adv-item-content"><h3>Адаптивно</h3><p>Идеальное отображение на любых смартфонах.</p></div><span class="adv-checkmark">✓</span></div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -161,92 +107,41 @@
         <div class="section-container">
             <p class="pricing-subtitle">// Тарифы</p>
             <h2 class="pricing-main-title">Прозрачные тарифы,<br>понятные условия</h2>
-            <p class="pricing-main-desc">Фиксированная стоимость без сюрпризов. Вы знаете цену до начала работы.</p>
-            
             <div class="pricing-grid">
-                
-                <!-- Карточка 1: Лендинг -->
+                <!-- Тариф 1 -->
                 <div class="price-card hit-card">
                     <div class="hit-badge">ХИТ</div>
                     <span class="card-num">01</span>
                     <h3 class="card-title"><span class="text-gradient">Лендинг</span></h3>
-                    <p class="card-desc">Одностраничный сайт для вашего бизнеса</p>
-                    
                     <div class="card-price">от 25 000 <span class="rub">₽</span></div>
-                    
                     <ul class="card-features">
                         <li><span>✓</span> Уникальный дизайн</li>
                         <li><span>✓</span> Адаптивная вёрстка</li>
-                        <li><span>✓</span> Анимации и интерактив</li>
                         <li><span>✓</span> Форма заявки</li>
-                        <li><span>✓</span> Базовая SEO-настройка</li>
-                        <li><span>✓</span> Размещение на хостинге</li>
                     </ul>
                     <a href="#contact" class="price-btn btn-hit">Заказать →</a>
                 </div>
-
-                <!-- Карточка 2: Мультисайт -->
+                <!-- Тариф 2 -->
                 <div class="price-card">
                     <span class="card-num">02</span>
                     <h3 class="card-title"><span class="text-gradient">Мультисайт</span></h3>
-                    <p class="card-desc">Многостраничный сайт с полным погружением в ваш бизнес</p>
-                    
                     <div class="card-price">от 45 000 <span class="rub">₽</span></div>
-                    
                     <ul class="card-features">
-                        <li><span>✓</span> Всё из тарифа Лендинг</li>
                         <li><span>✓</span> До 15 страниц</li>
-                        <li><span>✓</span> Продуманная структура и навигация</li>
-                        <li><span>✓</span> Расширенная SEO-оптимизация</li>
+                        <li><span>✓</span> Навигация и структура</li>
                     </ul>
                     <a href="#contact" class="price-btn">Заказать →</a>
                 </div>
-
-                <!-- Карточка 3: Индивидуальный проект -->
+                <!-- Тариф 3 -->
                 <div class="price-card">
                     <span class="card-num">03</span>
                     <h3 class="card-title"><span class="text-gradient">Индивидуальный проект</span></h3>
-                    <p class="card-desc">Сложные задачи и нестандартные решения</p>
-                    
                     <div class="card-price">от 80 000 <span class="rub">₽</span></div>
-                    
                     <ul class="card-features">
-                        <li><span>✓</span> Всё из тарифа Мультисайт</li>
-                        <li><span>✓</span> Неограниченное количество страниц</li>
-                        <li><span>✓</span> Каталоги и карточки товаров</li>
-                        <li><span>✓</span> Калькуляторы и конфигураторы</li>
-                        <li><span>✓</span> Интеграция с внешними сервисами и API</li>
-                        <li><span>✓</span> Индивидуальное ТЗ и прототипирование</li>
-                        <li><span>✓</span> Приоритетная поддержка</li>
+                        <li><span>✓</span> Неограниченно страниц</li>
+                        <li><span>✓</span> Интеграции с API</li>
                     </ul>
                     <a href="#contact" class="price-btn secondary-style">Обсудить проект →</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- БЛОК: ПОРТФОЛИО -->
-    <section id="portfolio" class="portfolio-section reveal">
-        <div class="section-container">
-            <p class="section-tag">// Наш продакшн</p>
-            <h2 class="section-title">Проекты, которыми <br>мы гордимся</h2>
-            <div class="portfolio-grid">
-                <div class="project-card">
-                    <div class="project-img-placeholder"></div>
-                    <div class="project-info">
-                        <span class="project-category">E-commerce / Web-App</span>
-                        <h3>Quantum Store</h3>
-                        <p>Интеллектуальная торговая платформа со сложной логикой фильтрации и мгновенным чекаутом.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img-placeholder"></div>
-                    <div class="project-info">
-                        <span class="project-category">Corporate / FinTech</span>
-                        <h3>Apex Capital</h3>
-                        <p>Высокотехнологичный корпоративный портал для инвестиционного фонда с интерактивными графиками.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -257,63 +152,156 @@
         <div class="section-container contact-container">
             <div class="contact-left">
                 <h2 class="contact-title">Давайте построим <br>что-то великое вместе</h2>
-                <p class="contact-desc">Расскажите о вашей задаче, и мы спроектируем оптимальное цифровое решение под ваши цели и бизнес-требования.</p>
-                <div class="contact-info-list">
-                    <p>hello@digitalarchitect.io</p>
-                    <p>Telegram: @digital_architect</p>
-                </div>
+                <p class="contact-desc">Расскажите о вашей задаче, и мы спроектируем оптимальное цифровое решение.</p>
             </div>
             <div class="contact-right">
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Сообщение отправлено!');">
                     <input type="text" placeholder="Ваше имя" required>
                     <input type="email" placeholder="Email для связи" required>
-                    <textarea placeholder="Опишите ваш проект или задачу" rows="5" required></textarea>
+                    <textarea placeholder="Опишите ваш проект или задачу" rows="4" required></textarea>
                     <button type="submit" class="btn btn-primary">Отправить бриф →</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- ПОДВАЛ -->
     <footer class="site-footer">
         <div class="section-container footer-container">
-            <p class="copyright">&copy; 2026 digital.architect. Все права защищены. Разработка высокотехнологичных интерфейсов.</p>
-            <a href="#" class="back-to-top">Наверх ↑</a>
+            <p>&copy; 2026 КАСКАДИЯ. Разработка высокотехнологичных интерфейсов.</p>
         </div>
     </footer>
 
-    <!-- СКРИПТЫ ИНТЕРАКТИВА -->
+    <!-- СКРИПТЫ: КУРСОР, АНИМАЦИЯ СЛОВ И 3D ШАР -->
     <script>
-        // 1. Появление блоков при скролле
+        // 1. Появление при скролле
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
+            entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
         // 2. Умный кастомный курсор-пузырь
         const cursor = document.querySelector('.custom-cursor');
-        
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
-
-        // Эффект расширения пузыря при наведении на кликабельные элементы
-        const interactiveElements = document.querySelectorAll('a, button, input, textarea, .adv-list-item, .price-card');
-        interactiveElements.forEach((el) => {
+        document.querySelectorAll('a, button, input, textarea, .price-card, .adv-list-item').forEach((el) => {
             el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.add('cursor-leave'));
-            el.addEventListener('mouseleave', () => {
-                setTimeout(() => {
-                    cursor.classList.remove('cursor-hover');
-                    cursor.classList.remove('cursor-leave');
-                }, 300);
-            });
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
         });
+
+        // 3. Плавная циклическая смена заголовков
+        const phrases = ["Создаём сайты", "Создаём платформы", "Проектируем экосистемы"];
+        let currentPhraseIndex = 0;
+        const changingTextEl = document.getElementById('changing-text');
+
+        setInterval(() => {
+            changingTextEl.style.opacity = 0;
+            changingTextEl.style.transform = "translateY(-10px)";
+            
+            setTimeout(() => {
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                changingTextEl.textContent = phrases[currentPhraseIndex];
+                changingTextEl.style.opacity = 1;
+                changingTextEl.style.transform = "translateY(0)";
+            }, 600);
+        }, 3500);
+
+        // 4. ГЕНЕРАЦИЯ 3D МАТРИЧНОГО ШАРА ИЗ ЧАСТИЦ (КАСКАДИЯ СТИЛЬ)
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        let mouse = { x: null, y: null, radius: 130 };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
+        // Настройки сферы частиц
+        const particlesCount = 450;
+        const sphereRadius = Math.min(width, height) * 0.28; 
+        let particles = [];
+        const chars = ["K", "A", "C", "A", "Д", "I", "Я", "x", "o", "1", "0"];
+
+        class Particle3D {
+            constructor() {
+                // Математическое распределение по сфере
+                this.theta = Math.random() * Math.PI * 2;
+                this.phi = Math.acos((Math.random() * 2) - 1);
+                
+                // Исходные 3D координаты
+                this.x3d = sphereRadius * Math.sin(this.phi) * Math.cos(this.theta);
+                this.y3d = sphereRadius * Math.sin(this.phi) * Math.sin(this.theta);
+                this.z3d = sphereRadius * Math.cos(this.phi);
+                
+                this.char = chars[Math.floor(Math.random() * chars.length)];
+                this.colorValue = Math.random() > 0.85 ? '#e1ff00' : '#ffffff'; // зелено-желтые акценты как на скрине
+            }
+
+            update(angleX, angleY) {
+                // Вращение по оси X
+                let y1 = this.y3d * Math.cos(angleX) - this.z3d * Math.sin(angleX);
+                let z1 = this.y3d * Math.sin(angleX) + this.z3d * Math.cos(angleX);
+
+                // Вращение по оси Y
+                let x2 = this.x3d * Math.cos(angleY) + z1 * Math.sin(angleY);
+                let z2 = -this.x3d * Math.sin(angleY) + z1 * Math.cos(angleY);
+
+                // Центрирование сферы на экране (сдвинута чуть вправо, как на макете)
+                let sphereCenterX = width * 0.68;
+                let sphereCenterY = height * 0.5;
+
+                // Проекция 3D -> 2D
+                let perspective = 600 / (600 + z2);
+                let screenX = sphereCenterX + x2 * perspective;
+                let screenY = sphereCenterY + y1 * perspective;
+
+                // Физика взаимодействия с курсором (разлетание при контакте)
+                let dx = mouse.x - screenX;
+                let dy = mouse.y - screenY;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < mouse.radius && mouse.x !== null) {
+                    let force = (mouse.radius - distance) / mouse.radius;
+                    screenX -= (dx / distance) * force * 45;
+                    screenY -= (dy / distance) * force * 45;
+                }
+
+                // Отрисовка символов матрицы
+                let alpha = (z2 + sphereRadius) / (sphereRadius * 2) * 0.8 + 0.2;
+                ctx.fillStyle = this.colorValue;
+                ctx.globalAlpha = alpha;
+                ctx.font = `${Math.floor(10 * perspective)}px monospace`;
+                ctx.fillText(this.char, screenX, screenY);
+            }
+        }
+
+        // Заполнение сферы
+        for (let i = 0; i < particlesCount; i++) {
+            particles.push(new Particle3D());
+        }
+
+        let currentAngleX = 0.002;
+        let currentAngleY = 0.004;
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.globalAlpha = 1;
+            
+            particles.forEach(p => p.update(currentAngleX, currentAngleY));
+            
+            requestAnimationFrame(animate);
+        }
+        animate();
     </script>
 </body>
 </html>
