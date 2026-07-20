@@ -11,7 +11,7 @@ html {
 
 /* 2. БАЗОВЫЕ НАСТРОЙКИ & АНИМАЦИИ */
 body {
-    background-color: #050505; /* Еще более глубокий черный */
+    background-color: #050505;
     color: #e5e5e5;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     min-height: 100vh;
@@ -21,7 +21,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Ключевые кадры для плавного появления */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -178,10 +177,8 @@ body {
     padding: 48px;
     border-radius: 8px;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
 }
 
-/* Эффект при наведении на карточку философии */
 .philosophy-item:hover {
     border-color: #262626;
     background-color: #0d0d0d;
@@ -207,6 +204,74 @@ body {
 
 .philosophy-text {
     font-size: 15px;
+    line-height: 1.7;
+    color: #8a8a8a;
+    font-weight: 300;
+}
+
+/* 6.5 НОВЫЕ СТИЛИ ДЛЯ БЛОКА ПРОЦЕССА (WORKFLOW) */
+.workflow-section {
+    padding: 140px 80px;
+    background-color: #050505;
+    border-top: 1px solid #141414;
+    width: 100%;
+}
+
+.workflow-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.workflow-step {
+    display: flex;
+    padding: 40px 0;
+    border-bottom: 1px solid #141414;
+    transition: all 0.4s ease;
+}
+
+.workflow-step:hover {
+    border-bottom-color: #404040;
+}
+
+.step-meta {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.step-number {
+    font-size: 14px;
+    color: #404040;
+    font-family: monospace;
+}
+
+.step-status {
+    font-size: 12px;
+    color: #737373;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.step-body {
+    width: 75%;
+    max-width: 700px;
+}
+
+.step-title {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 16px;
+    transition: color 0.3s ease;
+}
+
+.workflow-step:hover .step-title {
+    color: #ffffff;
+}
+
+.step-text {
+    font-size: 16px;
     line-height: 1.7;
     color: #8a8a8a;
     font-weight: 300;
@@ -302,7 +367,7 @@ body {
     .btn-primary, .btn-secondary {
         text-align: center;
     }
-    .philosophy-section {
+    .philosophy-section, .workflow-section, .contact-section {
         padding: 80px 24px;
     }
     .philosophy-grid {
@@ -312,8 +377,22 @@ body {
     .philosophy-item {
         padding: 32px;
     }
-    .contact-section {
-        padding: 80px 24px;
+    .workflow-step {
+        flex-direction: column;
+        gap: 16px;
+        padding: 32px 0;
+    }
+    .step-meta {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .step-body {
+        width: 100%;
+    }
+    .step-title {
+        font-size: 20px;
     }
     .contact-heading {
         font-size: 32px;
