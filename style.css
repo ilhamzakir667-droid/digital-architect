@@ -437,3 +437,215 @@ body {
     .metrics-grid { grid-template-columns: 1fr; gap: 32px; }
     .advantages-right { padding: 24px; }
 }
+/* ==========================================================================
+   БЛОК: ТАРИФЫ (PRICING STRIP)
+   ========================================================================== */
+.pricing-section {
+    padding: 140px 120px;
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pricing-subtitle {
+    font-size: 12px;
+    color: #86868b;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.pricing-main-title {
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.pricing-main-desc {
+    font-size: 17px;
+    color: #86868b;
+    max-width: 600px;
+    margin-bottom: 72px;
+}
+
+/* Сетка карточек */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px; /* Карточки плотно стоят друг к другу, разделяясь внутренними границами */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: rgba(10, 10, 10, 0.3);
+}
+
+/* Базовая карточка тарифа */
+.price-card {
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: transparent;
+    transition: background-color 0.4s ease;
+}
+
+.price-card:last-child {
+    border-right: none;
+}
+
+.price-card:hover {
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+/* Специальные стили для карточки ХИТ */
+.hit-card {
+    border: 2px solid #ffffff; /* Белая контрастная рамка, выделяющая хит продаж */
+    margin: -1px; /* Компенсируем толщину рамки */
+    z-index: 2;
+    border-radius: 24px;
+}
+
+.hit-badge {
+    position: absolute;
+    top: -12px;
+    left: 40px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+}
+
+/* Элементы внутри карточки */
+.card-num {
+    font-size: 13px;
+    color: #86868b;
+    font-family: monospace;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.card-title {
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: #86868b;
+    line-height: 1.4;
+    min-height: 44px; /* Фиксируем высоту, чтобы цены были на одном уровне */
+    margin-bottom: 40px;
+}
+
+/* Цена */
+.card-price {
+    font-size: 44px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -1px;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.card-price .rub {
+    font-size: 28px;
+    color: #86868b;
+    font-weight: 400;
+}
+
+/* Список фич */
+.card-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 60px;
+    flex-grow: 1; /* Подталкивает кнопку заказа всегда к нижнему краю */
+}
+
+.card-features li {
+    font-size: 14px;
+    color: #e8e8ed;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.4;
+}
+
+.card-features li span {
+    color: #86868b;
+    font-weight: bold;
+}
+
+/* Кнопки заказа */
+.price-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.price-btn:hover {
+    border-color: #00f2fe;
+    background-color: rgba(0, 242, 254, 0.03);
+    color: #00f2fe;
+    transform: scale(1.02);
+}
+
+/* Кнопка внутри ХИТа (инвертированная белая) */
+.btn-hit {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    font-weight: 600;
+}
+
+.btn-hit:hover {
+    background-color: #e8e8ed;
+    color: #000000;
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+}
+
+/* Кнопка третьего тарифа (акцентная) */
+.price-btn.secondary-style:hover {
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    color: #000000;
+    border-color: transparent;
+}
+
+/* Адаптивность для мобильных версий */
+@media (max-width: 1200px) {
+    .pricing-section { padding-left: 64px; padding-right: 64px; }
+    .pricing-grid { grid-template-columns: 1fr; border: none; gap: 32px; background-color: transparent; }
+    .price-card { border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 40px 32px; }
+    .hit-card { border: 2px solid #ffffff; margin: 0; }
+}
+
+@media (max-width: 768px) {
+    .pricing-section { padding: 80px 24px; }
+    .pricing-main-title { font-size: 38px; }
+    .card-title { font-size: 28px; }
+    .card-price { font-size: 38px; }
+}
