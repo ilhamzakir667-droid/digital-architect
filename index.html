@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>digital.architect | Кастомная разработка</title>
-    
-    <!-- СВЕРХСОЧНЫЙ НЕОНОВЫЙ ФАВИКОН (Генерируется кодом) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,11 +12,16 @@
 </head>
 <body>
 
+    <!-- Размытые неоновые сферы на фоне для создания глубины -->
+    <div class="blur-sphere sphere-1"></div>
+    <div class="blur-sphere sphere-2"></div>
+
     <!-- Шапка сайта -->
     <header class="header">
         <div class="logo"><span class="accent-glow">digital</span>.architect</div>
         <nav class="nav">
             <a href="#philosophy" class="nav-link">Философия</a>
+            <a href="#portfolio" class="nav-link">Портфолио</a>
             <a href="#workflow" class="nav-link">Процесс</a>
             <a href="#contact" class="nav-link">Связаться</a>
         </nav>
@@ -35,7 +37,7 @@
             </p>
             <div class="hero-actions">
                 <a href="#contact" class="btn-primary">Обсудить проект</a>
-                <a href="#workflow" class="btn-secondary">Как я работаю ↓</a>
+                <a href="#portfolio" class="btn-secondary">Смотреть кейсы ↓</a>
             </div>
         </div>
     </main>
@@ -45,23 +47,53 @@
         <div class="section-container">
             <h2 class="section-title">[ Философия разработки ]</h2>
             <div class="philosophy-grid">
-                
                 <div class="philosophy-item">
                     <span class="philosophy-num">01 /</span>
                     <h3 class="philosophy-name">Чистая инженерия</h3>
                     <p class="philosophy-text">Никаких конструкторов вроде Tilda. Проект пишется на чистом коде. Это гарантирует, что сайт загружается мгновенно и легко масштабируется под задачи бизнеса.</p>
                 </div>
-
                 <div class="philosophy-item">
                     <span class="philosophy-num">02 /</span>
                     <h3 class="philosophy-name">Бескомпромиссный UI/UX</h3>
                     <p class="philosophy-text">Внимание к каждой детали: от плавной кастомной анимации и правильной типографики до Pixel Perfect верстки, которая выглядит безупречно.</p>
                 </div>
-
                 <div class="philosophy-item">
                     <span class="philosophy-num">03 /</span>
                     <h3 class="philosophy-name">Фокус на продукт</h3>
                     <p class="philosophy-text">Глубокое погружение в бизнес-задачу клиента и создание работающего цифрового продукта, который решает конкретные коммерческие цели.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- НОВЫЙ БЛОК: ПОРТФОЛИО (BENTO CASES) -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-container">
+            <h2 class="section-title">[ Избранные проекты / Кейсы ]</h2>
+            <div class="portfolio-grid">
+                
+                <!-- Кейс 1: FIRE RUN (Широкая карточка) -->
+                <div class="portfolio-item wide">
+                    <div class="project-info">
+                        <span class="project-tag">UI/UX • Branding • Ecosystem</span>
+                        <h3 class="project-title">FIRE RUN Community</h3>
+                        <p class="project-desc">Проектирование цифровой экосистемы и полного визуального стиля для технологичного бегового сообщества. Разработка концепции интерактивного интерфейса, уникальной графической айдентики и премиальной линейки спортивного мерча.</p>
+                    </div>
+                    <div class="project-visual fire-run-mock">
+                        <div class="mock-badge">Concept Active</div>
+                    </div>
+                </div>
+
+                <!-- Кейс 2: Tracker App (Обычная карточка) -->
+                <div class="portfolio-item">
+                    <div class="project-info">
+                        <span class="project-tag">Web App • Architecture • Dashboard</span>
+                        <h3 class="project-title">Digital Tracker System</h3>
+                        <p class="project-desc">Инженерная разработка прототипа системы цифрового мониторинга. Чистая модульная архитектура, оптимизированный бэкенд и отзывчивый интерфейс для комплексного контроля аналитических данных.</p>
+                    </div>
+                    <div class="project-visual tracker-mock">
+                        <div class="mock-badge">MVP Stage</div>
+                    </div>
                 </div>
 
             </div>
@@ -72,9 +104,7 @@
     <section id="workflow" class="workflow-section">
         <div class="section-container">
             <h2 class="section-title">[ Рабочий процесс / Как устроен проект ]</h2>
-            
             <div class="workflow-list">
-                
                 <div class="workflow-step">
                     <div class="step-meta">
                         <span class="step-number">01</span>
@@ -85,7 +115,6 @@
                         <p class="step-text">Созваниваемся, разбираем ваши бизнес-процессы, задачи сайта и боли целевой аудитории. Я изучаю конкурентов и предлагаю архитектурное решение.</p>
                     </div>
                 </div>
-
                 <div class="workflow-step">
                     <div class="step-meta">
                         <span class="step-number">02</span>
@@ -96,7 +125,6 @@
                         <p class="step-text">Создаю детальный черно-белый скелет будущего сайта. Прорабатываю логику переходов. Вы увидите, как работает сайт, еще до начала верстки.</p>
                     </div>
                 </div>
-
                 <div class="workflow-step">
                     <div class="step-meta">
                         <span class="step-number">03</span>
@@ -107,7 +135,6 @@
                         <p class="step-text">Переношу дизайн в чистый, производительный код. Верстаю проект с упором на скорость загрузки и идеальное отображение на всех устройствах.</p>
                     </div>
                 </div>
-
                 <div class="workflow-step">
                     <div class="step-meta">
                         <span class="step-number">04</span>
@@ -118,7 +145,6 @@
                         <p class="step-text">Провожу тестирование, привязываю домен, настраиваю безопасность. После запуска я остаюсь на связи и слежу, чтобы все работало идеально.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
