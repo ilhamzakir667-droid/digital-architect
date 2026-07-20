@@ -43,7 +43,7 @@
     </main>
 
     <!-- БЛОК: ФИЛОСОФИЯ -->
-    <section id="philosophy" class="philosophy-section">
+    <section id="philosophy" class="philosophy-section reveal">
         <div class="section-container">
             <h2 class="section-title">[ Философия разработки ]</h2>
             <div class="philosophy-grid">
@@ -66,13 +66,13 @@
         </div>
     </section>
 
-    <!-- БЛОК: ПОРТФОЛИО (ТРЕХБЛОЧНЫЙ ПРЕМИУМ BENTO) -->
-    <section id="portfolio" class="portfolio-section">
+    <!-- БЛОК: ПОРТФОЛИО -->
+    <section id="portfolio" class="portfolio-section reveal">
         <div class="section-container">
             <h2 class="section-title">[ Избранные проекты / Кейсы ]</h2>
             <div class="portfolio-grid">
                 
-                <!-- Кейс 1: UNITRUS (Главный Флагман - На всю ширину) -->
+                <!-- Кейс 1: UNITRUS -->
                 <div class="portfolio-item full-width">
                     <div class="project-info">
                         <span class="project-tag">Full-Cycle Production • E-Commerce • Operations</span>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <!-- Кейс 2: FIRE RUN (Левая карточка) -->
+                <!-- Кейс 2: FIRE RUN -->
                 <div class="portfolio-item">
                     <div class="project-info">
                         <span class="project-tag">UI/UX • Branding • Ecosystem</span>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
 
-                <!-- Кейс 3: Tracker App (Правая карточка) -->
+                <!-- Кейс 3: Tracker App -->
                 <div class="portfolio-item">
                     <div class="project-info">
                         <span class="project-tag">Web App • Architecture • Dashboard</span>
@@ -113,8 +113,8 @@
         </div>
     </section>
 
-    <!-- БЛОК: ПРОЦЕСС РАБОТЫ (WORKFLOW) -->
-    <section id="workflow" class="workflow-section">
+    <!-- БЛОК: ПРОЦЕСС РАБОТЫ -->
+    <section id="workflow" class="workflow-section reveal">
         <div class="section-container">
             <h2 class="section-title">[ Рабочий процесс / Как устроен проект ]</h2>
             <div class="workflow-list">
@@ -163,7 +163,7 @@
     </section>
 
     <!-- БЛОК: КОНТАКТЫ -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section reveal">
         <div class="section-container">
             <h2 class="section-title">[ Начать сотрудничество ]</h2>
             <div class="contact-content">
@@ -178,6 +178,27 @@
             </div>
         </div>
     </section>
+
+    <!-- ИНТЕЛЛЕКТУАЛЬНЫЙ СКРИПТ ДЛЯ СКРОЛЛ-АНИМАЦИЙ В СТИЛЕ КАСКАДИИ -->
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Блок начинает проявляться, когда виден на 15%
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>
