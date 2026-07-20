@@ -12,6 +12,9 @@
 </head>
 <body>
 
+    <!-- Интерактивный жидкий курсор-капля -->
+    <div class="fluid-cursor"></div>
+
     <!-- Размытые неоновые сферы на фоне для создания глубины -->
     <div class="blur-sphere sphere-1"></div>
     <div class="blur-sphere sphere-2"></div>
@@ -179,24 +182,69 @@
         </div>
     </section>
 
-    <!-- ИНТЕЛЛЕКТУАЛЬНЫЙ СКРИПТ ДЛЯ СКРОЛЛ-АНИМАЦИЙ В СТИЛЕ КАСКАДИИ -->
     <script>
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15 // Блок начинает проявляться, когда виден на 15%
-        };
-
+        // 1. АНИМАЦИЯ ПОЯВЛЕНИЯ ЭЛЕМЕНТОВ ПРИ СКРОЛЛЕ
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(section => observer.observe(section));
 
-        document.querySelectorAll('.reveal').forEach(section => {
-            observer.observe(section);
+        // 2. ФИЗИКА ЖИДКОГО КУРСОРA (FLUID BLOB)
+        const blob = document.querySelector('.fluid-cursor');
+        let mouseX = 0, mouseY = 0; // Координаты мыши
+        let blobX = 0, blobY = 0;   // Координаты жидкой капли
+
+        // Переменные для расчета скорости и деформации "воды"
+        let lastX = 0, lastY = 0;
+        let speed = 0;
+        let scale = 1;
+        let angle = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Считаем вектор скорости перемещения
+            let deltaX = mouseX - lastX;
+            let deltaY = mouseY - lastY;
+            speed = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+            
+            // Вычисляем угол наклона капли по направлению движения
+            angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+            
+            lastX = mouseX;
+            lastY = mouseY;
+        });
+
+        // Плавный цикл анимации (амортизация движения)
+        function animateBlob() {
+            // Мягкое стремление капли к мышке (коэффициент 0.15 создает эффект вязкой жидкости)
+            blobX += (mouseX - blobX) * 0.15;
+            blobY += (mouseY - blobY) * 0.15;
+
+            // Растяжение круга в овал в зависимости от скорости (максимум х1.6)
+            let targetScale = 1 + Math.min(speed * 0.015, 0.6);
+            scale += (targetScale - scale) * 0.2;
+
+            // Сжатие по перпендикулярной оси, чтобы сохранялся визуальный объем жидкости
+            let scaleY = 1 - Math.min(speed * 0.01, 0.3);
+
+            // Применяем трансформацию физики тела
+            blob.style.transform = `translate3d(${blobX}px, ${blobY}px, 0) rotate(${angle}deg) scale(${scale}, ${scaleY})`;
+
+            // Постепенно гасим скорость, если мышка остановилась
+            speed *= 0.9;
+
+            requestAnimationFrame(animateBlob);
+        }
+        animateBlob();
+
+        // 3. РЕАКЦИЯ КУРСОРA НА ССЫЛКИ И КНОПКИ (ЭФФЕКТ СЛИЯНИЯ)
+        const interactiveElements = document.querySelectorAll('a, .portfolio-item, .philosophy-item, .workflow-step');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => blob.classList.add('hovered'));
+            el.addEventListener('mouseleave', () => blob.classList.remove('hovered'));
         });
     </script>
 
