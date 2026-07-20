@@ -11,8 +11,8 @@
 </head>
 <body>
 
-    <!-- ЖИДКОСТНЫЙ КУРСОР-КАПЛЯ -->
-    <div class="blob-cursor"></div>
+    <!-- ПЛАВНЫЙ БИРЮЗОВЫЙ ШЛЕЙФ-КАПЛЯ (СТРЕЛКА МЫШИ ВИДИМА) -->
+    <div class="fluid-tail"></div>
 
     <!-- НАВИГАЦИЯ (ШАПКА) -->
     <header class="site-header">
@@ -23,15 +23,12 @@
                 <a href="#portfolio">Портфолио</a>
                 <a href="#process">Процесс</a>
                 <a href="#pricing">Тарифы</a>
-                <a href="#blog">Блог</a>
-                <a href="#tools">Инструменты</a>
-                <a href="#tools" class="nav-ai">AI-анализ сайта</a>
                 <a href="#contact" class="nav-cta">Обсудить проект</a>
             </nav>
         </div>
     </header>
 
-    <!-- ГЛАВНЫЙ ЭКРАН С БИРЮЗОВЫМ 3D ШАРОМ -->
+    <!-- ГЛАВНЫЙ ЭКРАН -->
     <section class="hero-section">
         <canvas id="particle-canvas"></canvas>
 
@@ -170,32 +167,6 @@
         </div>
     </section>
 
-    <!-- БЛОК: БЛОГ И ИНСТРУМЕНТЫ -->
-    <section id="blog" class="blog-section reveal">
-        <div id="tools"></div>
-        <div class="section-container">
-            <p class="section-tag">// Лаборатория Архитекта</p>
-            <h2 class="section-title">Блог и Полезные утилиты</h2>
-            <div class="philosophy-grid">
-                <div class="phil-card">
-                    <span class="phil-num">Статья</span>
-                    <h3>Как CRM экономит до 40% бюджета</h3>
-                    <p>Разбираем реальные кейсы автоматизации сбора лидов и оптимизации работы менеджеров.</p>
-                </div>
-                <div class="phil-card">
-                    <span class="phil-num">Сервис</span>
-                    <h3>Бесплатный AI-анализ вашего сайта →</h3>
-                    <p>Интеллектуальный робот проверит юзабилити, скорость загрузки и выдаст готовые рекомендации по улучшению конверсии.</p>
-                </div>
-                <div class="phil-card">
-                    <span class="phil-num">Статья</span>
-                    <h3>Тренды веб-разработки в 2026 году</h3>
-                    <p>Микрофронтенды, генеративный интерактивный дизайн и тотальное преобладание кастомных систем над шаблонами.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- БЛОК: КОНТАКТЫ -->
     <section id="contact" class="contact-section reveal">
         <div class="section-container contact-container">
@@ -234,65 +205,55 @@
         </div>
     </footer>
 
-    <!-- СКРИПТЫ С ОБНОВЛЕННОЙ ФИЗИКОЙ КАПЛИ И БИРЮЗОВЫМ ЦВЕТОМ -->
+    <!-- СКРИПТЫ С ПЛАВНЫМ СГЛУШЕННЫМ ШЛЕЙФОМ -->
     <script>
-        // 1. Появление секций при скролле
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        // 2. ФИЗИКА КУРСОР-КАПЛИ (ЭФФЕКТ СГЛАЖИВАНИЯ ЖИДКОСТИ / LERP)
-        const blob = document.querySelector('.blob-cursor');
-        let mouseX = 0, mouseY = 0; // Координаты мыши реальные
-        let ballX = 0, ballY = 0;   // Координаты капли с задержкой
-        let currentScaleX = 1, currentScaleY = 1;
-        let speed = 0;
+        // ИНТЕРПОЛЯЦИЯ ПЛАВНОГО ШЛЕЙФА ДЛЯ МЫШИ (LERP)
+        const tail = document.querySelector('.fluid-tail');
+        let mX = 0, mY = 0; 
+        let tX = 0, tY = 0; 
 
         document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+            mX = e.clientX;
+            mY = e.clientY;
         });
 
-        function animateCursor() {
-            // Линейная интерполяция движения (0.15 — скорость «стягивания» капли)
-            let distX = mouseX - ballX;
-            let distY = mouseY - ballY;
+        function renderTail() {
+            let dx = mX - tX;
+            let dy = mY - tY;
             
-            ballX += distX * 0.14;
-            ballY += distY * 0.14;
+            // Задержка следования (0.12 делает шлейф очень мягким и тягучим)
+            tX += dx * 0.12;
+            tY += dy * 0.12;
 
-            // Расчет деформации в зависимости от скорости движения капли
-            speed = Math.sqrt(distX * distX + distY * distY);
-            let targetScaleX = 1 + Math.min(speed / 150, 0.4);
-            let targetScaleY = 1 - Math.min(speed / 150, 0.3);
+            let speed = Math.sqrt(dx * dx + dy * dy);
+            let scaleX = 1 + Math.min(speed / 120, 0.5);
+            let scaleY = 1 - Math.min(speed / 120, 0.3);
+            let angle = Math.atan2(dy, dx);
 
-            // Плавное сжатие/растяжение
-            currentScaleX += (targetScaleX - currentScaleX) * 0.2;
-            currentScaleY += (targetScaleY - currentScaleY) * 0.2;
-
-            // Угол наклона капли по направлению движения
-            let angle = Math.atan2(distY, distX);
-
-            blob.style.transform = `translate(${ballX}px, ${ballY}px) rotate(${angle}rad) scale(${currentScaleX}, ${currentScaleY})`;
-            requestAnimationFrame(animateCursor);
+            tail.style.transform = `translate(${tX}px, ${tY}px) rotate(${angle}rad) scale(${scaleX}, ${scaleY})`;
+            requestAnimationFrame(renderTail);
         }
-        animateCursor();
+        renderTail();
 
-        // Эффекты наведения капли на кнопки/ссылки
+        // Эффект расширения капли при наведении на кнопки
         document.querySelectorAll('a, button, input, textarea, .price-card, .adv-list-item').forEach((el) => {
-            el.addEventListener('mouseenter', () => blob.classList.add('blob-hover'));
-            el.addEventListener('mouseleave', () => blob.classList.remove('blob-hover'));
+            el.addEventListener('mouseenter', () => tail.classList.add('tail-hover'));
+            el.addEventListener('mouseleave', () => tail.classList.remove('tail-hover'));
         });
 
-        // 3. Плавный заголовок
+        // Смена фраз на главном экране
         const phrases = ["Создаём сайты", "Создаём платформы", "Проектируем экосистемы"];
         let currentPhraseIndex = 0;
         const changingTextEl = document.getElementById('changing-text');
 
         setInterval(() => {
             changingTextEl.style.opacity = 0;
-            changingTextEl.style.transform = "translateY(-10px)";
+            changingTextEl.style.transform = "translateY(-8px)";
             setTimeout(() => {
                 currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
                 changingTextEl.textContent = phrases[currentPhraseIndex];
@@ -301,10 +262,9 @@
             }, 600);
         }, 3500);
 
-        // 4. БИРЮЗОВЫЙ МАТРИЧНЫЙ 3D-ШАР С ЭФФЕКТОМ ВЫТАЛКИВАНИЯ
+        // ПЕРВОЗДАННЫЙ БИРЮЗОВЫЙ ХОЛСТ
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
-
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
 
@@ -313,72 +273,55 @@
             height = canvas.height = window.innerHeight;
         });
 
-        let sphereMouse = { x: null, y: null, radius: 150 };
-        window.addEventListener('mousemove', (e) => {
-            sphereMouse.x = e.clientX;
-            sphereMouse.y = e.clientY;
-        });
-        window.addEventListener('mouseleave', () => { sphereMouse.x = null; sphereMouse.y = null; });
+        let sMouse = { x: null, y: null, radius: 160 };
+        window.addEventListener('mousemove', (e) => { sMouse.x = e.clientX; sMouse.y = e.clientY; });
+        window.addEventListener('mouseleave', () => { sMouse.x = null; sMouse.y = null; });
 
-        const particlesCount = 480;
+        const particlesCount = 450;
         const sphereRadius = Math.min(width, height) * 0.28; 
         let particles = [];
-        const chars = ["A", "P", "X", "I", "T", "E", "K", "T", "1", "0"];
+        const chars = ["A", "P", "X", "I", "T", "E", "K", "T"];
 
         class Particle3D {
             constructor() {
                 this.theta = Math.random() * Math.PI * 2;
                 this.phi = Math.acos((Math.random() * 2) - 1);
-                
                 this.x3d = sphereRadius * Math.sin(this.phi) * Math.cos(this.theta);
                 this.y3d = sphereRadius * Math.sin(this.phi) * Math.sin(this.theta);
                 this.z3d = sphereRadius * Math.cos(this.phi);
-                
                 this.char = chars[Math.floor(Math.random() * chars.length)];
-                // Фирменные цвета: 85% — бирюзовый (#00f2fe), остальные 15% — яркий неон/белый акцент
                 this.colorValue = Math.random() > 0.15 ? '#00f2fe' : '#ffffff';
             }
-
             update(angleX, angleY) {
                 let y1 = this.y3d * Math.cos(angleX) - this.z3d * Math.sin(angleX);
                 let z1 = this.y3d * Math.sin(angleX) + this.z3d * Math.cos(angleX);
-
                 let x2 = this.x3d * Math.cos(angleY) + z1 * Math.sin(angleY);
                 let z2 = -this.x3d * Math.sin(angleY) + z1 * Math.cos(angleY);
 
-                let sphereCenterX = width * 0.70;
-                let sphereCenterY = height * 0.5;
+                let sX = (width * 0.72) + x2 * (600 / (600 + z2));
+                let sY = (height * 0.5) + y1 * (600 / (600 + z2));
 
-                let perspective = 600 / (600 + z2);
-                let screenX = sphereCenterX + x2 * perspective;
-                let screenY = sphereCenterY + y1 * perspective;
+                let dx = sMouse.x - sX;
+                let dy = sMouse.y - sY;
+                let dist = Math.sqrt(dx * dx + dy * dy);
 
-                let dx = sphereMouse.x - screenX;
-                let dy = sphereMouse.y - screenY;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < sphereMouse.radius && sphereMouse.x !== null) {
-                    let force = (sphereMouse.radius - distance) / sphereMouse.radius;
-                    screenX -= (dx / distance) * force * 55;
-                    screenY -= (dy / distance) * force * 55;
+                if (dist < sMouse.radius && sMouse.x !== null) {
+                    let force = (sMouse.radius - dist) / sMouse.radius;
+                    sX -= (dx / dist) * force * 45;
+                    sY -= (dy / dist) * force * 45;
                 }
 
-                let alpha = (z2 + sphereRadius) / (sphereRadius * 2) * 0.75 + 0.25;
                 ctx.fillStyle = this.colorValue;
-                ctx.globalAlpha = alpha;
-                ctx.font = `${Math.floor(11 * perspective)}px monospace`;
-                ctx.fillText(this.char, screenX, screenY);
+                ctx.globalAlpha = ((z2 + sphereRadius) / (sphereRadius * 2) * 0.75) + 0.25;
+                ctx.font = `${Math.floor(11 * (600 / (600 + z2)))}px monospace`;
+                ctx.fillText(this.char, sX, sY);
             }
         }
 
         for (let i = 0; i < particlesCount; i++) { particles.push(new Particle3D()); }
-
-        let currentAngleX = 0.0015;
-        let currentAngleY = 0.0025;
-
         function animate() {
             ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => p.update(currentAngleX, currentAngleY));
+            particles.forEach(p => p.update(0.0018, 0.0022));
             requestAnimationFrame(animate);
         }
         animate();
