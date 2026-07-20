@@ -9,7 +9,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* 2. БАЗОВЫЕ НАСТРОЙКИ */
+/* 2. БАЗОВЫЕ НАСТРОЙКИ С ГЛУБИНОЙ */
 body {
     background-color: #000000;
     color: #f5f5f7;
@@ -18,7 +18,34 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    position: relative;
     -webkit-font-smoothing: antialiased;
+}
+
+/* РАЗМЫТЫЕ СФЕРЫ НА ЗАДНЕМ ПЛАНЕ */
+.blur-sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: -1;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.sphere-1 {
+    width: 500px;
+    height: 500px;
+    background: #00f2fe;
+    top: -100px;
+    right: -100px;
+}
+
+.sphere-2 {
+    width: 600px;
+    height: 600px;
+    background: #4facfe;
+    bottom: 200px;
+    left: -200px;
 }
 
 @keyframes appleFadeIn {
@@ -26,16 +53,15 @@ body {
     to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* СОЧНЫЕ ДОБАВЛЕНИЯ: ГРАДИЕНТЫ И СВЕЧЕНИЕ */
 .text-gradient {
-    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); /* Сочный неоновый циан-синий */
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .accent-glow {
     color: #00f2fe;
-    text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
 }
 
 /* 3. ШАПКА */
@@ -45,6 +71,8 @@ body {
     align-items: center;
     padding: 48px 120px;
     width: 100%;
+    position: relative;
+    z-index: 10;
     animation: appleFadeIn 1.2s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
 }
 
@@ -64,17 +92,15 @@ body {
     transition: color 0.3s ease;
 }
 
-.nav a:hover {
-    color: #00f2fe; /* Подсветка меню при наведении */
-}
+.nav a:hover { color: #00f2fe; }
 
 /* 4. ГЛАВНЫЙ ЭКРАН */
 .hero {
-    min-height: 85vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     padding: 0 120px;
-    margin-bottom: 140px;
+    margin-bottom: 100px;
 }
 
 .hero-container {
@@ -105,19 +131,15 @@ body {
     line-height: 1.55;
     color: #86868b;
     margin-bottom: 56px;
-    font-weight: 400;
     max-width: 720px;
 }
 
 /* 5. КНОПКИ */
-.hero-actions {
-    display: flex;
-    gap: 28px;
-}
+.hero-actions { display: flex; gap: 28px; }
 
 .btn-primary {
     display: inline-block;
-    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); /* Сочная кнопка */
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
     color: #000000;
     padding: 18px 38px;
     text-decoration: none;
@@ -125,12 +147,12 @@ body {
     font-weight: 600;
     border-radius: 24px;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    box-shadow: 0 4px 20px rgba(0, 242, 254, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 242, 254, 0.15);
 }
 
 .btn-primary:hover {
     transform: scale(1.03);
-    box-shadow: 0 8px 30px rgba(0, 242, 254, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 242, 254, 0.35);
 }
 
 .btn-secondary {
@@ -151,10 +173,9 @@ body {
     transform: scale(1.02);
 }
 
-/* 6. БЛОК ФИЛОСОФИИ (BENTO) */
+/* 6. БЛОК ФИЛОСОФИИ */
 .philosophy-section {
-    padding: 160px 120px;
-    background-color: #000000;
+    padding: 120px 120px;
     width: 100%;
 }
 
@@ -168,7 +189,7 @@ body {
     color: #86868b;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 64px;
+    margin-bottom: 56px;
     font-weight: 500;
     display: block;
 }
@@ -176,37 +197,37 @@ body {
 .philosophy-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;
 }
 
 .philosophy-item {
-    background-color: #161617;
+    background-color: rgba(22, 22, 23, 0.8); /* Эффект матового стекла */
+    backdrop-filter: blur(10px);
     border: 1px solid #222224;
-    padding: 56px 40px;
+    padding: 48px 36px;
     border-radius: 18px;
-    transition: all 0.5s cubic-bezier(0.15, 0.85, 0.35, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .philosophy-item:hover {
-    border-color: #00f2fe; /* Неоновая рамка при наведении */
-    background-color: #1d1d1f;
+    border-color: #00f2fe;
+    background-color: rgba(29, 29, 31, 0.9);
     transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0, 242, 254, 0.05);
 }
 
 .philosophy-num {
     font-size: 13px;
-    color: #00f2fe; /* Сочные цифры */
+    color: #00f2fe;
     font-family: monospace;
     display: block;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .philosophy-name {
-    font-size: 24px;
+    font-size: 22px;
     color: #ffffff;
     font-weight: 600;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     letter-spacing: -0.5px;
 }
 
@@ -214,165 +235,163 @@ body {
     font-size: 15px;
     line-height: 1.6;
     color: #86868b;
-    font-weight: 400;
+}
+
+/* НОВЫЙ СТИЛЬ: БЛОК ПОРТФОЛИО (PREMIUM BENTO) */
+.portfolio-section {
+    padding: 120px 120px;
+    width: 100%;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.portfolio-item {
+    grid-column: span 1;
+    background-color: rgba(22, 22, 23, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid #222224;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 480px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-item.wide {
+    grid-column: span 2; /* Первая карточка в два раза шире */
+}
+
+.portfolio-item:hover {
+    border-color: #424245;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-info {
+    padding: 48px 40px 24px 40px;
+}
+
+.project-tag {
+    font-size: 11px;
+    color: #00f2fe;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.project-title {
+    font-size: 28px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+}
+
+.project-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #86868b;
+    max-width: 580px;
+}
+
+/* Визуальные симуляции интерфейсов внутри карточек */
+.project-visual {
+    height: 180px;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.fire-run-mock {
+    background: linear-gradient(215deg, #2c1111 0%, #111115 100%);
+    border-top: 1px solid rgba(255, 69, 0, 0.1);
+}
+
+.tracker-mock {
+    background: linear-gradient(135deg, #111c24 0%, #0d0d11 100%);
+    border-top: 1px solid rgba(0, 242, 254, 0.1);
+}
+
+.mock-badge {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f5f5f7;
+    font-size: 11px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-family: monospace;
 }
 
 /* 6.5 БЛОК ПРОЦЕССА */
 .workflow-section {
-    padding: 160px 120px;
-    background: linear-gradient(180deg, #000000 0%, #09090b 100%);
+    padding: 120px 120px;
     width: 100%;
 }
 
-.workflow-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.workflow-step {
-    display: flex;
-    padding: 56px 0;
-    border-bottom: 1px solid #222224;
-    transition: all 0.3s ease;
-}
-
-.workflow-step:hover {
-    border-bottom-color: #00f2fe;
-}
-
-.step-meta {
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.step-number {
-    font-size: 16px;
-    color: #86868b;
-    font-family: monospace;
-    font-weight: 500;
-}
-
-.step-status {
-    font-size: 11px;
-    color: #00f2fe; /* Сочный статус этапа */
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-}
-
-.step-body {
-    width: 75%;
-    max-width: 740px;
-}
-
-.step-title {
-    font-size: 28px;
-    color: #f5f5f7;
-    font-weight: 600;
-    margin-bottom: 18px;
-    letter-spacing: -0.5px;
-}
-
-.step-text {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #86868b;
-    font-weight: 400;
-}
+.workflow-list { display: flex; flex-direction: column; }
+.workflow-step { display: flex; padding: 48px 0; border-bottom: 1px solid #222224; transition: all 0.3s ease; }
+.workflow-step:hover { border-bottom-color: #00f2fe; }
+.step-meta { width: 25%; display: flex; flex-direction: column; gap: 12px; }
+.step-number { font-size: 16px; color: #86868b; font-family: monospace; }
+.step-status { font-size: 11px; color: #00f2fe; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+.step-body { width: 75%; max-width: 740px; }
+.step-title { font-size: 26px; color: #f5f5f7; font-weight: 600; margin-bottom: 14px; letter-spacing: -0.5px; }
+.step-text { font-size: 16px; line-height: 1.6; color: #86868b; }
 
 /* 7. БЛОК КОНТАКТОВ */
 .contact-section {
-    padding: 160px 120px;
+    padding: 140px 120px;
     background-color: #000000;
     border-top: 1px solid #222224;
     width: 100%;
 }
 
-.contact-content {
-    max-width: 800px;
-}
-
-.contact-heading {
-    font-size: 52px;
-    color: #ffffff;
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -2px;
-    margin-bottom: 32px;
-}
-
-.contact-text {
-    font-size: 19px;
-    line-height: 1.6;
-    color: #86868b;
-    margin-bottom: 56px;
-    font-weight: 400;
-}
-
-.contact-links {
-    display: flex;
-    gap: 24px;
-}
-
-.contact-btn {
-    display: inline-block;
-    padding: 18px 38px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 24px;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.telegram {
-    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-    color: #000000;
-    font-weight: 600;
-}
-
-.telegram:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 242, 254, 0.3);
-}
-
-.email {
-    border: 1px solid #424245;
-    color: #f5f5f7;
-}
-
-.email:hover {
-    border-color: #00f2fe;
-    background-color: rgba(0, 242, 254, 0.02);
-    transform: scale(1.02);
-}
+.contact-content { max-width: 800px; }
+.contact-heading { font-size: 52px; color: #ffffff; font-weight: 600; line-height: 1.15; letter-spacing: -2px; margin-bottom: 32px; }
+.contact-text { font-size: 19px; line-height: 1.6; color: #86868b; margin-bottom: 56px; }
+.contact-links { display: flex; gap: 24px; }
+.contact-btn { display: inline-block; padding: 18px 38px; text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 24px; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+.telegram { background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #000000; font-weight: 600; }
+.telegram:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(0, 242, 254, 0.3); }
+.email { border: 1px solid #424245; color: #f5f5f7; }
+.email:hover { border-color: #00f2fe; background-color: rgba(0, 242, 254, 0.02); transform: scale(1.02); }
 
 /* 8. МОБИЛЬНАЯ АДАПТАЦИЯ */
-@media (max-width: 1024px) {
-    .header, .hero, .philosophy-section, .workflow-section, .contact-section {
-        padding-left: 48px;
-        padding-right: 48px;
-    }
+@media (max-width: 1200px) {
+    .header, .hero, .philosophy-section, .portfolio-section, .workflow-section, .contact-section { padding-left: 64px; padding-right: 64px; }
+    .portfolio-grid { grid-template-columns: 1fr; gap: 24px; }
+    .portfolio-item.wide { grid-column: span 1; }
 }
 
 @media (max-width: 768px) {
     .header { padding: 32px 24px; }
     .nav { display: none; }
-    .hero { padding: 0 24px; min-height: auto; margin-top: 60px; margin-bottom: 100px; }
+    .hero { padding: 0 24px; margin-bottom: 60px; }
     .hero-title { font-size: 40px; letter-spacing: -1.5px; }
     .hero-description { font-size: 18px; }
     .hero-actions { flex-direction: column; gap: 16px; }
     .btn-primary, .btn-secondary { text-align: center; }
-    .philosophy-section, .workflow-section, .contact-section { padding: 100px 24px; }
-    .philosophy-grid { grid-template-columns: 1fr; gap: 24px; }
-    .philosophy-item { padding: 40px 32px; }
-    .workflow-step { flex-direction: column; gap: 20px; padding: 40px 0; }
-    .step-meta { width: 100%; flex-direction: row; justify-content: space-between; align-items: center; }
+    .philosophy-section, .portfolio-section, .workflow-section, .contact-section { padding: 80px 24px; }
+    .philosophy-grid { grid-template-columns: 1fr; gap: 20px; }
+    .philosophy-item { padding: 36px 28px; }
+    .portfolio-item { min-height: auto; }
+    .project-info { padding: 32px 24px; }
+    .workflow-step { flex-direction: column; gap: 16px; padding: 32px 0; }
+    .step-meta { width: 100%; flex-direction: row; justify-content: space-between; }
     .step-body { width: 100%; }
-    .step-title { font-size: 22px; }
-    .step-text { font-size: 16px; }
-    .contact-heading { font-size: 38px; letter-spacing: -1px; }
+    .step-title { font-size: 20px; }
+    .contact-heading { font-size: 34px; letter-spacing: -1px; }
     .contact-links { flex-direction: column; gap: 16px; }
     .contact-btn { text-align: center; }
 }
