@@ -1,28 +1,32 @@
-/* Обнуляем системные отступы */
+/* 1. ОБНУЛЕНИЕ СТИЛЕЙ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Базовые настройки дорогой темной темы */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. БАЗОВЫЕ НАСТРОЙКИ */
 body {
-    background-color: #0a0a0a; /* Глубокий премиальный черный */
-    color: #e5e5e5; /* Мягкий белый, чтобы не резало глаза */
+    background-color: #0a0a0a;
+    color: #e5e5e5;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов на Mac */
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Элегантная шапка */
+/* 3. ШАПКА */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 80px;
+    padding: 40px 80px;
     width: 100%;
 }
 
@@ -33,7 +37,7 @@ body {
 }
 
 .nav a {
-    color: #a3a3a3;
+    color: #737373;
     text-decoration: none;
     margin-left: 40px;
     font-size: 14px;
@@ -41,19 +45,20 @@ body {
 }
 
 .nav a:hover {
-    color: #ffffff; /* Плавное подсвечивание при наведении */
+    color: #ffffff;
 }
 
-/* Главный экран */
+/* 4. ГЛАВНЫЙ ЭКРАН */
 .hero {
-    flex: 1;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     padding: 0 80px;
+    margin-bottom: 100px;
 }
 
 .hero-container {
-    max-width: 800px; /* Ограничиваем ширину текста для идеальной читаемости */
+    max-width: 800px;
 }
 
 .hero-subtitle {
@@ -81,7 +86,7 @@ body {
     font-weight: 300;
 }
 
-/* Кнопки */
+/* 5. КНОПКИ */
 .hero-actions {
     display: flex;
     gap: 24px;
@@ -120,37 +125,31 @@ body {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Адаптивность для мобильных экранов */
-@media (max-width: 768px) {
-    .header {
-        padding: 20px 24px;
-    }
-    .nav {
-        display: none; /* Прячем меню на мобилках для чистоты интерфейса */
-    }
-    .hero {
-        padding: 0 24px;
-    }
-    .hero-title {
-        font-size: 32px;
-    }
-    .hero-actions {
-        flex-direction: column;
-        gap: 16px;
-    }
-    .btn-primary, .btn-secondary {
-        text-align: center;
-    }
-}
-/* Стили для блока контактов */
+/* 6. БЛОК КОНТАКТОВ */
 .contact-section {
     padding: 120px 80px;
-    background-color: #0a0a0a;
+    background-color: #0d0d0d;
     border-top: 1px solid #1a1a1a;
+    width: 100%;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 13px;
+    color: #737373;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 48px;
+    font-weight: 400;
+    display: block;
 }
 
 .contact-content {
-    max-width: 600px;
+    max-width: 700px;
 }
 
 .contact-heading {
@@ -176,9 +175,9 @@ body {
 
 .contact-btn {
     display: inline-block;
-    padding: 14px 28px;
+    padding: 16px 32px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     border-radius: 4px;
     transition: all 0.3s ease;
@@ -201,4 +200,42 @@ body {
 .email:hover {
     border-color: #ffffff;
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 7. МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 768px) {
+    .header {
+        padding: 24px;
+    }
+    .nav {
+        display: none;
+    }
+    .hero {
+        padding: 0 24px;
+        min-height: auto;
+        margin-top: 40px;
+    }
+    .hero-title {
+        font-size: 32px;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .btn-primary, .btn-secondary {
+        text-align: center;
+    }
+    .contact-section {
+        padding: 60px 24px;
+    }
+    .contact-heading {
+        font-size: 28px;
+    }
+    .contact-links {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .contact-btn {
+        text-align: center;
+    }
 }
