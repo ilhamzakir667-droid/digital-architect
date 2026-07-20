@@ -261,3 +261,179 @@ body {
     .step-body { width: 100%; }
     .contact-heading { font-size: 34px; }
 }
+/* ==========================================================================
+   БЛОК: КАЧЕСТВО И ПРЕИМУЩЕСТВА
+   ========================================================================== */
+.advantages-section {
+    padding: 140px 120px;
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Левая часть чуть шире */
+    gap: 80px;
+    align-items: flex-start;
+}
+
+/* Левая колонка */
+.advantages-left {
+    position: sticky;
+    top: 100px; /* Блок красиво фиксируется при скролле, если контент справа длинный */
+}
+
+.adv-subtitle {
+    font-size: 12px;
+    color: #86868b;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.adv-title {
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    color: #ffffff;
+    margin-bottom: 32px;
+}
+
+.adv-description {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #86868b;
+    max-width: 480px;
+    margin-bottom: 56px;
+}
+
+/* Сетка метрик */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.metric-num {
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.metric-label {
+    font-size: 13px;
+    color: #86868b;
+    line-height: 1.4;
+}
+
+/* Правая колонка */
+.advantages-right {
+    background-color: rgba(10, 10, 10, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.adv-right-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+}
+
+.adv-right-title {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.adv-status-badge {
+    font-size: 12px;
+    color: #00f2fe;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+/* Список преимуществ */
+.adv-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.adv-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.adv-list-item:last-child {
+    border-bottom: none;
+}
+
+.adv-item-content h3 {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+.adv-item-content p {
+    font-size: 14px;
+    color: #86868b;
+    line-height: 1.5;
+}
+
+.adv-checkmark {
+    font-size: 16px;
+    color: #86868b;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding-left: 20px;
+}
+
+/* Интерактивный ховер-эффект в стиле премиум-студий */
+.adv-list-item:hover {
+    border-bottom-color: rgba(0, 242, 254, 0.3);
+}
+
+.adv-list-item:hover .adv-item-content h3 {
+    color: #00f2fe;
+}
+
+.adv-list-item:hover .adv-checkmark {
+    color: #00f2fe;
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+}
+
+/* Адаптивность для тач-устройств и экранов поменьше */
+@media (max-width: 1200px) {
+    .advantages-section { padding-left: 64px; padding-right: 64px; }
+    .advantages-grid { grid-template-columns: 1fr; gap: 48px; }
+    .advantages-left { position: static; }
+}
+
+@media (max-width: 768px) {
+    .advantages-section { padding: 80px 24px; }
+    .adv-title { font-size: 38px; }
+    .metrics-grid { grid-template-columns: 1fr; gap: 32px; }
+    .advantages-right { padding: 24px; }
+}
