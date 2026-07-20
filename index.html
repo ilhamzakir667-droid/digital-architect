@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Архитект Диджитал | Цифровые Решения для Бизнеса</title>
+    <title>Архитект Диджитал — Разработка сайтов и сложных ИТ-систем</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- ИНТАКТИВНЫЙ ЖИДКИЙ КУРСОР — СТИЛИ ЖИДКОГО ТЕЛА -->
-    <div class="fluid-cursor"></div>
+    <!-- ПЛАВНЫЙ БИРЮЗОВЫЙ ШЛЕЙФ-КАПЛЯ (СТРЕЛКА МЫШИ ВИДИМА) -->
+    <div class="fluid-tail"></div>
 
-    <!-- ШАПКА -->
+    <!-- НАВИГАЦИЯ (ШАПКА) -->
     <header class="site-header">
         <div class="header-container">
-            <a href="#" class="logo">ARCHITECT</a>
+            <a href="#" class="logo">АРХИТЕКТ</a>
             <nav class="main-nav">
                 <a href="#solutions">Решения</a>
                 <a href="#portfolio">Портфолио</a>
+                <a href="#process">Процесс</a>
                 <a href="#pricing">Тарифы</a>
                 <a href="#contact" class="nav-cta">Обсудить проект</a>
             </nav>
@@ -28,309 +29,191 @@
     </header>
 
     <!-- ГЛАВНЫЙ ЭКРАН -->
-    <main>
-        <section class="hero-section">
-            <canvas id="particle-canvas"></canvas>
-            <div class="section-container hero-container">
-                <h1 class="hero-title">Проектируем<br>высоконагруженный <span class="text-gradient">B2B digital</span></h1>
-                <p class="hero-subtitle">Создаем цифровые экосистемы, автоматизируем сложные бизнес-процессы и масштабируем продажи с помощью передового UI/UX и глубинного анализа данных.</p>
-                <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">Смотреть кейсы</a>
-                    <a href="#contact" class="btn btn-secondary">Связаться</a>
-                </div>
-            </div>
-            <div class="hero-footer-info">
-                <span class="status-indicator">// SYSTEM ACTIVE &amp; RUNNING</span>
-                <a href="#solutions" class="scroll-down">СКРОЛЛ ВНИЗ ↓</a>
-            </div>
-        </section>
+    <section class="hero-section">
+        <canvas id="particle-canvas"></canvas>
 
-        <!-- СЕКЦИЯ: РЕШЕНИЯ -->
-        <section id="solutions" class="solutions-section reveal">
-            <div class="section-container">
-                <p class="section-tag">// ФИЛОСОФИЯ ПОДХОДА</p>
-                <h2 class="section-title">Создаем решения, которые<br>меняют правила игры</h2>
-                <div class="philosophy-grid">
-                    <div class="phil-card">
-                        <h3>Архитектурный UX</h3>
-                        <p>Проектируем логику интерфейсов на основе реального поведения пользователей в корпоративном секторе.</p>
-                    </div>
-                    <div class="phil-card">
-                        <h3>Технологический стек</h3>
-                        <p>Используем только современные и масштабируемые фреймворки для обеспечения максимальной скорости работы.</p>
-                    </div>
-                    <div class="phil-card">
-                        <h3>Бизнес-метрики</h3>
-                        <p>Каждое наше решение направлено на оптимизацию расходов, рост конверсии и автоматизацию процессов ручного труда.</p>
-                    </div>
+        <div class="section-container hero-container">
+            <h1 class="hero-title"><span id="changing-text">Создаём сайты</span></h1>
+            <p class="hero-subtitle">Собираем всё, что нужно бизнесу в интернете, — от лендинга до CRM. Дизайн, разработка, запуск и поддержка.</p>
+            
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Обсудить проект →</a>
+                <a href="#portfolio" class="btn btn-secondary">Наши работы</a>
+            </div>
+        </div>
+        
+        <div class="hero-footer-info">
+            <span class="brand-copy">АРХИТЕКТ ДИДЖИТАЛ © 2026</span>
+            <span class="status-indicator">● Принимаем заказы · Работаем по всей России</span>
+            <a href="#solutions" class="scroll-down">СМОТРЕТЬ ↓</a>
+        </div>
+    </section>
+
+    <!-- БЛОК: РЕШЕНИЯ -->
+    <section id="solutions" class="solutions-section reveal">
+        <div class="section-container">
+            <p class="section-tag">// Наша экспертиза</p>
+            <h2 class="section-title">Цифровая инженерия <br>для ваших задач</h2>
+            <div class="philosophy-grid">
+                <div class="phil-card">
+                    <span class="phil-num">01</span>
+                    <h3>Лендинги и Промо</h3>
+                    <p>Высококонверсионные посадочные страницы с премиальным дизайном, быстрой загрузкой и глубокой проработкой смыслов вашего бизнеса.</p>
+                </div>
+                <div class="phil-card">
+                    <span class="phil-num">02</span>
+                    <h3>Платформы и Сервисы</h3>
+                    <p>Проектирование и разработка сложных многостраничных порталов, личных кабинетов и внутренних экосистем под ключ.</p>
+                </div>
+                <div class="phil-card">
+                    <span class="phil-num">03</span>
+                    <h3>Интеграция CRM</h3>
+                    <p>Автоматизируем ваш отдел продаж. Настройка сквозной аналитики, интеграция CRM-систем и автоматический сбор заявок.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- СЕКЦИЯ: ПРЕИМУЩЕСТВА -->
-        <section class="process-section reveal">
-            <div class="section-container advantages-grid">
-                <div class="advantages-left">
-                    <p class="adv-subtitle">// НАШИ РЕЗУЛЬТАТЫ</p>
-                    <h2 class="adv-title">Цифры, которые<br>говорят сами за себя</h2>
-                    <p class="adv-description">Мы не просто пишем код — мы создаем работающий цифровой актив для вашего бизнеса. Интегрируем CRM, ERP, настраиваем сквозную аналитику и обеспечиваем безупречную отказоустойчивость систем.</p>
-                    <div class="metrics-grid">
-                        <div class="metric-item">
-                            <div class="metric-num text-gradient">99.9%</div>
-                            <div class="metric-label">Uptime систем</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-num text-gradient">x2.4</div>
-                            <div class="metric-label">Рост конверсии</div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-num text-gradient">&lt;1.2s</div>
-                            <div class="metric-label">Загрузка страниц</div>
-                        </div>
+    <!-- БЛОК: ПОРТФОЛИО -->
+    <section id="portfolio" class="portfolio-section reveal">
+        <div class="section-container">
+            <p class="section-tag">// Портфолио</p>
+            <h2 class="section-title">Проекты, которые <br>меняют индустрию</h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-img-placeholder"></div>
+                    <div class="project-info">
+                        <span class="project-category">E-commerce / Web-App</span>
+                        <h3>Quantum Store</h3>
+                        <p>Интеллектуальная торговая платформа со сложной логикой фильтрации и мгновенным чекаутом.</p>
                     </div>
                 </div>
-                <div class="advantages-right">
-                    <div class="adv-right-header">
-                        <span>ТЕХНОЛОГИЧЕСКИЙ АУДИТ</span>
-                        <span>STATUS: OK</span>
-                    </div>
-                    <div class="adv-list">
-                        <div class="adv-list-item">
-                            <div class="adv-item-content">
-                                <h3>Enterprise Архитектура</h3>
-                                <p>Готовность к миллионным нагрузкам</p>
-                            </div>
-                            <div class="adv-checkmark">[READY]</div>
-                        </div>
-                        <div class="adv-list-item">
-                            <div class="adv-item-content">
-                                <h3>Интеграция с любыми CRM/ERP</h3>
-                                <p>1С, SAP, AmoCRM, Битрикс24</p>
-                            </div>
-                            <div class="adv-checkmark">[READY]</div>
-                        </div>
-                        <div class="adv-list-item">
-                            <div class="adv-item-content">
-                                <h3>Безопасность данных</h3>
-                                <p>Шифрование сквозного уровня</p>
-                            </div>
-                            <div class="adv-checkmark">[SECURE]</div>
-                        </div>
+                <div class="project-card">
+                    <div class="project-img-placeholder"></div>
+                    <div class="project-info">
+                        <span class="project-category">Corporate / FinTech</span>
+                        <h3>Apex Capital</h3>
+                        <p>Высокотехнологичный корпоративный портал для инвестиционного фонда с интерактивными графиками.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- СЕКЦИЯ: ПОРТФОЛИО (ТРЕХБЛОЧНЫЙ ПРЕМИУМ BENTO С ТВОИМИ ПРОЕКТАМИ) -->
-        <section id="portfolio" class="portfolio-section reveal">
-            <div class="section-container">
-                <p class="section-tag">// ИЗБРАННЫЕ КЕЙСЫ</p>
-                <h2 class="section-title">Проекты, которыми<br>мы гордимся</h2>
-                <div class="portfolio-grid">
-                    
-                    <!-- Кейс 1: UNITRUS (Главный Флагман - На всю ширину за счет стилей сетки) -->
-                    <div class="project-card" style="grid-column: 1 / -1;">
-                        <div class="project-img-placeholder" style="height: 300px; display: flex; align-items: flex-end; padding: 24px; background: linear-gradient(180deg, rgba(6,8,9,0) 0%, rgba(6,8,9,0.8) 100%); position: relative;">
-                            <div style="position: absolute; top: 24px; right: 24px; background: #ffffff; color: #000; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 1px;">PRODUCTION LIVE</div>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">Full-Cycle Production • E-Commerce • Operations</span>
-                            <h3>UNITRUS.RU — Мерч под ключ</h3>
-                            <p style="margin-bottom: 20px;">Разработка, запуск и полное операционное проектирование российского b2b-сервиса по созданию корпоративной одежды. Реализован полный цикл: от проектирования высокопроизводительного веб-интерфейса до настройки сложной логистической цепочки (производство на фабриках в Китае → доставка в Казань → дистрибуция по всей РФ). Интегрирована система кастомизации продуктов (худи 320–450 г/м², свитшоты, вышивка, шелкография, DTF-печать) с автоматизацией b2b-заказов.</p>
-                            <a href="https://unitrus.ru" target="_blank" class="text-gradient" style="text-decoration: none; font-weight: 500; font-size: 14px;">Перейти на сайт проекта ↗</a>
-                        </div>
-                    </div>
-
-                    <!-- Кейс 2: FIRE RUN (Левая карточка) -->
-                    <div class="project-card">
-                        <div class="project-img-placeholder" style="position: relative;">
-                            <div style="position: absolute; top: 24px; right: 24px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 4px; letter-spacing: 1px;">CONCEPT STAGE</div>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">UI/UX • Branding • Ecosystem</span>
-                            <h3>FIRE RUN Community</h3>
-                            <p>Проектирование цифровой экосистемы и визуального стиля для технологичного бегового сообщества. Разработка концепции интерактивного интерфейса, уникальной графической айдентики и премиальной линейки спортивного мерча.</p>
-                        </div>
-                    </div>
-
-                    <!-- Кейс 3: Tracker App (Правая карточка) -->
-                    <div class="project-card">
-                        <div class="project-img-placeholder" style="position: relative;">
-                            <div style="position: absolute; top: 24px; right: 24px; background: rgba(0, 242, 254, 0.2); border: 1px solid rgba(0, 242, 254, 0.4); color: #00f2fe; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 4px; letter-spacing: 1px;">MVP STAGE</div>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">Web App • Architecture • Dashboard</span>
-                            <h3>Digital Tracker System</h3>
-                            <p>Инженерная разработка прототипа системы цифрового мониторинга. Чистая модульная архитектура, оптимизированный Python бэкенд и отзывчивый интерфейс для комплексного контроля аналитических данных.</p>
-                        </div>
-                    </div>
-
+    <!-- БЛОК: ПРОЦЕСС -->
+    <section id="process" class="process-section reveal">
+        <div class="section-container advantages-grid">
+            <div class="advantages-left">
+                <p class="adv-subtitle">// Прозрачный пайплайн</p>
+                <h2 class="adv-title">Как мы создаем<br>результат.</h2>
+                <p class="adv-description">Мы делим разработку на понятные спринты. Вы видите прогресс в реальном времени и контролируете каждый этап.</p>
+                <div class="metrics-grid">
+                    <div class="metric-item"><span class="metric-num text-gradient">100%</span><span class="metric-label">Соблюдение сроков</span></div>
+                    <div class="metric-item"><span class="metric-num text-gradient">24/7</span><span class="metric-label">На связи с вами</span></div>
+                    <div class="metric-item"><span class="metric-num text-gradient">&lt;1 сек</span><span class="metric-label">Скорость отклика</span></div>
                 </div>
             </div>
-        </section>
-
-        <!-- СЕКЦИЯ: ТАРИФЫ -->
-        <section id="pricing" class="pricing-section reveal">
-            <div class="section-container">
-                <p class="pricing-subtitle">// СТОИМОСТЬ РАЗРАБОТКИ</p>
-                <h2 class="pricing-main-title">Прозрачные условия<br>под любые бизнес-задачи</h2>
-                <div class="pricing-grid">
-                    <div class="price-card">
-                        <div class="card-num">01 / MVP</div>
-                        <h3 class="card-title">Стартап</h3>
-                        <div class="card-price">от 450к</div>
-                        <ul class="card-features">
-                            <li><span>✓</span> Проектирование прототипа</li>
-                            <li><span>✓</span> Индивидуальный UI/UX дизайн</li>
-                            <li><span>✓</span> Фронтенд + Базовая админка</li>
-                            <li><span>✓</span> Запуск за 4 недели</li>
-                        </ul>
-                        <a href="#contact" class="price-btn">Выбрать пакет</a>
-                    </div>
-                    <div class="price-card hit-card">
-                        <div class="hit-badge">ПОПУЛЯРНО</div>
-                        <div class="card-num">02 / CORE</div>
-                        <h3 class="card-title">Бизнес</h3>
-                        <div class="card-price">от 950к</div>
-                        <ul class="card-features">
-                            <li><span>✓</span> Глубокая бизнес-аналитика</li>
-                            <li><span>✓</span> Сложные анимации и 3D элементы</li>
-                            <li><span>✓</span> Интеграция с учетными системами</li>
-                            <li><span>✓</span> Оптимизация под высокие нагрузки</li>
-                        </ul>
-                        <a href="#contact" class="price-btn btn-hit">Обсудить детали</a>
-                    </div>
-                    <div class="price-card">
-                        <div class="card-num">03 / CUSTOM</div>
-                        <h3 class="card-title">Enterprise</h3>
-                        <div class="card-price">Индивидуально</div>
-                        <ul class="card-features">
-                            <li><span>✓</span> Архитектура под миллионы сессий</li>
-                            <li><span>✓</span> Проектирование экосистем приложений</li>
-                            <li><span>✓</span> Личный выделенный тимлид и PM</li>
-                            <li><span>✓</span> NDA и повышенный уровень безопасности</li>
-                        </ul>
-                        <a href="#contact" class="price-btn">Связаться</a>
-                    </div>
+            <div class="advantages-right">
+                <div class="adv-right-header"><span class="adv-right-title">Этапы работы</span><span class="adv-status-badge">● Под ключ</span></div>
+                <div class="adv-list">
+                    <div class="adv-list-item"><div class="adv-item-content"><h3>1. Аналитика и дизайн</h3><p>Изучаем нишу, проектируем UI/UX прототипы будущей системы.</p></div><span class="adv-checkmark">01</span></div>
+                    <div class="adv-list-item"><div class="adv-item-content"><h3>2. Разработка</h3><p>Пишем чистый, оптимизированный код, собираем фронтенд и бэкенд.</p></div><span class="adv-checkmark">02</span></div>
+                    <div class="adv-list-item"><div class="adv-item-content"><h3>3. Тестирование и запуск</h3><p>Проверяем на всех девайсах, подключаем домен и выкатываем в прод.</p></div><span class="adv-checkmark">03</span></div>
+                    <div class="adv-list-item"><div class="adv-item-content"><h3>4. Поддержка</h3><p>Следим за стабильностью работы, обновляем контент и развиваем проект.</p></div><span class="adv-checkmark">04</span></div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- СЕКЦИЯ: КОНТАКТЫ -->
-        <section id="contact" class="contact-section reveal">
-            <div class="section-container contact-container">
-                <div class="contact-left">
-                    <h2 class="contact-title">Начнем создание<br>вашего лидера рынка?</h2>
-                    <p class="contact-desc">Оставьте заявку. Мы проведем экспресс-анализ вашей ниши, подготовим технологическую карту и предложим варианты реализации в течение 24 часов.</p>
+    <!-- БЛОК: ТАРИФЫ -->
+    <section id="pricing" class="pricing-section reveal">
+        <div class="section-container">
+            <p class="pricing-subtitle">// Стоимость</p>
+            <h2 class="pricing-main-title">Прозрачные условия,<br>фиксированный бюджет</h2>
+            <div class="pricing-grid">
+                <div class="price-card hit-card">
+                    <div class="hit-badge">ХИТ</div>
+                    <span class="card-num">01</span>
+                    <h3 class="card-title"><span class="text-gradient">Лендинг</span></h3>
+                    <div class="card-price">от 25 000 <span class="rub">₽</span></div>
+                    <ul class="card-features">
+                        <li><span>✓</span> Индивидуальный дизайн</li>
+                        <li><span>✓</span> Полная адаптивная вёрстка</li>
+                        <li><span>✓</span> Формы обратной связи</li>
+                    </ul>
+                    <a href="#contact" class="price-btn btn-hit">Заказать →</a>
                 </div>
-                <div class="contact-right">
-                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Заявка отправлена!');">
-                        <input type="text" placeholder="Ваше имя" required>
-                        <input type="email" placeholder="Email для связи" required>
-                        <textarea placeholder="Опишите кратко вашу задачу" rows="5" required></textarea>
-                        <button type="submit" class="btn btn-primary" style="border:none; width: 100%;">Запустить проект в работу</button>
-                    </form>
+                <div class="price-card">
+                    <span class="card-num">02</span>
+                    <h3 class="card-title"><span class="text-gradient">Мультисайт / CRM</span></h3>
+                    <div class="card-price">от 45 000 <span class="rub">₽</span></div>
+                    <ul class="card-features">
+                        <li><span>✓</span> Сложная структура</li>
+                        <li><span>✓</span> Настройка CRM и воронки</li>
+                    </ul>
+                    <a href="#contact" class="price-btn">Заказать →</a>
+                </div>
+                <div class="price-card">
+                    <span class="card-num">03</span>
+                    <h3 class="card-title"><span class="text-gradient">ИТ-Платформа</span></h3>
+                    <div class="card-price">от 80 000 <span class="rub">₽</span></div>
+                    <ul class="card-features">
+                        <li><span>✓</span> Кастомный бэкенд и API</li>
+                        <li><span>✓</span> Личные кабинеты пользователей</li>
+                    </ul>
+                    <a href="#contact" class="price-btn secondary-style">Обсудить →</a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- БЛОК: КОНТАКТЫ -->
+    <section id="contact" class="contact-section reveal">
+        <div class="section-container contact-container">
+            <div class="contact-left">
+                <h2 class="contact-title">Спроектируем<br>ваш успех вместе</h2>
+                <p class="contact-desc">Оставьте заявку, и мы бесплатно проконсультируем вас по архитектуре вашего будущего проекта.</p>
+            </div>
+            <div class="contact-right">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Сообщение отправлено!');">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Email для связи" required>
+                    <textarea placeholder="Какая задача стоит перед вашим бизнесом?" rows="4" required></textarea>
+                    <button type="submit" class="btn btn-primary">Отправить бриф →</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- ПОДВАЛ -->
     <footer class="site-footer">
-        <div class="footer-bg-text">ARCHITECT</div>
+        <div class="footer-bg-text">АРХИТЕКТ</div>
         <div class="footer-content">
-            <div class="footer-status">// GLOBAL CONNECTION SECURED</div>
+            <p class="footer-status">● Принимаем заказы · Работаем по всей России</p>
             <div class="footer-contacts">
-                <a href="mailto:hello@architect.digital" class="footer-link">hello@architect.digital</a>
+                <a href="mailto:ilhamzakir@mail.ru" class="footer-link">ilhamzakir@mail.ru</a>
+                <a href="tel:+79600810619" class="footer-link">+7 960 081 06 19</a>
             </div>
             <div class="footer-legal-links">
                 <a href="#">Политика конфиденциальности</a>
-                <a href="#">Условия использования</a>
-                <a href="#">Cookies</a>
+                <a href="#">Согласие на обработку ПДн</a>
             </div>
             <div class="footer-bottom-info">
-                <span>© 2026 ARCHITECT DIGITAL. ALL RIGHTS RESERVED.</span>
-                <span class="tax-info">ИНН: 771445903211 | ОГРНИП: 324774600192834</span>
+                <p>© 2026 Архитект Диджитал. Все права защищены.</p>
+                <p class="tax-info">Самозанятый Закиров Ильгам Радикович</p>
             </div>
         </div>
     </footer>
 
-    <!-- СКРИПТЫ АНИМАЦИИ И ЧАСТИЦ -->
+    <!-- СКРИПТЫ С ПЛАВНЫМ СГЛУШЕННЫМ ШЛЕЙФОМ -->
     <script>
-        // 1. АНИМАЦИЯ ПОЯВЛЕНИЯ СЕКЦИЙ ПРИ СКРОЛЛЕ (REVEAL)
-        function revealSections() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(reveal => {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveal.getBoundingClientRect().top;
-                const elementVisible = 120;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveal.classList.add('active');
-                }
-            });
-        }
-        window.addEventListener('scroll', revealSections);
-        window.addEventListener('load', revealSections);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        // 2. ИНТЕРФЕЙСНЫЙ ЗАДНИЙ ФОН: СИСТЕМА ЧАСТИЦ (PARTICLES)
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.4;
-                this.speedY = (Math.random() - 0.5) * 0.4;
-                this.alpha = Math.random() * 0.5 + 0.1;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                else if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                else if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(0, 242, 254, ${this.alpha})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            particles = [];
-            const count = Math.min(Math.floor(canvas.width / 15), 100);
-            for (let i = 0; i < count; i++) {
-                particles.push(new Particle());
-            }
-        }
-        initParticles();
-        window.addEventListener('resize', initParticles);
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // 3. ИНТЕРПОЛЯЦИЯ ПЛАВНОГО ЖИДКОГО КУРСОРA (LERP)
-        const cursor = document.querySelector('.fluid-cursor');
+        // ИНТЕРПОЛЯЦИЯ ПЛАВНОГО ШЛЕЙФА ДЛЯ МЫШИ (LERP)
+        const tail = document.querySelector('.fluid-tail');
         let mX = 0, mY = 0; 
         let tX = 0, tY = 0; 
 
@@ -339,30 +222,109 @@
             mY = e.clientY;
         });
 
-        function renderCursor() {
+        function renderTail() {
             let dx = mX - tX;
             let dy = mY - tY;
             
-            // Мягкое следование с эффектом "жидкости"
-            tX += dx * 0.15;
-            tY += dy * 0.15;
+            // Задержка следования (0.12 делает шлейф очень мягким и тягучим)
+            tX += dx * 0.12;
+            tY += dy * 0.12;
 
             let speed = Math.sqrt(dx * dx + dy * dy);
-            // Динамическое растягивание капли по направлению движения
-            let scaleX = 1 + Math.min(speed / 90, 0.6);
-            let scaleY = 1 - Math.min(speed / 90, 0.3);
+            let scaleX = 1 + Math.min(speed / 120, 0.5);
+            let scaleY = 1 - Math.min(speed / 120, 0.3);
             let angle = Math.atan2(dy, dx);
 
-            cursor.style.transform = `translate(${tX}px, ${tY}px) rotate(${angle}rad) scale(${scaleX}, ${scaleY})`;
-            requestAnimationFrame(renderCursor);
+            tail.style.transform = `translate(${tX}px, ${tY}px) rotate(${angle}rad) scale(${scaleX}, ${scaleY})`;
+            requestAnimationFrame(renderTail);
         }
-        renderCursor();
+        renderTail();
 
-        // Эффект прилипания/расширения (hovered) при наведении на элементы бизнеса
-        document.querySelectorAll('a, button, input, textarea, .price-card, .adv-list-item, .project-card').forEach((el) => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        // Эффект расширения капли при наведении на кнопки
+        document.querySelectorAll('a, button, input, textarea, .price-card, .adv-list-item').forEach((el) => {
+            el.addEventListener('mouseenter', () => tail.classList.add('tail-hover'));
+            el.addEventListener('mouseleave', () => tail.classList.remove('tail-hover'));
         });
+
+        // Смена фраз на главном экране
+        const phrases = ["Создаём сайты", "Создаём платформы", "Проектируем экосистемы"];
+        let currentPhraseIndex = 0;
+        const changingTextEl = document.getElementById('changing-text');
+
+        setInterval(() => {
+            changingTextEl.style.opacity = 0;
+            changingTextEl.style.transform = "translateY(-8px)";
+            setTimeout(() => {
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                changingTextEl.textContent = phrases[currentPhraseIndex];
+                changingTextEl.style.opacity = 1;
+                changingTextEl.style.transform = "translateY(0)";
+            }, 600);
+        }, 3500);
+
+        // ПЕРВОЗДАННЫЙ БИРЮЗОВЫЙ ХОЛСТ
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        let sMouse = { x: null, y: null, radius: 160 };
+        window.addEventListener('mousemove', (e) => { sMouse.x = e.clientX; sMouse.y = e.clientY; });
+        window.addEventListener('mouseleave', () => { sMouse.x = null; sMouse.y = null; });
+
+        const particlesCount = 450;
+        const sphereRadius = Math.min(width, height) * 0.28; 
+        let particles = [];
+        const chars = ["A", "P", "X", "I", "T", "E", "K", "T"];
+
+        class Particle3D {
+            constructor() {
+                this.theta = Math.random() * Math.PI * 2;
+                this.phi = Math.acos((Math.random() * 2) - 1);
+                this.x3d = sphereRadius * Math.sin(this.phi) * Math.cos(this.theta);
+                this.y3d = sphereRadius * Math.sin(this.phi) * Math.sin(this.theta);
+                this.z3d = sphereRadius * Math.cos(this.phi);
+                this.char = chars[Math.floor(Math.random() * chars.length)];
+                this.colorValue = Math.random() > 0.15 ? '#00f2fe' : '#ffffff';
+            }
+            update(angleX, angleY) {
+                let y1 = this.y3d * Math.cos(angleX) - this.z3d * Math.sin(angleX);
+                let z1 = this.y3d * Math.sin(angleX) + this.z3d * Math.cos(angleX);
+                let x2 = this.x3d * Math.cos(angleY) + z1 * Math.sin(angleY);
+                let z2 = -this.x3d * Math.sin(angleY) + z1 * Math.cos(angleY);
+
+                let sX = (width * 0.72) + x2 * (600 / (600 + z2));
+                let sY = (height * 0.5) + y1 * (600 / (600 + z2));
+
+                let dx = sMouse.x - sX;
+                let dy = sMouse.y - sY;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < sMouse.radius && sMouse.x !== null) {
+                    let force = (sMouse.radius - dist) / sMouse.radius;
+                    sX -= (dx / dist) * force * 45;
+                    sY -= (dy / dist) * force * 45;
+                }
+
+                ctx.fillStyle = this.colorValue;
+                ctx.globalAlpha = ((z2 + sphereRadius) / (sphereRadius * 2) * 0.75) + 0.25;
+                ctx.font = `${Math.floor(11 * (600 / (600 + z2)))}px monospace`;
+                ctx.fillText(this.char, sX, sY);
+            }
+        }
+
+        for (let i = 0; i < particlesCount; i++) { particles.push(new Particle3D()); }
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => p.update(0.0018, 0.0022));
+            requestAnimationFrame(animate);
+        }
+        animate();
     </script>
 </body>
 </html>
