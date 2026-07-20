@@ -11,7 +11,7 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    cursor: none; /* Прячем дефолтную стрелку */
+    cursor: default; /* Возвращаем стандартную удобную стрелку мыши */
 }
 
 .section-container {
@@ -21,47 +21,44 @@ body {
     padding: 0 80px;
 }
 
-/* ЖИДКОСТНЫЙ КУРСОР-КАПЛЯ (ФИЗИКА) */
-.blob-cursor {
-    width: 14px;
-    height: 14px;
-    background-color: #00f2fe;
+/* ЭЛЕГАНТНЫЙ ШЛЕЙФ-КАПЛЯ НА ФОНЕ СТРЕЛКИ */
+.fluid-tail {
+    width: 18px;
+    height: 18px;
+    background-color: rgba(0, 242, 254, 0.35); /* Фирменный бирюзовый полупрозрачный */
     border-radius: 50%;
     position: fixed;
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: normal;
-    /* Убираем обычный CSS transition, так как задержка считается через JS-скрипт */
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    z-index: 9998;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
     will-change: transform;
 }
 
-/* Эффект капли при наведении на интерактивный контент */
-.blob-cursor.blob-hover {
-    width: 45px;
-    height: 45px;
-    background-color: rgba(0, 242, 254, 0.12);
-    border: 1px solid #00f2fe;
-    box-shadow: 0 0 25px rgba(0, 242, 254, 0.2);
-    transform-origin: center center;
+/* При наведении на кликабельный контент капля мягко расширяется */
+.fluid-tail.tail-hover {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(0, 242, 254, 0.08);
+    border: 1px solid rgba(0, 242, 254, 0.6);
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.25);
 }
 
-/* ГРАДИЕНТЫ И АКЦЕНТЫ */
+/* ПЕРВОЗДАННЫЙ БИРЮЗОВЫЙ ГРАДИЕНТ */
 .text-gradient {
-    background: linear-gradient(135deg, #00f2fe 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
 
-/* ПЛАВНОЕ ПРОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ */
+/* ПЛАВНОСТЬ ВСЕХ СЕКЦИЙ ПРИ СКРОЛЛЕ */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1), transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+    transform: translateY(35px);
+    transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.active {
@@ -69,7 +66,7 @@ body {
     transform: translateY(0);
 }
 
-/* НАВИГАЦИЯ */
+/* ШАПКА */
 .site-header {
     position: fixed;
     top: 0;
@@ -77,9 +74,8 @@ body {
     width: 100%;
     z-index: 100;
     background-color: rgba(6, 8, 9, 0.75);
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    transition: all 0.4s ease;
 }
 
 .header-container {
@@ -97,9 +93,7 @@ body {
     color: #ffffff;
     text-decoration: none;
     letter-spacing: 2px;
-    transition: transform 0.3s cubic-bezier(0.2, 1, 0.2, 1);
 }
-.logo:hover { transform: scale(1.03); }
 
 .main-nav {
     display: flex;
@@ -111,18 +105,10 @@ body {
     color: #86868b;
     text-decoration: none;
     font-size: 14px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s, transform 0.3s;
 }
 
-.main-nav a:hover {
-    color: #00f2fe;
-}
-
-.main-nav a.nav-ai {
-    color: #00f2fe;
-    font-weight: 500;
-    position: relative;
-}
+.main-nav a:hover { color: #00f2fe; }
 
 .main-nav a.nav-cta {
     background-color: #ffffff;
@@ -137,7 +123,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* HERO ГЛАВНЫЙ ЭКРАН */
+/* ГЛАВНЫЙ ЭКРАН */
 .hero-section {
     height: 100vh;
     display: flex;
@@ -171,12 +157,6 @@ body {
     min-height: 110px;
 }
 
-#changing-text {
-    display: inline-block;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    color: #ffffff;
-}
-
 .hero-subtitle {
     font-size: 19px;
     color: #86868b;
@@ -185,11 +165,7 @@ body {
     margin-bottom: 40px;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 16px;
-    pointer-events: auto;
-}
+.hero-buttons { display: flex; gap: 16px; pointer-events: auto; }
 
 .btn {
     padding: 15px 32px;
@@ -198,14 +174,13 @@ body {
     font-size: 14px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .btn-primary { background-color: #ffffff; color: #000000; font-weight: 500; }
-.btn-primary:hover { background-color: #00f2fe; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 242, 254, 0.25); }
-
-.btn-secondary {
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+.btn-primary:hover { 
+    background-color: #00f2fe; 
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3); 
 }
+.btn-secondary { border: 1px solid rgba(255, 255, 255, 0.15); color: #ffffff; }
 .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.04); transform: translateY(-3px); }
 
 .hero-footer-info {
@@ -221,13 +196,11 @@ body {
     color: #444;
     z-index: 2;
 }
-
 .status-indicator { color: #00f2fe; font-weight: 500; }
-.scroll-down { color: #ffffff; text-decoration: none; transition: opacity 0.3s; }
-.scroll-down:hover { opacity: 0.7; }
+.scroll-down { color: #ffffff; text-decoration: none; }
 
-/* СЕКЦИИ И СЕТКИ С ПЛАВНЫМ ХОВЕРОМ КАРТОЧЕК */
-.solutions-section, .portfolio-section, .process-section, .pricing-section, .blog-section, .contact-section {
+/* СЕКЦИИ САЙТА И КАРТОЧКИ */
+.solutions-section, .portfolio-section, .process-section, .pricing-section, .contact-section {
     padding: 140px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
@@ -248,19 +221,9 @@ body {
     line-height: 1.15;
 }
 
-.philosophy-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-}
-
-.phil-card { 
-    border-top: 1px solid rgba(255, 255, 255, 0.08); 
-    padding-top: 28px; 
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.phil-card:hover { transform: translateY(-5px); border-color: #00f2fe; }
-.phil-num { font-size: 12px; color: #444; display: block; margin-bottom: 16px; }
+.philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.phil-card { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 28px; transition: transform 0.4s ease; }
+.phil-card:hover { transform: translateY(-4px); border-color: #00f2fe; }
 .phil-card h3 { font-size: 22px; margin-bottom: 14px; transition: color 0.3s; }
 .phil-card:hover h3 { color: #00f2fe; }
 .phil-card p { color: #86868b; font-size: 15px; line-height: 1.6; }
@@ -274,7 +237,7 @@ body {
 .advantages-right { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); padding: 40px; border-radius: 20px; }
 .adv-right-header { display: flex; justify-content: space-between; margin-bottom: 24px; font-size: 13px; color: #555; }
 .adv-list-item { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.04); transition: padding 0.3s; }
-.adv-list-item:hover { padding-left: 8px; border-color: rgba(0, 242, 254, 0.3); }
+.adv-list-item:hover { padding-left: 6px; border-color: rgba(0, 242, 254, 0.4); }
 .adv-item-content h3 { font-size: 17px; margin-bottom: 6px; }
 .adv-item-content p { font-size: 14px; color: #666; }
 .adv-checkmark { font-size: 14px; color: #444; font-family: monospace; }
@@ -288,43 +251,41 @@ body {
     border-radius: 20px; 
     display: flex; 
     flex-direction: column; 
-    position: relative;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.price-card:hover { transform: translateY(-8px); border-color: rgba(0, 242, 254, 0.4); background: rgba(255, 255, 255, 0.015); }
-.hit-card { border-color: rgba(255,255,255,0.3); }
+.price-card:hover { transform: translateY(-6px); border-color: rgba(0, 242, 254, 0.4); }
+.hit-card { border-color: rgba(255,255,255,0.25); position: relative; }
 .hit-card:hover { border-color: #00f2fe; }
-.hit-badge { position: absolute; top: -10px; left: 36px; background: #ffffff; color: #000; font-size: 10px; font-weight: 700; padding: 3px 12px; border-radius: 4px; letter-spacing: 1px;}
+.hit-badge { position: absolute; top: -10px; left: 36px; background: #ffffff; color: #000; font-size: 10px; font-weight: 700; padding: 3px 12px; border-radius: 4px; }
 .card-num { font-size: 12px; color: #444; margin-bottom: 20px; }
 .card-title { font-size: 26px; margin-bottom: 24px; }
 .card-price { font-size: 38px; font-weight: 600; margin-bottom: 36px; }
 .card-features { list-style: none; margin-bottom: 44px; flex-grow: 1; display: flex; flex-direction: column; gap: 14px; font-size: 14px; color: #86868b; }
 .card-features span { color: #00f2fe; margin-right: 4px; }
-.price-btn { padding: 15px; border-radius: 14px; text-align: center; border: 1px solid rgba(255,255,255,0.1); color: #fff; text-decoration: none; font-size: 14px; transition: all 0.3s ease; }
-.price-btn:hover { border-color: #00f2fe; color: #00f2fe; background-color: rgba(0, 242, 254, 0.03); }
+.price-btn { padding: 15px; border-radius: 14px; text-align: center; border: 1px solid rgba(255,255,255,0.1); color: #fff; text-decoration: none; font-size: 14px; transition: all 0.3s; }
+.price-btn:hover { border-color: #00f2fe; color: #00f2fe; background-color: rgba(0, 242, 254, 0.02); }
 .btn-hit { background: #fff; color: #000; border: none; font-weight: 600; }
 .btn-hit:hover { background: #00f2fe; color: #000; }
 
-/* КЕЙСЫ */
+/* ПОРТФОЛИО */
 .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.project-card { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 20px; overflow: hidden; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-.project-card:hover { transform: translateY(-6px); border-color: rgba(0, 242, 254, 0.3); }
-.project-img-placeholder { width: 100%; height: 360px; background-color: rgba(255, 255, 255, 0.01); transition: background-color 0.4s; }
-.project-card:hover .project-img-placeholder { background-color: rgba(0, 242, 254, 0.02); }
+.project-card { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 20px; overflow: hidden; transition: all 0.5s ease; }
+.project-card:hover { transform: translateY(-5px); border-color: rgba(0, 242, 254, 0.3); }
+.project-img-placeholder { width: 100%; height: 360px; background-color: rgba(255, 255, 255, 0.01); }
 .project-info { padding: 32px; }
 .project-category { font-size: 12px; color: #00f2fe; margin-bottom: 12px; display: block; }
 .project-info h3 { font-size: 24px; margin-bottom: 12px; }
 .project-info p { color: #86868b; font-size: 15px; line-height: 1.5; }
 
-/* ФОРМА */
+/* ФОРМА СВЯЗИ */
 .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 .contact-title { font-size: 52px; margin-bottom: 24px; letter-spacing: -1.5px; }
 .contact-desc { color: #86868b; font-size: 16px; line-height: 1.6; }
 .contact-form { display: flex; flex-direction: column; gap: 16px; }
-.contact-form input, .contact-form textarea { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 12px; color: #fff; font-family: inherit; font-size: 15px; transition: border-color 0.3s, background-color 0.3s; }
-.contact-form input:focus, .contact-form textarea:focus { border-color: #00f2fe; background-color: rgba(255,255,255,0.02); outline: none; }
+.contact-form input, .contact-form textarea { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 12px; color: #fff; font-family: inherit; font-size: 15px; transition: border-color 0.3s; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: #00f2fe; outline: none; }
 
-/* ФУТЕР */
+/* ПОДВАЛ */
 .site-footer {
     padding: 100px 0 60px 0;
     position: relative;
@@ -340,7 +301,7 @@ body {
     transform: translateX(-50%);
     font-size: 13vw;
     font-weight: 800;
-    color: rgba(0, 242, 254, 0.012); /* Нежный бирюзовый отблеск огромных букв */
+    color: rgba(0, 242, 254, 0.015); /* Нежный бирюзовый отблеск огромных букв */
     letter-spacing: 30px;
     pointer-events: none;
     user-select: none;
@@ -361,69 +322,19 @@ body {
     text-align: center;
 }
 
-.footer-status {
-    color: #00f2fe;
-    font-size: 14px;
-    font-family: monospace;
-    margin-bottom: 24px;
-    letter-spacing: 0.5px;
-}
-
-.footer-contacts {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.footer-link {
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.footer-link:hover {
-    color: #00f2fe;
-    transform: translateY(-2px);
-}
-
-.footer-legal-links {
-    display: flex;
-    gap: 32px;
-    margin-bottom: 48px;
-}
-
-.footer-legal-links a {
-    color: #4c4d50;
-    font-size: 13px;
-    text-decoration: none;
-    transition: color 0.3s;
-    border-bottom: 1px solid rgba(255,255,255,0.02);
-    padding-bottom: 2px;
-}
-
-.footer-legal-links a:hover {
-    color: #ffffff;
-}
-
-.footer-bottom-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    color: #333436;
-    font-size: 12px;
-    letter-spacing: 0.2px;
-}
-
-.tax-info {
-    color: #242526;
-}
+.footer-status { color: #00f2fe; font-size: 14px; font-family: monospace; margin-bottom: 24px; }
+.footer-contacts { display: flex; gap: 40px; margin-bottom: 40px; }
+.footer-link { color: #ffffff; font-size: 24px; font-weight: 500; text-decoration: none; transition: color 0.3s; }
+.footer-link:hover { color: #00f2fe; }
+.footer-legal-links { display: flex; gap: 32px; margin-bottom: 48px; }
+.footer-legal-links a { color: #4c4d50; font-size: 13px; text-decoration: none; }
+.footer-legal-links a:hover { color: #ffffff; }
+.footer-bottom-info { display: flex; flex-direction: column; gap: 8px; color: #333436; font-size: 12px; }
+.tax-info { color: #242526; }
 
 /* АДАПТИВНОСТЬ */
 @media (max-width: 1024px) {
-    body { cursor: auto; }
-    .blob-cursor { display: none; }
+    .fluid-tail { display: none; }
     .section-container, .hero-footer-info, .footer-content { padding: 0 40px; }
     .philosophy-grid, .advantages-grid, .pricing-grid, .contact-container, .portfolio-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero-title { font-size: 44px; min-height: 60px; }
