@@ -86,7 +86,7 @@ body {
     font-weight: 300;
 }
 
-/* 5. КНОПКИ */
+/* 5. КНОПКИ ГЛАВНОГО ЭКРАНА */
 .hero-actions {
     display: flex;
     gap: 24px;
@@ -125,10 +125,10 @@ body {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* 6. БЛОК КОНТАКТОВ */
-.contact-section {
+/* 6. СЕТКА БЛОКА ФИЛОСОФИИ */
+.philosophy-section {
     padding: 120px 80px;
-    background-color: #0d0d0d;
+    background-color: #0a0a0a;
     border-top: 1px solid #1a1a1a;
     width: 100%;
 }
@@ -146,6 +146,55 @@ body {
     margin-bottom: 48px;
     font-weight: 400;
     display: block;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.philosophy-item {
+    background-color: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    padding: 40px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.philosophy-item:hover {
+    border-color: #333333;
+}
+
+.philosophy-num {
+    font-size: 13px;
+    color: #525252;
+    font-family: monospace;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.philosophy-name {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.philosophy-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #a3a3a3;
+    font-weight: 300;
+}
+
+/* 7. БЛОК КОНТАКТОВ */
+.contact-section {
+    padding: 120px 80px;
+    background-color: #0d0d0d;
+    border-top: 1px solid #1a1a1a;
+    width: 100%;
 }
 
 .contact-content {
@@ -202,7 +251,7 @@ body {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* 7. МОБИЛЬНАЯ АДАПТАЦИЯ */
+/* 8. МОБИЛЬНАЯ АДАПТАЦИЯ */
 @media (max-width: 768px) {
     .header {
         padding: 24px;
@@ -214,6 +263,7 @@ body {
         padding: 0 24px;
         min-height: auto;
         margin-top: 40px;
+        margin-bottom: 60px;
     }
     .hero-title {
         font-size: 32px;
@@ -224,6 +274,16 @@ body {
     }
     .btn-primary, .btn-secondary {
         text-align: center;
+    }
+    .philosophy-section {
+        padding: 60px 24px;
+    }
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .philosophy-item {
+        padding: 24px;
     }
     .contact-section {
         padding: 60px 24px;
