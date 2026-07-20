@@ -222,3 +222,38 @@ body {
     .contact-links { flex-direction: column; gap: 16px; }
     .contact-btn { text-align: center; }
 }
+/* КИНЕМАТОГРАФИЧНЫЕ АНИМАЦИИ ПРОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (KASKADIA STYLE) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.99);
+    transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ДОПОЛНИТЕЛЬНЫЙ ЭФФЕКТ ДЛЯ МЯГКОГО ПОДЧЕРКИВАНИЯ ФЛАГМАНСКОЙ ССЫЛКИ */
+.project-link {
+    position: relative;
+    padding-bottom: 2px;
+}
+.project-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #00f2fe;
+    transform-origin: bottom right;
+    transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.project-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
