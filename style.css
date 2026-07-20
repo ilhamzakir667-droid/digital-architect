@@ -14,12 +14,39 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    cursor: none; /* Прячем стандартную стрелку мышки на десктопах */
 }
 
 .section-container {
     max-width: 1440px;
     margin: 0 auto;
     width: 100%;
+}
+
+/* КАСТОМНЫЙ КУРСОР-ПУЗЫРЬ */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00f2fe;
+    background-color: rgba(0, 242, 254, 0.05);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Пузырь не должен мешать кликам */
+    z-index: 9999;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Эффект увеличения пузыря при наведении */
+.custom-cursor.cursor-hover {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 242, 254, 0.15);
+    border-color: #4facfe;
+}
+
+.custom-cursor.cursor-leave {
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Градиентный текст */
@@ -42,7 +69,7 @@ body {
     transform: translateY(0);
 }
 
-/* Кнопки общего стиля */
+/* Кнопки */
 .btn {
     display: inline-block;
     padding: 16px 32px;
@@ -137,7 +164,7 @@ body {
 }
 
 /* ==========================================================================
-   ГЛАВНЫЙ ЭКРАН (HERO)
+   ГЛАВНЫЙ ЭКРАН С АНИМАЦИЕЙ СФЕР
    ========================================================================== */
 .hero-section {
     padding: 220px 80px 140px 80px;
@@ -172,7 +199,6 @@ body {
     gap: 20px;
 }
 
-/* Светящиеся сферы */
 .hero-background-effects {
     position: absolute;
     top: 0;
@@ -183,31 +209,44 @@ body {
     pointer-events: none;
 }
 
+/* Сферы с бесконечной плавной анимацией движения */
 .glow-orb {
     position: absolute;
     border-radius: 50%;
     filter: blur(140px);
-    opacity: 0.25;
+    opacity: 0.3;
 }
 
 .orb-1 {
     width: 500px;
     height: 500px;
     background: #00f2fe;
-    top: -100px;
+    top: -50px;
     right: -50px;
+    animation: floatOrb1 18s infinite alternate ease-in-out;
 }
 
 .orb-2 {
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     background: #4facfe;
     bottom: -100px;
     left: -100px;
+    animation: floatOrb2 22s infinite alternate ease-in-out;
+}
+
+@keyframes floatOrb1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-150px, 80px) scale(1.15); }
+}
+
+@keyframes floatOrb2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(180px, -100px) scale(0.9); }
 }
 
 /* ==========================================================================
-   БЛОК: ФИЛОСОФИЯ (PHILOSOPHY)
+   БЛОК: ФИЛОСОФИЯ
    ========================================================================== */
 .philosophy-section {
     padding: 140px 80px;
@@ -680,6 +719,8 @@ body {
 
 /* АДАПТИВНОСТЬ */
 @media (max-width: 1200px) {
+    body { cursor: auto; } /* Возвращаем стандартную мышь на мобилках */
+    .custom-cursor { display: none; }
     .hero-section, .philosophy-section, .advantages-section, .pricing-section, .portfolio-section, .contact-section { padding-left: 40px; padding-right: 40px; }
     .pricing-grid, .philosophy-grid, .portfolio-grid, .contact-container, .advantages-grid { grid-template-columns: 1fr; gap: 40px; }
     .advantages-left { position: static; }
