@@ -30,18 +30,26 @@
         </nav>
     </header>
 
-    <!-- Главный экран -->
+    <!-- Главный экран с интерактивным 3D шаром -->
     <main class="hero">
         <div class="hero-container">
             <p class="hero-subtitle">// Инженерный подход & Эстетика</p>
-            <h1 class="hero-title">Проектирую и создаю <span class="text-gradient">кастомные интерфейсы</span> премиум-уровня.</h1>
+            <!-- Динамический заголовок в стиле Каскадии -->
+            <h1 class="hero-title">
+                Создаём <br><span id="dynamic-text" class="text-gradient">сайты</span>
+            </h1>
             <p class="hero-description">
-                Разработка высокопроизводительных сайтов. Без шаблонов, компромиссов и лишнего мусора в коде. Только чистая архитектура, идеальная типографика и фокус на бизнес-задачи.
+                Разработка высокопроизводительных сайтов и систем. Без шаблонов, компромиссов и лишнего мусора в коде. Только чистая архитектура и фокус на бизнес-задачи.
             </p>
             <div class="hero-actions">
                 <a href="#contact" class="btn-primary">Обсудить проект</a>
                 <a href="#portfolio" class="btn-secondary">Смотреть кейсы ↓</a>
             </div>
+        </div>
+        
+        <!-- Холст для 3D сферы из рассыпающихся частиц -->
+        <div class="sphere-canvas-container">
+            <canvas id="sphereCanvas"></canvas>
         </div>
     </main>
 
@@ -74,13 +82,12 @@
         <div class="section-container">
             <h2 class="section-title">[ Избранные проекты / Кейсы ]</h2>
             <div class="portfolio-grid">
-                
                 <!-- Кейс 1: UNITRUS -->
                 <div class="portfolio-item full-width">
                     <div class="project-info">
                         <span class="project-tag">Full-Cycle Production • E-Commerce • Operations</span>
                         <h3 class="project-title">UNITRUS.RU — Мерч под ключ</h3>
-                        <p class="project-desc">Разработка, запуск и полное операционное проектирование российского b2b-сервиса по созданию корпоративной одежды. Реализован полный цикл: от проектирования высокопроизводительного веб-интерфейса до настройки сложной логистической цепочки (производство на фабриках в Китае → доставка в Казань → дистрибуция по всей РФ). Интегрирована система кастомизации продуктов (худи 320–450 г/м², свитшоты, вышивка, шелкография, DTF-печать) с автоматизацией b2b-заказов.</p>
+                        <p class="project-desc">Разработка, запуск и полное операционное проектирование российского b2b-сервиса по созданию корпоративной одежды. Реализован полный цикл: от проектирования высокопроизводительного веб-интерфейса до настройки сложной логистической цепочки (производство на фабриках в Китае → доставка в Казань → дистрибуция по всей РФ).</p>
                         <a href="https://unitrus.ru" target="_blank" class="project-link">Перейти на сайт проекта ↗</a>
                     </div>
                     <div class="project-visual unitrus-mock">
@@ -93,7 +100,7 @@
                     <div class="project-info">
                         <span class="project-tag">UI/UX • Branding • Ecosystem</span>
                         <h3 class="project-title">FIRE RUN Community</h3>
-                        <p class="project-desc">Проектирование цифровой экосистемы и визуального стиля для технологичного бегового сообщества. Разработка концепции интерактивного интерфейса, уникальной графической айдентики и премиальной линейки спортивного мерча.</p>
+                        <p class="project-desc">Проектирование цифровой экосистемы и визуального стиля для технологичного бегового сообщества.</p>
                     </div>
                     <div class="project-visual fire-run-mock">
                         <div class="mock-badge">Concept Stage</div>
@@ -105,13 +112,12 @@
                     <div class="project-info">
                         <span class="project-tag">Web App • Architecture • Dashboard</span>
                         <h3 class="project-title">Digital Tracker System</h3>
-                        <p class="project-desc">Инженерная разработка прототипа системы цифрового мониторинга. Чистая модульная архитектура, оптимизированный Python бэкенд и отзывчивый интерфейс для комплексного контроля аналитических данных.</p>
+                        <p class="project-desc">Инженерная разработка прототипа системы цифрового мониторинга. Чистая модульная архитектура.</p>
                     </div>
                     <div class="project-visual tracker-mock">
                         <div class="mock-badge">MVP Stage</div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -128,7 +134,7 @@
                     </div>
                     <div class="step-body">
                         <h3 class="step-title">Погружение и аудит бизнеса</h3>
-                        <p class="step-text">Созваниваемся, разбираем ваши бизнес-процессы, задачи сайта и боли целевой аудитории. Я изучаю конкурентов и предлагаю архитектурное решение.</p>
+                        <p class="step-text">Созваниваемся, разбираем ваши бизнес-процессы, задачи сайта и боли целевой аудитории.</p>
                     </div>
                 </div>
                 <div class="workflow-step">
@@ -138,27 +144,7 @@
                     </div>
                     <div class="step-body">
                         <h3 class="step-title">Интерактивный UI/UX прототип</h3>
-                        <p class="step-text">Создаю детальный черно-белый скелет будущего сайта. Прорабатываю логику переходов. Вы увидите, как работает сайт, еще до начала верстки.</p>
-                    </div>
-                </div>
-                <div class="workflow-step">
-                    <div class="step-meta">
-                        <span class="step-number">03</span>
-                        <span class="step-status">Код</span>
-                    </div>
-                    <div class="step-body">
-                        <h3 class="step-title">Чистая разработка и адаптивность</h3>
-                        <p class="step-text">Переношу дизайн в чистый, производительный код. Верстаю проект с упором на скорость загрузки и идеальное отображение на всех устройствах.</p>
-                    </div>
-                </div>
-                <div class="workflow-step">
-                    <div class="step-meta">
-                        <span class="step-number">04</span>
-                        <span class="step-status">Релиз</span>
-                    </div>
-                    <div class="step-body">
-                        <h3 class="step-title">Тестирование, запуск и поддержка</h3>
-                        <p class="step-text">Провожу тестирование, привязываю домен, настраиваю безопасность. После запуска я остаюсь на связи и слежу, чтобы все работало идеально.</p>
+                        <p class="step-text">Создаю детальный черно-белый скелет будущего сайта. Прорабатываю логику переходов.</p>
                     </div>
                 </div>
             </div>
@@ -171,82 +157,147 @@
             <h2 class="section-title">[ Начать сотрудничество ]</h2>
             <div class="contact-content">
                 <h3 class="contact-heading">Есть задача? Давайте создадим что-то стоящее.</h3>
-                <p class="contact-text">
-                    Если вам нужен сайт с чистой архитектурой, высокой производительностью и вниманием к деталям — напишите мне. Обсудим проект и подберем оптимальное инженерное решение.
-                </p>
                 <div class="contact-links">
                     <a href="https://t.me/zerokir" target="_blank" class="contact-btn telegram">Написать в Telegram</a>
-                    <a href="mailto:ilhamzakir@mail.ru" class="contact-btn email">Отправить email</a>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        // 1. АНИМАЦИЯ ПОЯВЛЕНИЯ ЭЛЕМЕНТОВ ПРИ СКРОЛЛЕ
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        // 1. АНИМАЦИЯ СКРОЛЛА
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, observerOptions);
         document.querySelectorAll('.reveal').forEach(section => observer.observe(section));
 
-        // 2. ФИЗИКА ЖИДКОГО КУРСОРA (FLUID BLOB)
+        // 2. ДИНАМИЧЕСКИЙ ЗАГOЛОВОК (САЙТЫ -> ПЛАТФОРМЫ)
+        const words = ["сайты", "платформы"];
+        let wordIndex = 0;
+        const txtElement = document.getElementById('dynamic-text');
+
+        function switchWord() {
+            txtElement.style.opacity = 0; // Плавно скрываем
+            setTimeout(() => {
+                wordIndex = (wordIndex + 1) % words.length;
+                txtElement.textContent = words[wordIndex];
+                txtElement.style.opacity = 1; // Плавно показываем
+            }, 600);
+        }
+        setInterval(switchWord, 4000); // Меняем каждые 4 секунды
+
+        // 3. ЖИДКИЙ КУРСОР
         const blob = document.querySelector('.fluid-cursor');
-        let mouseX = 0, mouseY = 0; // Координаты мыши
-        let blobX = 0, blobY = 0;   // Координаты жидкой капли
-
-        // Переменные для расчета скорости и деформации "воды"
-        let lastX = 0, lastY = 0;
-        let speed = 0;
-        let scale = 1;
-        let angle = 0;
-
+        let mouseX = 0, mouseY = 0, blobX = 0, blobY = 0, lastX = 0, lastY = 0, speed = 0, scale = 1, angle = 0;
         window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Считаем вектор скорости перемещения
-            let deltaX = mouseX - lastX;
-            let deltaY = mouseY - lastY;
-            speed = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-            
-            // Вычисляем угол наклона капли по направлению движения
-            angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-            
-            lastX = mouseX;
-            lastY = mouseY;
+            mouseX = e.clientX; mouseY = e.clientY;
+            let dX = mouseX - lastX, dY = mouseY - lastY;
+            speed = Math.sqrt(dX*dX + dY*dY);
+            angle = Math.atan2(dY, dX) * (180 / Math.PI);
+            lastX = mouseX; lastY = mouseY;
         });
-
-        // Плавный цикл анимации (амортизация движения)
         function animateBlob() {
-            // Мягкое стремление капли к мышке (коэффициент 0.15 создает эффект вязкой жидкости)
-            blobX += (mouseX - blobX) * 0.15;
-            blobY += (mouseY - blobY) * 0.15;
-
-            // Растяжение круга в овал в зависимости от скорости (максимум х1.6)
-            let targetScale = 1 + Math.min(speed * 0.015, 0.6);
-            scale += (targetScale - scale) * 0.2;
-
-            // Сжатие по перпендикулярной оси, чтобы сохранялся визуальный объем жидкости
+            blobX += (mouseX - blobX) * 0.15; blobY += (mouseY - blobY) * 0.15;
+            let targetScale = 1 + Math.min(speed * 0.015, 0.6); scale += (targetScale - scale) * 0.2;
             let scaleY = 1 - Math.min(speed * 0.01, 0.3);
-
-            // Применяем трансформацию физики тела
             blob.style.transform = `translate3d(${blobX}px, ${blobY}px, 0) rotate(${angle}deg) scale(${scale}, ${scaleY})`;
-
-            // Постепенно гасим скорость, если мышка остановилась
-            speed *= 0.9;
-
-            requestAnimationFrame(animateBlob);
+            speed *= 0.9; requestAnimationFrame(animateBlob);
         }
         animateBlob();
-
-        // 3. РЕАКЦИЯ КУРСОРA НА ССЫЛКИ И КНОПКИ (ЭФФЕКТ СЛИЯНИЯ)
-        const interactiveElements = document.querySelectorAll('a, .portfolio-item, .philosophy-item, .workflow-step');
-        interactiveElements.forEach(el => {
+        document.querySelectorAll('a, .portfolio-item, .philosophy-item').forEach(el => {
             el.addEventListener('mouseenter', () => blob.classList.add('hovered'));
             el.addEventListener('mouseleave', () => blob.classList.remove('hovered'));
         });
-    </script>
 
+        // 4. ГЕНЕРАЦИЯ 3D ШАРА С ЭФФЕКТОМ РАССЫПАНИЯ ОТ МЫШКИ
+        const canvas = document.getElementById('sphereCanvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = 500;
+        let height = canvas.height = 500;
+
+        const particles = [];
+        const numParticles = 450; // Плотность шара
+        const radius = 160;       // Размер сферы
+        let rotationX = 0.005;
+        let rotationY = 0.008;
+
+        // Координаты мыши относительно холста шара
+        let canvasMouseX = -1000;
+        let canvasMouseY = -1000;
+
+        window.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            canvasMouseX = e.clientX - rect.left;
+            canvasMouseY = e.clientY - rect.top;
+        });
+
+        class Particle {
+            constructor() {
+                // Математическое распределение точек по сфере
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos((Math.random() * 2) - 1);
+                
+                this.homeX = radius * Math.sin(phi) * Math.cos(theta);
+                this.homeY = radius * Math.sin(phi) * Math.sin(theta);
+                this.homeZ = radius * Math.cos(phi);
+                
+                this.x = this.homeX; this.y = this.homeY; this.z = this.homeZ;
+                // Символы частиц, как на референсе Каскадии
+                this.char = ['+', 'x', '.', 'i', '1', '0'][Math.floor(Math.random() * 6)];
+            }
+
+            update() {
+                // Вращение по оси Y
+                let cosY = Math.cos(rotationY), sinY = Math.sin(rotationY);
+                let x1 = this.homeX * cosY - this.homeZ * sinY;
+                let z1 = this.homeZ * cosY + this.homeX * sinY;
+                
+                // Вращение по оси X
+                let cosX = Math.cos(rotationX), sinX = Math.sin(rotationX);
+                let y2 = this.homeY * cosX - z1 * sinX;
+                let z2 = z1 * cosX + this.homeY * sinX;
+
+                this.homeX = x1; this.homeY = y2; this.homeZ = z2;
+
+                // Проекция в 2D пространство экрана
+                const screenX = this.homeX + width / 2;
+                const screenY = this.homeY + height / 2;
+
+                // ЭФФЕКТ РАССЫПАНИЯ: считаем расстояние до мышки
+                let dx = canvasMouseX - screenX;
+                let dy = canvasMouseY - screenY;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 80) { // Радиус отталкивания («взрыва» частиц)
+                    let force = (80 - dist) / 80;
+                    this.x += (screenX - canvasMouseX) * force * 0.1;
+                    this.y += (screenY - canvasMouseY) * force * 0.1;
+                } else {
+                    // Возвращение частицы на свою орбиту сферы (эффект упругой воды)
+                    this.x += (screenX - this.x) * 0.08;
+                    this.y += (screenY - this.y) * 0.08;
+                }
+                this.projectionSize = ((this.homeZ + radius) / (radius * 2)) * 11 + 3;
+            }
+
+            draw() {
+                // Отрисовка символов разного уровня прозрачности в зависимости от глубины 3D
+                let alpha = (this.homeZ + radius) / (radius * 2);
+                ctx.fillStyle = `rgba(0, 242, 254, ${alpha * 0.85})`;
+                ctx.font = `${this.projectionSize}px monospace`;
+                ctx.fillText(this.char, this.x, this.y);
+            }
+        }
+
+        for (let i = 0; i < numParticles; i++) particles.push(new Particle());
+
+        function render() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(render);
+        }
+        render();
+    </script>
 </body>
 </html>
