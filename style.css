@@ -11,7 +11,6 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    cursor: default; /* Возвращаем стандартную удобную стрелку мыши */
 }
 
 .section-container {
@@ -21,32 +20,54 @@ body {
     padding: 0 80px;
 }
 
-/* ЭЛЕГАНТНЫЙ ШЛЕЙФ-КАПЛЯ НА ФОНЕ СТРЕЛКИ */
-.fluid-tail {
-    width: 18px;
-    height: 18px;
-    background-color: rgba(0, 242, 254, 0.35); /* Фирменный бирюзовый полупрозрачный */
+/* ИНТАКТИВНЫЙ ЖИДКИЙ КУРСОР — СТИЛИ ЖИДКОГО ТЕЛА */
+.fluid-cursor {
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.6), 
+                0 0 40px rgba(0, 242, 254, 0.2);
     border-radius: 50%;
     position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 9998;
-    box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+    top: -12px; /* Центрируем относительно точки курсора */
+    left: -12px;
+    pointer-events: none; /* Капля прозрачна для кликов */
+    z-index: 9999;
+    mix-blend-mode: screen; /* Красивое наложение цвета на текст */
+    transform-origin: center center;
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, top 0.3s ease, left 0.3s ease;
     will-change: transform;
 }
 
-/* При наведении на кликабельный контент капля мягко расширяется */
-.fluid-tail.tail-hover {
-    width: 48px;
-    height: 48px;
-    background-color: rgba(0, 242, 254, 0.08);
-    border: 1px solid rgba(0, 242, 254, 0.6);
-    box-shadow: 0 0 30px rgba(0, 242, 254, 0.25);
+/* Эффект расширения и "прилипания" при наведении на интерактивный B2B-блок */
+.fluid-cursor.hovered {
+    width: 44px;
+    height: 44px;
+    top: -22px;
+    left: -22px;
+    background: rgba(0, 242, 254, 0.15);
+    border: 1px solid rgba(0, 242, 254, 0.8);
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
 }
 
-/* ПЕРВОЗДАННЫЙ БИРЮЗОВЫЙ ГРАДИЕНТ */
+/* Отключаем стандартный курсор на десктопах, чтобы капля была главным элементом */
+@media (min-width: 1025px) {
+    body, a, button, input, textarea, .price-card, .adv-list-item, .project-card {
+        cursor: none !important;
+    }
+}
+
+/* На мобильных устройствах кастомный курсор полностью скрываем, чтобы не было багов */
+@media (max-width: 1024px) {
+    .fluid-cursor {
+        display: none !important;
+    }
+    body, a, button, input, textarea {
+        cursor: auto !important;
+    }
+}
+
+/* ФИРМЕННЫЙ БИРЮЗОВЫЙ ГРАДИЕНТ */
 .text-gradient {
     background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
     -webkit-background-clip: text;
@@ -301,7 +322,7 @@ body {
     transform: translateX(-50%);
     font-size: 13vw;
     font-weight: 800;
-    color: rgba(0, 242, 254, 0.015); /* Нежный бирюзовый отблеск огромных букв */
+    color: rgba(0, 242, 254, 0.015);
     letter-spacing: 30px;
     pointer-events: none;
     user-select: none;
@@ -334,7 +355,6 @@ body {
 
 /* АДАПТИВНОСТЬ */
 @media (max-width: 1024px) {
-    .fluid-tail { display: none; }
     .section-container, .hero-footer-info, .footer-content { padding: 0 40px; }
     .philosophy-grid, .advantages-grid, .pricing-grid, .contact-container, .portfolio-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero-title { font-size: 44px; min-height: 60px; }
