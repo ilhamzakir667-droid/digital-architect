@@ -1,140 +1,407 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Разработка цифровых интерфейсов | Кастомный девелопмент</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* 1. ОБНУЛЕНИЕ СТИЛЕЙ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Шапка сайта -->
-    <header class="header">
-        <div class="logo">digital.architect</div>
-        <nav class="nav">
-            <a href="#philosophy" class="nav-link">Философия</a>
-            <a href="#workflow" class="nav-link">Процесс</a>
-            <a href="#contact" class="nav-link">Связаться</a>
-        </nav>
-    </header>
+html {
+    scroll-behavior: smooth;
+}
 
-    <!-- Главный экран -->
-    <main class="hero">
-        <div class="hero-container">
-            <p class="hero-subtitle">// Инженерный подход & Эстетика</p>
-            <h1 class="hero-title">Проектирую и создаю кастомные цифровые продукты премиум-уровня.</h1>
-            <p class="hero-description">
-                Разработка высокопроизводительных сайтов и интерфейсов. Без шаблонов, компромиссов и лишнего мусора в коде. Только чистая архитектура, идеальная типографика и фокус на бизнес-задачи.
-            </p>
-            <div class="hero-actions">
-                <a href="#contact" class="btn-primary">Обсудить проект</a>
-                <a href="#workflow" class="btn-secondary">Как я работаю ↓</a>
-            </div>
-        </div>
-    </main>
+/* 2. БАЗОВЫЕ НАСТРОЙКИ & АНИМАЦИИ */
+body {
+    background-color: #050505;
+    color: #e5e5e5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
 
-    <!-- БЛОК: ФИЛОСОФИЯ -->
-    <section id="philosophy" class="philosophy-section">
-        <div class="section-container">
-            <h2 class="section-title">[ Философия разработки ]</h2>
-            <div class="philosophy-grid">
-                
-                <div class="philosophy-item">
-                    <span class="philosophy-num">01 /</span>
-                    <h3 class="philosophy-name">Чистая инженерия</h3>
-                    <p class="philosophy-text">Никаких конструкторов вроде Tilda или Wordpress. Проект пишется на чистом коде с использованием передового стека. Это гарантирует, что сайт загружается мгновенно, не содержит лишнего мусора и легко масштабируется под любые задачи бизнеса.</p>
-                </div>
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-                <div class="philosophy-item">
-                    <span class="philosophy-num">02 /</span>
-                    <h3 class="philosophy-name">Бескомпромиссный UI/UX</h3>
-                    <p class="philosophy-text">Интерфейс должен быть не просто красивым, он должен быть удобным. Внимание к каждой детали: от плавной кастомной анимации и правильной типографики до Pixel Perfect верстки, которая выглядит безупречно на любых дисплеях.</p>
-                </div>
+/* 3. ШАПКА */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+    width: 100%;
+    animation: fadeInUp 0.8s ease forwards;
+}
 
-                <div class="philosophy-item">
-                    <span class="philosophy-num">03 /</span>
-                    <h3 class="philosophy-name">Фокус на продукт</h3>
-                    <p class="philosophy-text">Я не трачу недели на бесконечные согласования раздутых ТЗ. Мой подход — глубокое погружение в бизнес-задачу клиента и создание работающего цифрового продукта, который решает конкретные коммерческие и имиджевые цели.</p>
-                </div>
+.logo {
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    font-family: monospace;
+}
 
-            </div>
-        </div>
-    </section>
+.nav a {
+    color: #525252;
+    text-decoration: none;
+    margin-left: 40px;
+    font-size: 14px;
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-    <!-- НОВЫЙ БЛОК: ПРОЦЕСС РАБОТЫ (WORKFLOW) -->
-    <section id="workflow" class="workflow-section">
-        <div class="section-container">
-            <h2 class="section-title">[ Рабочий процесс / Как устроен проект ]</h2>
-            
-            <div class="workflow-list">
-                
-                <div class="workflow-step">
-                    <div class="step-meta">
-                        <span class="step-number">01</span>
-                        <span class="step-status">Аналитика</span>
-                    </div>
-                    <div class="step-body">
-                        <h3 class="step-title">Погружение и аудит бизнеса</h3>
-                        <p class="step-text">Созваниваемся, разбираем ваши бизнес-процессы, задачи сайта и боли целевой аудитории. Я изучаю конкурентов и предлагаю архитектурное решение. Никакой воды — только то, что реально сработает на ваши цели.</p>
-                    </div>
-                </div>
+.nav a:hover {
+    color: #ffffff;
+}
 
-                <div class="workflow-step">
-                    <div class="step-meta">
-                        <span class="step-number">02</span>
-                        <span class="step-status">Проектирование</span>
-                    </div>
-                    <div class="step-body">
-                        <h3 class="step-title">Интерактивный UI/UX прототип</h3>
-                        <p class="step-text">Создаю детальный черно-белый скелет будущего сайта. Прорабатываю логику переходов, пользовательские сценарии и расположение блоков. Вы увидите, как работает сайт, еще до начала верстки и дизайна.</p>
-                    </div>
-                </div>
+/* 4. ГЛАВНЫЙ ЭКРАН */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    margin-bottom: 100px;
+}
 
-                <div class="workflow-step">
-                    <div class="step-meta">
-                        <span class="step-number">03</span>
-                        <span class="step-status">Код</span>
-                    </div>
-                    <div class="step-body">
-                        <h3 class="step-title">Чистая разработка и адаптивность</h3>
-                        <p class="step-text">Переношу утвержденный дизайн в чистый, производительный код. Верстаю проект с упором на скорость загрузки и идеальное отображение на всех устройствах: от старых смартфонов до огромных 4K мониторов.</p>
-                    </div>
-                </div>
+.hero-container {
+    max-width: 800px;
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
-                <div class="workflow-step">
-                    <div class="step-meta">
-                        <span class="step-number">04</span>
-                        <span class="step-status">Релиз</span>
-                    </div>
-                    <div class="step-body">
-                        <h3 class="step-title">Тестирование, запуск и поддержка</h3>
-                        <p class="step-text">Провожу комплексное тестирование, привязываю домен, настраиваю безопасность и передаю вам готовый продукт. После запуска я остаюсь на связи: помогаю с первыми шагами и слежу, чтобы все работало как швейцарские часы.</p>
-                    </div>
-                </div>
+.hero-subtitle {
+    font-size: 13px;
+    color: #525252;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+}
 
-            </div>
-        </div>
-    </section>
+.hero-title {
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -2px;
+    color: #ffffff;
+    margin-bottom: 32px;
+}
 
-    <!-- БЛОК: КОНТАКТЫ -->
-    <section id="contact" class="contact-section">
-        <div class="section-container">
-            <h2 class="section-title">[ Начать сотрудничество ]</h2>
-            <div class="contact-content">
-                <h3 class="contact-heading">Есть задача? Давайте создадим что-то стоящее.</h3>
-                <p class="contact-text">
-                    Если вам нужен сайт с чистой архитектурой, высокой производительностью и вниманием к деталям — напишите мне. Обсудим проект и подберем оптимальное инженерное решение.
-                </p>
-                <div class="contact-links">
-                    <a href="https://t.me/твой_юзернейм" target="_blank" class="contact-btn telegram">Написать в Telegram</a>
-                    <a href="mailto:your-email@example.com" class="contact-btn email">Отправить email</a>
-                </div>
-            </div>
-        </div>
-    </section>
+.hero-description {
+    font-size: 19px;
+    line-height: 1.65;
+    color: #909090;
+    margin-bottom: 48px;
+    font-weight: 300;
+}
 
-</body>
-</html>
+/* 5. ИНТЕРАКТИВНЫЕ КНОПКИ */
+.hero-actions {
+    display: flex;
+    gap: 24px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #0a0a0a;
+    padding: 18px 36px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+    background-color: #cccccc;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary {
+    display: inline-block;
+    border: 1px solid #262626;
+    color: #ffffff;
+    padding: 18px 36px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.03);
+    transform: translateY(-2px);
+}
+
+/* 6. СЕТКА БЛОКА ФИЛОСОФИИ */
+.philosophy-section {
+    padding: 140px 80px;
+    background-color: #050505;
+    border-top: 1px solid #141414;
+    width: 100%;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 13px;
+    color: #525252;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 56px;
+    font-weight: 400;
+    display: block;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.philosophy-item {
+    background-color: #0a0a0a;
+    border: 1px solid #141414;
+    padding: 48px;
+    border-radius: 8px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.philosophy-item:hover {
+    border-color: #262626;
+    background-color: #0d0d0d;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.philosophy-num {
+    font-size: 12px;
+    color: #404040;
+    font-family: monospace;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.philosophy-name {
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+}
+
+.philosophy-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #8a8a8a;
+    font-weight: 300;
+}
+
+/* 6.5 НОВЫЕ СТИЛИ ДЛЯ БЛОКА ПРОЦЕССА (WORKFLOW) */
+.workflow-section {
+    padding: 140px 80px;
+    background-color: #050505;
+    border-top: 1px solid #141414;
+    width: 100%;
+}
+
+.workflow-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.workflow-step {
+    display: flex;
+    padding: 40px 0;
+    border-bottom: 1px solid #141414;
+    transition: all 0.4s ease;
+}
+
+.workflow-step:hover {
+    border-bottom-color: #404040;
+}
+
+.step-meta {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.step-number {
+    font-size: 14px;
+    color: #404040;
+    font-family: monospace;
+}
+
+.step-status {
+    font-size: 12px;
+    color: #737373;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.step-body {
+    width: 75%;
+    max-width: 700px;
+}
+
+.step-title {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 16px;
+    transition: color 0.3s ease;
+}
+
+.workflow-step:hover .step-title {
+    color: #ffffff;
+}
+
+.step-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #8a8a8a;
+    font-weight: 300;
+}
+
+/* 7. БЛОК КОНТАКТОВ */
+.contact-section {
+    padding: 140px 80px;
+    background-color: #0a0a0a;
+    border-top: 1px solid #141414;
+    width: 100%;
+}
+
+.contact-content {
+    max-width: 700px;
+}
+
+.contact-heading {
+    font-size: 42px;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -1px;
+    margin-bottom: 28px;
+}
+
+.contact-text {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #8a8a8a;
+    margin-bottom: 48px;
+    font-weight: 300;
+}
+
+.contact-links {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 18px 36px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.telegram {
+    background-color: #ffffff;
+    color: #0a0a0a;
+}
+
+.telegram:hover {
+    background-color: #cccccc;
+    transform: translateY(-2px);
+}
+
+.email {
+    border: 1px solid #262626;
+    color: #ffffff;
+}
+
+.email:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.03);
+    transform: translateY(-2px);
+}
+
+/* 8. МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 768px) {
+    .header {
+        padding: 24px;
+    }
+    .nav {
+        display: none;
+    }
+    .hero {
+        padding: 0 24px;
+        min-height: auto;
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+    .hero-title {
+        font-size: 36px;
+        letter-spacing: -1px;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .btn-primary, .btn-secondary {
+        text-align: center;
+    }
+    .philosophy-section, .workflow-section, .contact-section {
+        padding: 80px 24px;
+    }
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .philosophy-item {
+        padding: 32px;
+    }
+    .workflow-step {
+        flex-direction: column;
+        gap: 16px;
+        padding: 32px 0;
+    }
+    .step-meta {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .step-body {
+        width: 100%;
+    }
+    .step-title {
+        font-size: 20px;
+    }
+    .contact-heading {
+        font-size: 32px;
+    }
+    .contact-links {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .contact-btn {
+        text-align: center;
+    }
+}
