@@ -1,259 +1,46 @@
-/* 1. ОБНУЛЕНИЕ СТИЛЕЙ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* 2. БАЗОВЫЕ НАСТРОЙКИ С ГЛУБИНОЙ */
-body {
-    background-color: #000000;
-    color: #f5f5f7;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    position: relative;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* РАЗМЫТЫЕ СФЕРЫ НА ЗАДНЕМ ПЛАНЕ */
-.blur-sphere {
-    position: absolute;
+/* ИНТАКТИВНЫЙ ЖИДКИЙ КУРСОР — СТИЛИ ЖИДКОГО ТЕЛА */
+.fluid-cursor {
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.6), 
+                0 0 40px rgba(0, 242, 254, 0.2);
     border-radius: 50%;
-    filter: blur(140px);
-    z-index: -1;
-    opacity: 0.15;
-    pointer-events: none;
+    position: fixed;
+    top: -12px; /* Центрируем относительно точки курсора */
+    left: -12px;
+    pointer-events: none; /* Капля прозрачна для кликов */
+    z-index: 9999;
+    mix-blend-mode: screen; /* Красивое наложение цвета на текст */
+    transform-origin: center center;
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+    will-change: transform;
 }
 
-.sphere-1 { width: 500px; height: 500px; background: #00f2fe; top: -100px; right: -100px; }
-.sphere-2 { width: 600px; height: 600px; background: #4facfe; bottom: 200px; left: -200px; }
-
-@keyframes appleFadeIn {
-    from { opacity: 0; transform: scale(0.98) translateY(30px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
+/* Эффект расширения и "прилипания" при наведении на интерактивный B2B-блок */
+.fluid-cursor.hovered {
+    width: 44px;
+    height: 44px;
+    top: -22px;
+    left: -22px;
+    background: rgba(0, 242, 254, 0.15);
+    border: 1px solid rgba(0, 242, 254, 0.8);
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
 }
 
-.text-gradient {
-    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* Отключаем стандартный курсор на десктопах, чтобы капля была главным элементом */
+@media (min-width: 1025px) {
+    body, a, button, .portfolio-item, .philosophy-item {
+        cursor: none !important;
+    }
 }
 
-.accent-glow {
-    color: #00f2fe;
-    text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-}
-
-/* 3. ШАПКА */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 48px 120px;
-    width: 100%;
-    position: relative;
-    z-index: 10;
-    animation: appleFadeIn 1.2s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
-}
-
-.logo { font-weight: 600; letter-spacing: -0.5px; color: #f5f5f7; font-size: 16px; }
-.nav a { color: #86868b; text-decoration: none; margin-left: 48px; font-size: 14px; font-weight: 400; transition: color 0.3s ease; }
-.nav a:hover { color: #00f2fe; }
-
-/* 4. ГЛАВНЫЙ ЭКРАН */
-.hero {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    padding: 0 120px;
-    margin-bottom: 100px;
-}
-
-.hero-container {
-    max-width: 900px;
-    animation: appleFadeIn 1.4s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
-}
-
-.hero-subtitle { font-size: 12px; color: #86868b; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 28px; font-weight: 500; }
-.hero-title { font-size: 64px; font-weight: 600; line-height: 1.08; letter-spacing: -2.5px; color: #ffffff; margin-bottom: 36px; }
-.hero-description { font-size: 21px; line-height: 1.55; color: #86868b; margin-bottom: 56px; max-width: 720px; }
-
-/* 5. КНОПКИ */
-.hero-actions { display: flex; gap: 28px; }
-.btn-primary {
-    display: inline-block;
-    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-    color: #000000;
-    padding: 18px 38px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 24px;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    box-shadow: 0 4px 20px rgba(0, 242, 254, 0.15);
-}
-.btn-primary:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(0, 242, 254, 0.35); }
-.btn-secondary {
-    display: inline-block;
-    border: 1px solid #424245;
-    color: #f5f5f7;
-    padding: 18px 38px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 24px;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.btn-secondary:hover { border-color: #00f2fe; background-color: rgba(0, 242, 254, 0.02); transform: scale(1.02); }
-
-/* 6. БЛОК ФИЛОСОФИИ */
-.philosophy-section { padding: 120px 120px; width: 100%; }
-.section-container { max-width: 1200px; margin: 0 auto; }
-.section-title { font-size: 12px; color: #86868b; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 56px; font-weight: 500; display: block; }
-.philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.philosophy-item { background-color: rgba(22, 22, 23, 0.8); backdrop-filter: blur(10px); border: 1px solid #222224; padding: 48px 36px; border-radius: 18px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-.philosophy-item:hover { border-color: #00f2fe; background-color: rgba(29, 29, 31, 0.9); transform: translateY(-4px); }
-.philosophy-num { font-size: 13px; color: #00f2fe; font-family: monospace; display: block; margin-bottom: 24px; }
-.philosophy-name { font-size: 22px; color: #ffffff; font-weight: 600; margin-bottom: 14px; letter-spacing: -0.5px; }
-.philosophy-text { font-size: 15px; line-height: 1.6; color: #86868b; }
-
-/* БЛОК ПОРТФОЛИО (ОБНОВЛЕННАЯ СЕТКА ПОД 3 КЕЙСА) */
-.portfolio-section { padding: 120px 120px; width: 100%; }
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
-    gap: 32px;
-}
-.portfolio-item {
-    background-color: rgba(22, 22, 23, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid #222224;
-    border-radius: 24px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 440px;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.portfolio-item.full-width {
-    grid-column: span 2; /* Растягиваем UNITRUS на всю ширину сетки сверху */
-    min-height: 400px;
-}
-.portfolio-item:hover {
-    border-color: #424245;
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-.project-info { padding: 48px 40px 32px 40px; }
-.project-tag { font-size: 11px; color: #00f2fe; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; display: block; margin-bottom: 16px; }
-.project-title { font-size: 28px; color: #ffffff; font-weight: 600; margin-bottom: 14px; letter-spacing: -0.5px; }
-.project-desc { font-size: 15px; line-height: 1.6; color: #86868b; max-width: 800px; margin-bottom: 24px; }
-.project-link {
-    display: inline-block;
-    color: #00f2fe;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-}
-.project-link:hover { opacity: 0.8; text-decoration: underline; }
-
-/* Симуляция визуалов */
-.project-visual { height: 160px; width: 100%; position: relative; padding: 20px; display: flex; align-items: flex-end; }
-.unitrus-mock { background: linear-gradient(135deg, #161a24 0%, #0c0e14 100%); border-top: 1px solid rgba(0, 242, 254, 0.15); }
-.fire-run-mock { background: linear-gradient(215deg, #231212 0%, #0d0d11 100%); border-top: 1px solid rgba(255, 69, 0, 0.1); }
-.tracker-mock { background: linear-gradient(135deg, #111c24 0%, #0d0d11 100%); border-top: 1px solid rgba(0, 242, 254, 0.1); }
-.mock-badge { background-color: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: #f5f5f7; font-size: 11px; padding: 6px 14px; border-radius: 12px; font-family: monospace; }
-
-/* 6.5 БЛОК ПРОЦЕССА */
-.workflow-section { padding: 120px 120px; width: 100%; }
-.workflow-list { display: flex; flex-direction: column; }
-.workflow-step { display: flex; padding: 48px 0; border-bottom: 1px solid #222224; transition: all 0.3s ease; }
-.workflow-step:hover { border-bottom-color: #00f2fe; }
-.step-meta { width: 25%; display: flex; flex-direction: column; gap: 12px; }
-.step-number { font-size: 16px; color: #86868b; font-family: monospace; }
-.step-status { font-size: 11px; color: #00f2fe; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
-.step-body { width: 75%; max-width: 740px; }
-.step-title { font-size: 26px; color: #f5f5f7; font-weight: 600; margin-bottom: 14px; letter-spacing: -0.5px; }
-.step-text { font-size: 16px; line-height: 1.6; color: #86868b; }
-
-/* 7. БЛОК КОНТАКТОВ */
-.contact-section { padding: 140px 120px; background-color: #000000; border-top: 1px solid #222224; width: 100%; }
-.contact-content { max-width: 800px; }
-.contact-heading { font-size: 52px; color: #ffffff; font-weight: 600; line-height: 1.15; letter-spacing: -2px; margin-bottom: 32px; }
-.contact-text { font-size: 19px; line-height: 1.6; color: #86868b; margin-bottom: 56px; }
-.contact-links { display: flex; gap: 24px; }
-.contact-btn { display: inline-block; padding: 18px 38px; text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 24px; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
-.telegram { background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #000000; font-weight: 600; }
-.telegram:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(0, 242, 254, 0.3); }
-.email { border: 1px solid #424245; color: #f5f5f7; }
-.email:hover { border-color: #00f2fe; background-color: rgba(0, 242, 254, 0.02); transform: scale(1.02); }
-
-/* 8. МОБИЛЬНАЯ АДАПТАЦИЯ */
-@media (max-width: 1200px) {
-    .header, .hero, .philosophy-section, .portfolio-section, .workflow-section, .contact-section { padding-left: 64px; padding-right: 64px; }
-    .portfolio-grid { grid-template-columns: 1fr; gap: 24px; }
-    .portfolio-item.full-width { grid-column: span 1; }
-}
-@media (max-width: 768px) {
-    .header { padding: 32px 24px; } .nav { display: none; }
-    .hero { padding: 0 24px; margin-bottom: 60px; }
-    .hero-title { font-size: 40px; letter-spacing: -1.5px; }
-    .hero-description { font-size: 18px; }
-    .hero-actions { flex-direction: column; gap: 16px; }
-    .btn-primary, .btn-secondary { text-align: center; }
-    .philosophy-section, .portfolio-section, .workflow-section, .contact-section { padding: 80px 24px; }
-    .portfolio-grid { grid-template-columns: 1fr; gap: 20px; }
-    .portfolio-item { min-height: auto; }
-    .project-info { padding: 32px 24px; }
-    .workflow-step { flex-direction: column; gap: 16px; padding: 32px 0; }
-    .step-meta { width: 100%; flex-direction: row; justify-content: space-between; }
-    .step-body { width: 100%; }
-    .step-title { font-size: 20px; }
-    .contact-heading { font-size: 34px; letter-spacing: -1px; }
-    .contact-links { flex-direction: column; gap: 16px; }
-    .contact-btn { text-align: center; }
-}
-/* КИНЕМАТОГРАФИЧНЫЕ АНИМАЦИИ ПРОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (KASKADIA STYLE) */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px) scale(0.99);
-    transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1), 
-                transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
-    will-change: transform, opacity;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-/* ДОПОЛНИТЕЛЬНЫЙ ЭФФЕКТ ДЛЯ МЯГКОГО ПОДЧЕРКИВАНИЯ ФЛАГМАНСКОЙ ССЫЛКИ */
-.project-link {
-    position: relative;
-    padding-bottom: 2px;
-}
-.project-link::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: #00f2fe;
-    transform-origin: bottom right;
-    transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
-}
-.project-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+/* На мобильных устройствах кастомный курсор полностью скрываем, чтобы не было багов */
+@media (max-width: 1024px) {
+    .fluid-cursor {
+        display: none !important;
+    }
+    body, a, button {
+        cursor: auto !important;
+    }
 }
