@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Подключаем наш будущий файл со стилями -->
+    <!-- Подключаем наш файл со стилями -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,7 +17,6 @@
     <header class="header">
         <div class="logo">digital.architect</div>
         <nav class="nav">
-            <a href="#work" class="nav-link">Работы</a>
             <a href="#philosophy" class="nav-link">Философия</a>
             <a href="#contact" class="nav-link">Связаться</a>
         </nav>
@@ -29,16 +28,44 @@
             <p class="hero-subtitle">// Инженерный подход & Эстетика</p>
             <h1 class="hero-title">Проектирую и создаю кастомные цифровые продукты премиум-уровня.</h1>
             <p class="hero-description">
-                Разработка высокопроизводительных сайтов и интерфейсов. Без шаблонов, компромиссов и лишнего мусора в коде. Только чистая архитектура, идеальная типографика и фокус на бизнес-задачи.
+                Разработка высокопроизвисительных сайтов и интерфейсов. Без шаблонов, компромиссов и лишнего мусора в коде. Только чистая архитектура, идеальная типографика и фокус на бизнес-задачи.
             </p>
             <div class="hero-actions">
                 <a href="#contact" class="btn-primary">Обсудить проект</a>
-                <a href="#work" class="btn-secondary">Посмотреть код & кейсы</a>
+                <a href="#philosophy" class="btn-secondary">Философия работы ↓</a>
             </div>
         </div>
     </main>
 
-<!-- БЛОК: КОНТАКТЫ -->
+    <!-- БЛОК: ФИЛОСОФИЯ -->
+    <section id="philosophy" class="philosophy-section">
+        <div class="section-container">
+            <h2 class="section-title">[ Философия разработки ]</h2>
+            <div class="philosophy-grid">
+                
+                <div class="philosophy-item">
+                    <span class="philosophy-num">01 /</span>
+                    <h3 class="philosophy-name">Чистая инженерия</h3>
+                    <p class="philosophy-text">Никаких конструкторов вроде Tilda или Wordpress. Проект пишется на чистом коде с использованием передового стека. Это гарантирует, что сайт загружается мгновенно, не содержит лишнего мусора и легко масштабируется под любые задачи бизнеса.</p>
+                </div>
+
+                <div class="philosophy-item">
+                    <span class="philosophy-num">02 /</span>
+                    <h3 class="philosophy-name">Бескомпромиссный UI/UX</h3>
+                    <p class="philosophy-text">Интерфейс должен быть не просто красивым, он должен быть удобным. Внимание к каждой детали: от плавной кастомной анимации и правильной типографики до Pixel Perfect верстки, которая выглядит безупречно на любых дисплеях.</p>
+                </div>
+
+                <div class="philosophy-item">
+                    <span class="philosophy-num">03 /</span>
+                    <h3 class="philosophy-name">Фокус на продукт</h3>
+                    <p class="philosophy-text">Я не трачу недели на бесконечные согласования раздутых ТЗ. Мой подход — глубокое погружение в бизнес-задачу клиента и создание работающего цифрового продукта, который решает конкретные коммерческие и имиджевые цели.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК: КОНТАКТЫ -->
     <section id="contact" class="contact-section">
         <div class="section-container">
             <h2 class="section-title">[ Начать сотрудничество ]</h2>
@@ -48,13 +75,12 @@
                     Если вам нужен сайт с чистой архитектурой, высокой производительностью и вниманием к деталям — напишите мне. Обсудим проект и подберем оптимальное инженерное решение.
                 </p>
                 <div class="contact-links">
-                    <!-- Замени 'твой_юзернейм' на свой реальный ник в Телеграме -->
                     <a href="https://t.me/твой_юзернейм" target="_blank" class="contact-btn telegram">Написать в Telegram</a>
-                    <!-- Замени на свою рабочую почту -->
                     <a href="mailto:your-email@example.com" class="contact-btn email">Отправить email</a>
                 </div>
             </div>
         </div>
     </section>
+
 </body>
 </html>
