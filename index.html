@@ -363,8 +363,11 @@
                 let x2 = this.x3d * Math.cos(angleY) + z1 * Math.sin(angleY);
                 let z2 = -this.x3d * Math.sin(angleY) + z1 * Math.cos(angleY);
 
-                let sX = (width * 0.72) + x2 * (600 / (600 + z2));
-                let sY = (height * 0.5) + y1 * (600 / (600 + z2));
+               let centerX = width > 768 ? (width * 0.72) : (width * 0.5);
+let centerY = width > 768 ? (height * 0.5) : (height * 0.65);
+
+let sX = centerX + x2 * (600 / (600 + z2));
+let sY = centerY + y1 * (600 / (600 + z2));
 
                 let dx = sMouse.x - sX;
                 let dy = sMouse.y - sY;
