@@ -195,18 +195,35 @@
         </div>
     </section>
 
-    <!-- БЛОК: КОНТАКТЫ -->
+   <!-- БЛОК: КОНТАКТЫ -->
     <section id="contact" class="contact-section reveal">
         <div class="section-container contact-container">
             <div class="contact-left">
+                <p class="section-tag">// Контакты</p>
                 <h2 class="contact-title">Спроектируем<br>ваш успех вместе</h2>
-                <p class="contact-desc">Оставьте заявку, и мы бесплатно проконсультируем вас по архитектуре вашего будущего проекта.</p>
+                <p class="contact-desc">Оставьте заявку или свяжитесь с нами удобным способом. Бесплатно проконсультируем по архитектуре и стоимости вашего будущего проекта.</p>
+                
+                <div class="contact-info-list" style="margin-top: 30px; display: flex; flex-direction: column; gap: 16px;">
+                    <div class="contact-info-item">
+                        <span style="color: #00f2fe; font-size: 0.85rem; font-family: monospace;">EMAIL:</span><br>
+                        <a href="mailto:ilhamzakir@mail.ru" style="color: #fff; text-decoration: none; font-size: 1.1rem; font-weight: 500;">ilhamzakir@mail.ru</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <span style="color: #00f2fe; font-size: 0.85rem; font-family: monospace;">ТЕЛЕФОН / WHATSAPP:</span><br>
+                        <a href="tel:+79600810619" style="color: #fff; text-decoration: none; font-size: 1.1rem; font-weight: 500;">+7 (960) 081-06-19</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <span style="color: #00f2fe; font-size: 0.85rem; font-family: monospace;">ГРАФИК:</span><br>
+                        <span style="color: #a0a0a0; font-size: 0.95rem;">Пн — Пт: 09:00 – 19:00 (МСК)</span>
+                    </div>
+                </div>
             </div>
+
             <div class="contact-right">
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Сообщение отправлено!');">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Заявка принята, мы свяжемся с вами в ближайшее время.');">
                     <input type="text" placeholder="Ваше имя" required>
-                    <input type="email" placeholder="Email для связи" required>
-                    <textarea placeholder="Какая задача стоит перед вашим бизнесом?" rows="4" required></textarea>
+                    <input type="email" placeholder="Email или Telegram для связи" required>
+                    <textarea placeholder="Опишите кратко вашу задачу или проект" rows="4" required></textarea>
                     <button type="submit" class="btn btn-primary">Отправить бриф →</button>
                 </form>
             </div>
