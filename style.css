@@ -453,3 +453,74 @@ body {
     border: 1px solid rgba(0, 242, 254, 0.3);
     backdrop-filter: blur(8px);
 }
+/* ==========================================
+   АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ (Media Queries)
+   ========================================== */
+
+@media (max-width: 768px) {
+    /* 1. Общие контейнеры и отступы */
+    body {
+        overflow-x: hidden; /* Предотвращает горизонтальный скролл */
+    }
+    
+    .section-container, 
+    .contact-container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* 2. Навигация и Шапка */
+    header, nav {
+        padding: 15px 20px !important;
+    }
+
+    /* Скрываем линки меню в один столб/уменьшаем или оставляем только кнопку */
+    nav ul {
+        display: none; /* Или переводим в компактный вид */
+    }
+
+    /* 3. Заголовки */
+    h1, .section-title, .contact-title {
+        font-size: 2rem !important; /* Уменьшаем гигантские шрифты */
+        line-height: 1.2 !important;
+        word-wrap: break-word;
+    }
+
+    /* 4. Сетка Портфолио */
+    .portfolio-grid {
+        grid-template-columns: 1fr !important; /* Строго 1 карточка в ряд */
+        gap: 20px !important;
+    }
+
+    .project-card {
+        padding: 16px !important;
+    }
+
+    .project-img-placeholder {
+        height: 160px !important; /* Уменьшаем высоту превью на мобилках */
+    }
+
+    /* 5. Блок Контактов */
+    .contact-container {
+        flex-direction: column !important; /* Разворачиваем форму под текст */
+        gap: 30px !important;
+    }
+
+    .contact-left, .contact-right {
+        width: 100% !important;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* 6. Капля-курсор */
+    /* На сенсорных экранах курсора нет, поэтому скрываем шлейф, чтобы не мешал */
+    .fluid-tail {
+        display: none !important;
+    }
+}
