@@ -524,3 +524,76 @@ body {
         display: none !important;
     }
 }
+/* ==========================================
+   АДАПТИВ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (iPhone и др.)
+   ========================================== */
+@media (max-width: 768px) {
+    /* 1. Запрещаем горизонтальную прокрутку */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* 2. Навигация в шапке */
+    .header-container {
+        padding: 0 16px;
+    }
+    
+    /* Скрываем десктопные ссылки, чтобы не ломали шапку */
+    .main-nav {
+        display: none; 
+    }
+
+    /* 3. Главный экран (Hero) */
+    .hero-container {
+        padding-top: 100px;
+        text-align: left;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        max-width: 100%;
+        margin-bottom: 24px;
+        /* Добавляем полупрозрачный подложку, если Canvas перекрывает */
+        position: relative;
+        z-index: 2; 
+    }
+
+    /* 4. Кнопки на главном экране */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* 5. 3D-Canvas сфера — убираем на задний план и смещаем */
+    #particle-canvas {
+        opacity: 0.35; /* Делаем точечки более бледными на телефоне, чтобы текст читался */
+        pointer-events: none;
+    }
+
+    /* 6. Блоки решений и карточки */
+    .section-container {
+        padding: 40px 16px;
+    }
+
+    .philosophy-grid,
+    .portfolio-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr !important; /* Строго в один столбец */
+        gap: 20px;
+    }
+}
