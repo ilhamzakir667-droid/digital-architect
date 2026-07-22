@@ -597,3 +597,37 @@ body {
         gap: 20px;
     }
 }
+/* Блок документов в футере */
+.footer-docs-block {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-docs-title {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #00f2fe;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.footer-legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+.footer-legal-links a {
+    color: #8b949e;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+    color: #ffffff;
+}
