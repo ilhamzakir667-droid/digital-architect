@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Неоновый градиент DIGRIX -->
+    <linearGradient id="digrixGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+  </defs>
+
+  <!-- Темный фон в стиле сайта -->
+  <rect width="64" height="64" rx="16" fill="#030507" />
+
+  <!-- Тонкая неоновая рамка -->
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="url(#digrixGrad)" stroke-width="1.5" stroke-opacity="0.3" />
+
+  <!-- Стилизованная буква D -->
+  <path d="M 18 16 H 32 C 43 16 50 23 50 32 C 50 41 43 48 32 48 H 18 Z" fill="none" stroke="url(#digrixGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Точка-акцент -->
+  <circle cx="32" cy="32" r="3.5" fill="#00f2fe" />
+</svg>
