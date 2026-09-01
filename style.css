@@ -8,9 +8,91 @@
 body {
     background-color: #060809;
     color: #ffffff;
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+
+body.privacy-gate-open {
+    overflow: hidden;
+}
+
+.privacy-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(3, 5, 7, 0.88);
+    backdrop-filter: blur(12px);
+}
+
+.privacy-gate,
+.privacy-gate * {
+    cursor: auto !important;
+}
+
+.privacy-gate[hidden] {
+    display: none;
+}
+
+.privacy-gate__dialog {
+    width: min(620px, 100%);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 30px;
+    border: 1px solid rgba(0, 242, 254, 0.25);
+    border-radius: 22px;
+    background: #0d1117;
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.7);
+}
+
+.privacy-gate__eyebrow {
+    margin-bottom: 8px;
+    color: #00f2fe;
+    font: 700 12px/1.4 monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.privacy-gate__title {
+    margin-bottom: 14px;
+    color: #fff;
+    font-size: clamp(24px, 5vw, 32px);
+    line-height: 1.2;
+}
+
+.privacy-gate__text {
+    color: #9aa4af;
+    line-height: 1.65;
+}
+
+.privacy-gate__text a,
+.contact-form__consent a {
+    color: #00f2fe;
+    text-underline-offset: 3px;
+}
+
+.privacy-gate__button {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 24px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    color: #020406;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.privacy-gate__button:hover,
+.privacy-gate__button:focus-visible {
+    box-shadow: 0 0 28px rgba(0, 242, 254, 0.3);
+    outline: 2px solid #fff;
+    outline-offset: 3px;
 }
 
 .section-container {
@@ -305,6 +387,39 @@ body {
 .contact-form { display: flex; flex-direction: column; gap: 16px; }
 .contact-form input, .contact-form textarea { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 12px; color: #fff; font-family: inherit; font-size: 15px; transition: border-color 0.3s; }
 .contact-form input:focus, .contact-form textarea:focus { border-color: #00f2fe; outline: none; }
+.contact-form__label {
+    margin-bottom: -8px;
+    color: #c8d1da;
+    font-size: 13px;
+    font-weight: 600;
+}
+.contact-form__consent {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+    align-items: start;
+    color: #9aa4af;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.contact-form__consent input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    accent-color: #00f2fe;
+    cursor: pointer;
+}
+.contact-form__note,
+.contact-form__status {
+    color: #707b86;
+    font-size: 12px;
+    line-height: 1.55;
+}
+.contact-form__status {
+    min-height: 19px;
+    color: #00f2fe;
+}
 
 /* ПОДВАЛ */
 .site-footer {
@@ -350,6 +465,20 @@ body {
 .footer-legal-links { display: flex; gap: 32px; margin-bottom: 48px; }
 .footer-legal-links a { color: #4c4d50; font-size: 13px; text-decoration: none; }
 .footer-legal-links a:hover { color: #ffffff; }
+.cookie-settings-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #4c4d50;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+.cookie-settings-button:hover,
+.cookie-settings-button:focus-visible {
+    color: #fff;
+    outline: none;
+}
 .footer-bottom-info { display: flex; flex-direction: column; gap: 8px; color: #333436; font-size: 12px; }
 .tax-info { color: #242526; }
 
@@ -360,6 +489,19 @@ body {
     .hero-title { font-size: 44px; min-height: 60px; }
     .footer-contacts, .footer-legal-links { flex-direction: column; gap: 16px; }
     .footer-bg-text { display: none; }
+}
+
+@media (max-width: 620px) {
+    .privacy-gate {
+        align-items: end;
+        padding: 12px;
+    }
+
+    .privacy-gate__dialog {
+        max-height: calc(100vh - 24px);
+        padding: 22px;
+        border-radius: 18px;
+    }
 }
 /* --- ПЛАВНЫЙ БИРЮЗОВЫЙ ШЛЕЙФ-КАПЛЯ --- */
 .fluid-tail {

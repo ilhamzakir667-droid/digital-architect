@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!-- АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
 
     <!-- БАЗОВОЕ SEO -->
     <title>DIGRIX — Разработка сайтов, лендингов и веб-сервисов под ключ</title>
@@ -16,7 +16,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://digrix.tech/">
     <meta property="og:title" content="DIGRIX — Разработка сайтов и веб-сервисов">
-    <meta property="og:description" content="Создаем сайты и сложные IT-системы, которые приносят клиентов. Посмотрите наше портфолио и закажите расчет проекта.">
+    <meta property="og:description" content="Создаём сайты и веб-системы для бизнеса. Посмотрите портфолио и обсудите проект с DIGRIX.">
     <meta property="og:image" content="https://digrix.tech/favicon.svg">
 
     <!-- МИКРОРАЗМЕТКА SCHEMA.ORG -->
@@ -39,14 +39,22 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Иконка вкладки DIGRIX (SVG Data URL) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300f2fe'/%3E%3Cstop offset='100%25' stop-color='%234facfe'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23030507'/%3E%3Crect x='1' y='1' width='62' height='62' rx='15' fill='none' stroke='url(%23grad)' stroke-width='1.5' stroke-opacity='0.3'/%3E%3Cpath d='M 18 16 H 32 C 43 16 50 23 50 32 C 50 41 43 48 32 48 H 18 Z' fill='none' stroke='url(%23grad)' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='32' r='3.5' fill='%2300f2fe'/%3E%3C/svg%3E">
 </head>
 <body>
+
+    <div class="privacy-gate" id="privacy-gate" role="presentation">
+        <div class="privacy-gate__dialog" role="dialog" aria-modal="true" aria-labelledby="privacy-gate-title" aria-describedby="privacy-gate-text">
+            <p class="privacy-gate__eyebrow">Настройки приватности</p>
+            <h2 class="privacy-gate__title" id="privacy-gate-title">Использование локального хранилища</h2>
+            <p class="privacy-gate__text" id="privacy-gate-text">
+                DIGRIX использует только необходимое локальное хранилище, чтобы запомнить ваш выбор. Яндекс.Метрика, Webvisor и рекламные cookies на сайте не используются. Подробнее — в <a href="cookies.html" target="_blank" rel="noopener noreferrer">правилах cookies</a> и <a href="privacy.html" target="_blank" rel="noopener noreferrer">политике обработки данных</a>.
+            </p>
+            <button class="privacy-gate__button" id="privacy-gate-continue" type="button">Продолжить</button>
+        </div>
+    </div>
 
     <!-- ПЛАВНЫЙ БИРЮЗОВЫЙ ШЛЕЙФ-КАПЛЯ (СТРЕЛКА МЫШИ ВИДИМА) -->
     <div class="fluid-tail"></div>
@@ -95,7 +103,7 @@
                 <div class="phil-card">
                     <span class="phil-num">01</span>
                     <h3>Лендинги и Промо</h3>
-                    <p>Высококонверсионные посадочные страницы с премиальным дизайном, быстрой загрузкой и глубокой проработкой смыслов вашего бизнеса.</p>
+                    <p>Посадочные страницы с индивидуальным дизайном, быстрой загрузкой и проработанной структурой под задачи вашего бизнеса.</p>
                 </div>
                 <div class="phil-card">
                     <span class="phil-num">02</span>
@@ -121,15 +129,15 @@
             
             <!-- Проект 1: UNITRUS -->
             <div class="project-card" style="background: #0d1117; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.3s ease, border-color 0.3s ease;">
-                <a href="https://unitrus.ru/" target="_blank" style="display: block; position: relative; width: 100%; height: 220px; overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.15);">
+                <a href="https://unitrus.ru/" target="_blank" rel="noopener noreferrer" style="display: block; position: relative; width: 100%; height: 220px; overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.15);">
                     <img src="unitrus-preview.jpg" alt="UNITRUS - Корпоративная одежда и мерч" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: brightness(0.9); transition: filter 0.3s ease, transform 0.3s ease;">
                     <div style="position: absolute; top: 12px; left: 12px; background: rgba(3, 5, 7, 0.85); color: #00f2fe; padding: 4px 10px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; border: 1px solid rgba(0, 242, 254, 0.3); backdrop-filter: blur(4px);">// UNITRUS.RU</div>
                 </a>
                 <div class="project-info" style="padding: 24px;">
                     <span class="project-category" style="color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">E-commerce / B2B Сервис</span>
-                    <h3 style="margin: 0 0 10px 0; font-size: 1.5rem; font-weight: 700;"><a href="https://unitrus.ru/" target="_blank" style="color: inherit; text-decoration: none;">UNITRUS <span style="font-size: 1rem; color: #00f2fe;">↗</span></a></h3>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.5rem; font-weight: 700;"><a href="https://unitrus.ru/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">UNITRUS <span style="font-size: 1rem; color: #00f2fe;">↗</span></a></h3>
                     <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Комплексный B2B-сервис по созданию корпоративного мерча. Автоматизация заказов, кастомизация текстиля (вышивка, шелкография, DTF) и выстроенная логистика.</p>
-                    <a href="https://unitrus.ru/" target="_blank" style="color: #00f2fe; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">Перейти на сайт unitrus.ru →</a>
+                    <a href="https://unitrus.ru/" target="_blank" rel="noopener noreferrer" style="color: #00f2fe; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">Перейти на сайт unitrus.ru →</a>
                 </div>
             </div>
 
@@ -148,25 +156,20 @@
 
             <!-- Проект 3: GLAM.ME -->
             <div class="project-card" style="background: #0d1117; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.3s ease, border-color 0.3s ease;">
-                <a href="https://glamme.shop" target="_blank" style="display: block; position: relative; width: 100%; height: 220px; overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.15);">
+                <a href="https://glamme.shop" target="_blank" rel="noopener noreferrer" style="display: block; position: relative; width: 100%; height: 220px; overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.15);">
                     <img src="glamme-preview.jpg" alt="GLAM.ME - Сервис подбора и заказа аксессуаров" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: brightness(0.9); transition: filter 0.3s ease, transform 0.3s ease;">
                     <div style="position: absolute; top: 12px; left: 12px; background: rgba(3, 5, 7, 0.85); color: #00f2fe; padding: 4px 10px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; border: 1px solid rgba(0, 242, 254, 0.3); backdrop-filter: blur(4px);">// GLAMME.SHOP</div>
                 </a>
                 <div class="project-info" style="padding: 24px;">
                     <span class="project-category" style="color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">E-commerce / Web App</span>
-                    <h3 style="margin: 0 0 10px 0; font-size: 1.5rem; font-weight: 700;"><a href="https://glamme.shop" target="_blank" style="color: inherit; text-decoration: none;">GLAM.ME <span style="font-size: 1rem; color: #00f2fe;">↗</span></a></h3>
+                    <h3 style="margin: 0 0 10px 0; font-size: 1.5rem; font-weight: 700;"><a href="https://glamme.shop" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">GLAM.ME <span style="font-size: 1rem; color: #00f2fe;">↗</span></a></h3>
                     <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">Интерактивный веб-сервис с каталогом, корзиной подбора товаров и автоматической интеграцией выгрузки готового заказа менеджеру в Telegram.</p>
-                    <a href="https://glamme.shop" target="_blank" style="color: #00f2fe; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">Перейти на сайт glamme.shop →</a>
+                    <a href="https://glamme.shop" target="_blank" rel="noopener noreferrer" style="color: #00f2fe; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">Перейти на сайт glamme.shop →</a>
                 </div>
             </div>
 
-    </div>
-</section>
-
-</div>
-
-            </div>
         </div>
+    </div>
     </section>
 
     <!-- БЛОК: ПРОЦЕСС -->
@@ -177,9 +180,9 @@
                 <h2 class="adv-title">Как мы создаем<br>результат.</h2>
                 <p class="adv-description">Мы делим разработку на понятные спринты. Вы видите прогресс в реальном времени и контролируете каждый этап.</p>
                 <div class="metrics-grid">
-                    <div class="metric-item"><span class="metric-num text-gradient">100%</span><span class="metric-label">Соблюдение сроков</span></div>
-                    <div class="metric-item"><span class="metric-num text-gradient">24/7</span><span class="metric-label">На связи с вами</span></div>
-                    <div class="metric-item"><span class="metric-num text-gradient">&lt;1 сек</span><span class="metric-label">Скорость отклика</span></div>
+                    <div class="metric-item"><span class="metric-num text-gradient">01</span><span class="metric-label">Фиксируем этапы</span></div>
+                    <div class="metric-item"><span class="metric-num text-gradient">02</span><span class="metric-label">Показываем прогресс</span></div>
+                    <div class="metric-item"><span class="metric-num text-gradient">03</span><span class="metric-label">Тестируем перед запуском</span></div>
                 </div>
             </div>
             <div class="advantages-right">
@@ -242,7 +245,7 @@
             <div class="contact-left">
                 <p class="section-tag">// Контакты</p>
                 <h2 class="contact-title">Спроектируем<br>ваш успех вместе</h2>
-                <p class="contact-desc">Оставьте заявку или свяжитесь с нами удобным способом. Бесплатно проконсультируем по архитектуре и стоимости вашего будущего проекта.</p>
+                <p class="contact-desc">Заполните короткий бриф или свяжитесь напрямую. После отправки письма обсудим задачу и подготовим предварительную оценку проекта.</p>
                 
                 <div class="contact-info-list" style="margin-top: 30px; display: flex; flex-direction: column; gap: 16px;">
                     <div class="contact-info-item">
@@ -250,22 +253,35 @@
                         <a href="mailto:ilhamzakir@mail.ru" style="color: #fff; text-decoration: none; font-size: 1.1rem; font-weight: 500;">ilhamzakir@mail.ru</a>
                     </div>
                     <div class="contact-info-item">
-                        <span style="color: #00f2fe; font-size: 0.85rem; font-family: monospace;">ТЕЛЕФОН / WHATSAPP / TELEGRAM:</span><br>
+                        <span style="color: #00f2fe; font-size: 0.85rem; font-family: monospace;">ТЕЛЕФОН:</span><br>
                         <a href="tel:+79600810619" style="color: #fff; text-decoration: none; font-size: 1.1rem; font-weight: 500;">+7 (960) 081-06-19</a>
                     </div>
                     <div class="contact-info-item">
-                        <span style="color: #00f2fe; font-size: 0.85rem; font-family: monospace;">ГРАФИК:</span><br>
-                        <span style="color: #a0a0a0; font-size: 0.95rem;">Пн — Пт: 09:00 – 19:00 (МСК)</span>
+                        <span style="color: #00f2fe; font-size: 0.85rem; font-family: monospace;">ОПЕРАТОР:</span><br>
+                        <span style="color: #a0a0a0; font-size: 0.95rem;">Самозанятый Закиров Ильгам Радикович</span>
                     </div>
                 </div>
             </div>
 
             <div class="contact-right">
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Заявка принята, мы свяжемся с вами в ближайшее время.');">
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="email" placeholder="Email или Telegram для связи" required>
-                    <textarea placeholder="Опишите кратко вашу задачу или проект" rows="4" required></textarea>
-                    <button type="submit" class="btn btn-primary">Отправить бриф →</button>
+                <form class="contact-form" id="contact-form">
+                    <label class="contact-form__label" for="contact-name">Ваше имя</label>
+                    <input id="contact-name" name="name" type="text" autocomplete="name" required>
+
+                    <label class="contact-form__label" for="contact-value">Email, телефон или Telegram для связи</label>
+                    <input id="contact-value" name="contact" type="text" autocomplete="email" required>
+
+                    <label class="contact-form__label" for="contact-message">Кратко опишите задачу или проект</label>
+                    <textarea id="contact-message" name="message" rows="4" required></textarea>
+
+                    <label class="contact-form__consent">
+                        <input name="pdnConsent" type="checkbox" required>
+                        <span>Я даю отдельное <a href="pdn.html" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="privacy.html" target="_blank" rel="noopener noreferrer">Политикой</a>.</span>
+                    </label>
+
+                    <p class="contact-form__note">После нажатия откроется ваше почтовое приложение. Сайт не сохраняет введённые данные и не отправляет их автоматически.</p>
+                    <button type="submit" class="btn btn-primary">Подготовить письмо →</button>
+                    <p class="contact-form__status" id="contact-form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </div>
@@ -288,6 +304,8 @@
                 <div class="footer-legal-links">
                     <a href="privacy.html">Политика конфиденциальности</a>
                     <a href="pdn.html">Согласие на обработку ПДн</a>
+                    <a href="cookies.html">Правила cookies</a>
+                    <button class="cookie-settings-button" type="button" data-cookie-settings>Настройки cookies</button>
                 </div>
             </div>
 
@@ -297,6 +315,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="site-compliance.js"></script>
 
     <!-- СКРИПТЫ -->
     <script>
