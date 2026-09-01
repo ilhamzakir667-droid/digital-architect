@@ -595,150 +595,217 @@ body.privacy-gate-open {
     border: 1px solid rgba(0, 242, 254, 0.3);
     backdrop-filter: blur(8px);
 }
+
 /* ==========================================
-   АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ (Media Queries)
+   МОБИЛЬНАЯ ВЕРСИЯ (iPhone и Android)
    ========================================== */
-
 @media (max-width: 768px) {
-    /* 1. Общие контейнеры и отступы */
+    html,
     body {
-        overflow-x: hidden; /* Предотвращает горизонтальный скролл */
-    }
-    
-    .section-container, 
-    .contact-container {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        width: 100% !important;
-        box-sizing: border-box;
+        width: 100%;
+        overflow-x: hidden;
     }
 
-    /* 2. Навигация и Шапка */
-    header, nav {
-        padding: 15px 20px !important;
+    .site-header {
+        background-color: rgba(6, 8, 9, 0.9);
+        backdrop-filter: blur(16px);
     }
 
-    /* Скрываем линки меню в один столб/уменьшаем или оставляем только кнопку */
-    nav ul {
-        display: none; /* Или переводим в компактный вид */
+    .header-container {
+        min-height: 74px;
+        padding: 18px 20px !important;
     }
 
-    /* 3. Заголовки */
-    h1, .section-title, .contact-title {
-        font-size: 2rem !important; /* Уменьшаем гигантские шрифты */
-        line-height: 1.2 !important;
-        word-wrap: break-word;
+    .logo {
+        font-size: 19px;
+        letter-spacing: 2.4px;
     }
 
-    /* 4. Сетка Портфолио */
-    .portfolio-grid {
-        grid-template-columns: 1fr !important; /* Строго 1 карточка в ряд */
-        gap: 20px !important;
-    }
-
-    .project-card {
-        padding: 16px !important;
-    }
-
-    .project-img-placeholder {
-        height: 160px !important; /* Уменьшаем высоту превью на мобилках */
-    }
-
-    /* 5. Блок Контактов */
-    .contact-container {
-        flex-direction: column !important; /* Разворачиваем форму под текст */
-        gap: 30px !important;
-    }
-
-    .contact-left, .contact-right {
-        width: 100% !important;
-    }
-
-    .contact-form input, 
-    .contact-form textarea {
-        width: 100% !important;
-        box-sizing: border-box;
-    }
-
-    /* 6. Капля-курсор */
-    /* На сенсорных экранах курсора нет, поэтому скрываем шлейф, чтобы не мешал */
+    .main-nav,
     .fluid-tail {
         display: none !important;
     }
-}
-/* ==========================================
-   АДАПТИВ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (iPhone и др.)
-   ========================================== */
-@media (max-width: 768px) {
-    /* 1. Запрещаем горизонтальную прокрутку */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
+
+    .hero-section {
+        height: auto;
+        min-height: 100svh;
+        align-items: flex-start;
+        padding: clamp(122px, 17svh, 154px) 0 92px;
     }
 
-    /* 2. Навигация в шапке */
-    .header-container {
-        padding: 0 16px;
-    }
-    
-    /* Скрываем десктопные ссылки, чтобы не ломали шапку */
-    .main-nav {
-        display: none; 
-    }
-
-    /* 3. Главный экран (Hero) */
     .hero-container {
-        padding-top: 100px;
+        padding: 0 20px !important;
         text-align: left;
     }
 
     .hero-title {
-        font-size: 2rem;
-        line-height: 1.2;
+        width: 100%;
+        min-height: 2.12em;
+        margin-bottom: 18px;
+        font-size: clamp(2.25rem, 10.6vw, 2.75rem) !important;
+        line-height: 1.06 !important;
+        letter-spacing: -1.8px;
+        overflow-wrap: normal;
     }
 
     .hero-subtitle {
-        font-size: 0.95rem;
-        max-width: 100%;
-        margin-bottom: 24px;
-        /* Добавляем полупрозрачный подложку, если Canvas перекрывает */
-        position: relative;
-        z-index: 2; 
-    }
-
-    /* 4. Кнопки на главном экране */
-    .hero-buttons {
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
         position: relative;
         z-index: 2;
+        max-width: 34rem;
+        margin-bottom: 28px;
+        color: #a1a1a6;
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .hero-buttons {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
     }
 
     .hero-buttons .btn {
+        display: flex;
         width: 100%;
-        text-align: center;
+        min-height: 54px;
+        align-items: center;
         justify-content: center;
+        padding: 15px 22px;
+        border-radius: 999px;
+        text-align: center;
+        font-size: 15px;
     }
 
-    /* 5. 3D-Canvas сфера — убираем на задний план и смещаем */
     #particle-canvas {
-        opacity: 0.35; /* Делаем точечки более бледными на телефоне, чтобы текст читался */
+        top: auto;
+        right: -18%;
+        bottom: -2%;
+        left: auto;
+        width: 78%;
+        height: 78%;
+        opacity: 0.22;
         pointer-events: none;
     }
 
-    /* 6. Блоки решений и карточки */
-    .section-container {
-        padding: 40px 16px;
+    .hero-footer-info {
+        display: none;
+    }
+
+    .solutions-section,
+    .portfolio-section,
+    .process-section,
+    .pricing-section,
+    .contact-section {
+        padding: 88px 0;
+    }
+
+    .section-container,
+    .contact-container,
+    .footer-content {
+        width: 100% !important;
+        padding-right: 20px !important;
+        padding-left: 20px !important;
+    }
+
+    .section-title,
+    .adv-title,
+    .pricing-main-title,
+    .contact-title {
+        margin-bottom: 38px;
+        font-size: clamp(2rem, 9.2vw, 2.65rem) !important;
+        line-height: 1.12 !important;
+        letter-spacing: -1.2px;
+        overflow-wrap: anywhere;
     }
 
     .philosophy-grid,
+    .advantages-grid,
     .portfolio-grid,
-    .pricing-grid {
-        grid-template-columns: 1fr !important; /* Строго в один столбец */
-        gap: 20px;
+    .pricing-grid,
+    .contact-container {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 28px !important;
+    }
+
+    .advantages-right,
+    .price-card {
+        padding: 32px 22px;
+    }
+
+    .metrics-grid {
+        gap: 12px;
+    }
+
+    .metric-num {
+        font-size: 28px;
+    }
+
+    .project-card {
+        padding: 0 !important;
+        border-radius: 18px;
+    }
+
+    .project-card > a:first-child,
+    .project-img-placeholder {
+        height: 190px !important;
+    }
+
+    .project-info {
+        padding: 24px !important;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100% !important;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        font-size: 16px;
+    }
+
+    .site-footer {
+        padding: 72px 0 42px;
+    }
+
+    .footer-contacts,
+    .footer-legal-links {
+        align-items: center;
+        gap: 14px;
+    }
+
+    .footer-link {
+        max-width: 100%;
+        font-size: 19px;
+        overflow-wrap: anywhere;
+    }
+
+    .privacy-gate {
+        padding: 12px max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+    }
+
+    .privacy-gate__dialog {
+        max-height: calc(100dvh - 24px);
     }
 }
+
+@media (max-width: 380px) {
+    .hero-section {
+        padding-top: 112px;
+    }
+
+    .hero-title {
+        font-size: 2.15rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.94rem;
+    }
+}
+
 /* Блок документов в футере */
 .footer-docs-block {
     margin: 20px 0;
