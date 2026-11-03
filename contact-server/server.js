@@ -155,4 +155,4 @@ if (require.main === module) {
     server.listen(port, () => console.log('DIGRIX contact receiver listening on port ' + port));
 }
 
-module.exports = { server, validText };
+module.exports = { server, validText, transporter };
