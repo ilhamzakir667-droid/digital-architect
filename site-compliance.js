@@ -87,8 +87,39 @@
         const status = document.getElementById('contact-form-status');
         if (!form) return;
 
-        form.addEventListener('submit', function (event) {
+        // GitHub Pages is static: the form keeps the original mailto fallback
+        // until a private, correctly hosted contact API has been configured.
+        const endpoint = (form.getAttribute('data-endpoint') || '').trim();
+        const button = form.querySelector('button[type="submit"]');
+        const note = form.querySelector('.contact-form__note');
+
+        if (endpoint) {
+            if (button) button.textContent = 'Отправить заявку →';
+            if (note) note.textContent = 'Отправляя форму, вы соглашаетесь на обработку данных согласно документам сайта.';
+        }
+
+        function prepareMailto(payload) {
+            const subject = 'Заявка с сайта DIGRIX';
+            const body = [
+                'Имя: ' + payload.name,
+                'Контакт: ' + payload.contact,
+                '',
+                'Задача:',
+                payload.message,
+                '',
+                'Согласие на обработку персональных данных: предоставлено.',
+                'Редакция согласия: 2026-09-01.',
+                'Время формирования письма: ' + payload.consentAt
+            ].join('\n');
+
+            if (status) status.textContent = 'Открываем почтовое приложение. Данные будут переданы только после отправки письма.';
+            window.location.href = 'mailto:ilhamzakir@mail.ru?subject=' +
+                encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        }
+
+        form.addEventListener('submit', async function (event) {
             event.preventDefault();
+            if (!form.reportValidity()) return;
 
             const formData = new FormData(form);
             if (formData.get('pdnConsent') !== 'on') {
@@ -96,26 +127,56 @@
                 return;
             }
 
-            const consentTime = new Date().toISOString();
-            const subject = 'Заявка с сайта DIGRIX';
-            const body = [
-                'Имя: ' + String(formData.get('name') || '').trim(),
-                'Контакт: ' + String(formData.get('contact') || '').trim(),
-                '',
-                'Задача:',
-                String(formData.get('message') || '').trim(),
-                '',
-                'Согласие на обработку персональных данных: предоставлено.',
-                'Редакция согласия: 2026-09-01.',
-                'Время формирования письма: ' + consentTime
-            ].join('\n');
+            const payload = {
+                name: String(formData.get('name') || '').trim(),
+                contact: String(formData.get('contact') || '').trim(),
+                message: String(formData.get('message') || '').trim(),
+                website: String(formData.get('website') || ''),
+                consent: true,
+                consentVersion: '2026-09-01',
+                consentAt: new Date().toISOString()
+            };
 
-            if (status) {
-                status.textContent = 'Открываем почтовое приложение. Данные будут переданы только после отправки письма.';
+            if (!payload.name || !payload.contact || !payload.message) {
+                if (status) status.textContent = 'Заполните все обязательные поля.';
+                return;
             }
 
-            window.location.href = 'mailto:ilhamzakir@mail.ru?subject=' +
-                encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+            if (!endpoint) {
+                prepareMailto(payload);
+                return;
+            }
+
+            if (!endpoint.startsWith('https://') && !endpoint.startsWith('http://localhost:')) {
+                if (status) status.textContent = 'Ошибка настройки формы. Свяжитесь с нами по телефону или email.';
+                return;
+            }
+
+            if (button) button.disabled = true;
+            if (status) status.textContent = 'Отправляем заявку…';
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 15000);
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                    signal: controller.signal,
+                    credentials: 'omit',
+                    referrerPolicy: 'no-referrer'
+                });
+                if (!response.ok) throw new Error('Contact request failed');
+                if (status) status.textContent = 'Спасибо! Заявка отправлена. Мы свяжемся с вами по указанному контакту.';
+                form.reset();
+            } catch (error) {
+                // A timeout does not prove that the server didn't receive the request.
+                // Avoid automatic retries that could create duplicate leads.
+                if (status) status.textContent = 'Не удалось подтвердить отправку. Пожалуйста, позвоните или напишите нам на email.';
+            } finally {
+                clearTimeout(timeout);
+                if (button) button.disabled = false;
+            }
         });
     }
 
