@@ -82,46 +82,8 @@
         }
     }
 
-    function initContactForm() {
-        const form = document.getElementById('contact-form');
-        const status = document.getElementById('contact-form-status');
-        if (!form) return;
-
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const formData = new FormData(form);
-            if (formData.get('pdnConsent') !== 'on') {
-                if (status) status.textContent = 'Сначала подтвердите отдельное согласие на обработку данных.';
-                return;
-            }
-
-            const consentTime = new Date().toISOString();
-            const subject = 'Заявка с сайта DIGRIX';
-            const body = [
-                'Имя: ' + String(formData.get('name') || '').trim(),
-                'Контакт: ' + String(formData.get('contact') || '').trim(),
-                '',
-                'Задача:',
-                String(formData.get('message') || '').trim(),
-                '',
-                'Согласие на обработку персональных данных: предоставлено.',
-                'Редакция согласия: 2026-09-01.',
-                'Время формирования письма: ' + consentTime
-            ].join('\n');
-
-            if (status) {
-                status.textContent = 'Открываем почтовое приложение. Данные будут переданы только после отправки письма.';
-            }
-
-            window.location.href = 'mailto:ilhamzakir@mail.ru?subject=' +
-                encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-        });
-    }
-
     function init() {
         initNotice();
-        initContactForm();
     }
 
     if (document.readyState === 'loading') {
