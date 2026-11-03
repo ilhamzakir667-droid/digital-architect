@@ -1,0 +1,17 @@
+{
+  "name": "digrix-contact-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Self-hosted contact form receiver for DIGRIX",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "nodemailer": "^6.10.1"
+  }
+}
