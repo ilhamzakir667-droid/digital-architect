@@ -1,0 +1,30 @@
+name: DIGRIX contact form tests
+
+on:
+  pull_request:
+    paths:
+      - 'contact-server/**'
+      - 'site-compliance.js'
+      - 'index.html'
+      - '.github/workflows/contact-tests.yml'
+  push:
+    branches:
+      - 'feature/contact-form-without-redesign-2026-11-03'
+
+jobs:
+  contact-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contact-server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Run contact receiver tests
+        run: npm test
+      - name: Validate frontend script syntax
+        run: node --check ../site-compliance.js
