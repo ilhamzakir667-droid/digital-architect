@@ -31,6 +31,7 @@
     }
     </script>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/digrix-visuals.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 <body>
@@ -60,6 +61,20 @@
             </div>
         </section>
 
+        <section class="dx-section" id="bot-workflow" aria-labelledby="bot-workflow-title">
+            <div class="section-container">
+                <p class="section-tag">// Визуальная схема</p>
+                <h2 class="section-title" id="bot-workflow-title">Как бот соединяет<br>клиента и процессы</h2>
+                <p class="dx-lead">Пример типового сценария. Подробности, доступные интеграции и передаваемые данные согласуем отдельно для каждого проекта.</p>
+                <div class="dx-flow" aria-label="Четыре этапа типового сценария чат-бота">
+                    <div class="dx-flow__node"><span class="dx-flow__num">01</span><strong>Клиент</strong><small>Задаёт вопрос или выбирает нужную услугу</small></div>
+                    <div class="dx-flow__node"><span class="dx-flow__num">02</span><strong>Telegram-бот</strong><small>Проводит по сценарию и собирает нужные ответы</small></div>
+                    <div class="dx-flow__node"><span class="dx-flow__num">03</span><strong>CRM / сотрудник</strong><small>Получает событие, обращение или задачу</small></div>
+                    <div class="dx-flow__node"><span class="dx-flow__num">04</span><strong>Действие</strong><small>Уведомление, ответ или изменение статуса</small></div>
+                </div>
+            </div>
+        </section>
+
         <section class="solutions-section" id="use-cases">
             <div class="section-container">
                 <p class="section-tag">// Сценарии использования</p>
@@ -68,17 +83,17 @@
                     <div class="phil-card">
                         <span class="phil-num">01</span>
                         <h3>Обращения и заявки</h3>
-                        <p>Бот задаёт нужные вопросы, помогает выбрать услугу и направляет обращение ответственному сотруднику или в CRM — по согласованному сценарию.</p>
+                        <p>Бот задаёт нужные вопросы, помогает выбрать услугу и направляет обращение ответственному сотруднику или в CRM — по согласованному сценарию.</p><div class="dx-mini-illustration" aria-hidden="true"><span>Вопрос</span> → контакт → CRM</div>
                     </div>
                     <div class="phil-card">
                         <span class="phil-num">02</span>
                         <h3>Поддержка и FAQ</h3>
-                        <p>Ответы на частые вопросы, справочные разделы, инструкции, передача сложных обращений человеку. Важно заранее подготовить базу ответов.</p>
+                        <p>Ответы на частые вопросы, справочные разделы, инструкции, передача сложных обращений человеку. Важно заранее подготовить базу ответов.</p><div class="dx-mini-illustration" aria-hidden="true"><span>Вопрос</span> → база знаний → ответ</div>
                     </div>
                     <div class="phil-card">
                         <span class="phil-num">03</span>
                         <h3>CRM и уведомления</h3>
-                        <p>Связь с доступными API, напоминания сотрудникам и служебные уведомления. Права доступа и состав передаваемых данных определяем до запуска.</p>
+                        <p>Связь с доступными API, напоминания сотрудникам и служебные уведомления. Права доступа и состав передаваемых данных определяем до запуска.</p><div class="dx-mini-illustration" aria-hidden="true"><span>Событие</span> → API → уведомление</div>
                     </div>
                 </div>
             </div>

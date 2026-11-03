@@ -39,6 +39,7 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/digrix-visuals.css">
     
     <!-- Иконка вкладки DIGRIX (SVG Data URL) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300f2fe'/%3E%3Cstop offset='100%25' stop-color='%234facfe'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23030507'/%3E%3Crect x='1' y='1' width='62' height='62' rx='15' fill='none' stroke='url(%23grad)' stroke-width='1.5' stroke-opacity='0.3'/%3E%3Cpath d='M 18 16 H 32 C 43 16 50 23 50 32 C 50 41 43 48 32 48 H 18 Z' fill='none' stroke='url(%23grad)' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='32' r='3.5' fill='%2300f2fe'/%3E%3C/svg%3E">
@@ -119,11 +120,23 @@
         </div>
     </section>
 
+<!-- ДОПОЛНИТЕЛЬНЫЙ БЛОК: НАПРАВЛЕНИЯ РАЗРАБОТКИ -->
+<section class="dx-section" id="capabilities" aria-labelledby="capabilities-title">
+<div class="section-container"><p class="section-tag">// Направления разработки</p>
+<h2 class="section-title" id="capabilities-title">Решения для бизнеса,<br>а не просто сайты</h2>
+<p class="dx-lead">От первой страницы компании до автоматизации внутренних задач. Подбираем инструмент под реальную цель проекта.</p>
+<div class="dx-grid">
+<article class="dx-card"><span class="dx-card__index">01</span><span class="dx-card__symbol"><svg aria-hidden="true" viewBox="0 0 32 32"><rect x="3" y="5" width="26" height="21" rx="3"/><path d="M3 11h26M8 8h.1M12 8h.1M9 17h8M9 21h14"/></svg></span><h3>Сайты</h3><p>Лендинги, корпоративные сайты и каталоги, которые помогают представить бизнес и его услуги.</p><ul><li>Лендинги и промо</li><li>Корпоративные сайты</li><li>Интернет-магазины</li></ul><a href="#portfolio">Смотреть проекты →</a></article>
+<article class="dx-card"><span class="dx-card__index">02</span><span class="dx-card__symbol"><svg aria-hidden="true" viewBox="0 0 32 32"><rect x="8" y="3" width="16" height="26" rx="3"/><path d="M13 7h6M14 25h4M12 13h8v8h-8z"/></svg></span><h3>Веб-сервисы</h3><p>Клиентские кабинеты, интерфейсы и внутренние решения под рабочие процессы.</p><ul><li>Личные кабинеты</li><li>Интеграции и API</li><li>Интерактивные каталоги</li></ul><a href="#portfolio">Примеры работ →</a></article>
+<article class="dx-card"><span class="dx-card__index">03</span><span class="dx-card__symbol"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M4 7h24v17H15l-7 5v-5H4zM10 14h12M10 19h8"/></svg></span><h3>Telegram-боты</h3><p>Автоматизируем диалоги, уведомления и внутренние задачи.</p><ul><li>Заявки и FAQ</li><li>Уведомления</li><li>Связь с CRM</li></ul><a href="/chatbots.html">Подробнее о ботах →</a></article>
+<article class="dx-card"><span class="dx-card__index">04</span><span class="dx-card__symbol"><svg aria-hidden="true" viewBox="0 0 32 32"><rect x="2" y="8" width="10" height="10" rx="2"/><rect x="20" y="3" width="10" height="10" rx="2"/><rect x="20" y="21" width="10" height="8" rx="2"/><path d="M12 13h4v-5h4M16 13v12h4"/></svg></span><h3>CRM и автоматизация</h3><p>Связываем сайт, сотрудников и информационные системы в понятные процессы.</p><ul><li>Интеграции с CRM</li><li>Контроль статусов</li><li>Внутренние инструменты</li></ul><a href="#contact">Обсудить задачу →</a></article>
+</div></div></section>
 <!-- БЛОК: ПОРТФОЛИО -->
 <section id="portfolio" class="portfolio-section reveal">
     <div class="section-container">
         <p class="section-tag">// Портфолио</p>
         <h2 class="section-title"> Наши <br>проекты</h2>
+<p class="dx-portfolio-intro">Публичные сайты и внутренние инструменты: показываем задачи и реализованные решения. Новые обложки — концептуальные иллюстрации, не скриншоты.</p>
         
         <div class="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px;">
             
@@ -170,10 +183,7 @@
 
             <!-- Дополнительный проект 4 -->
             <div class="project-card" style="background: #0d1117; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.3s ease, border-color 0.3s ease;">
-                <a href="https://avtoecosys.ru/" target="_blank" rel="noopener noreferrer" style="display: block; position: relative; width: 100%; height: 220px; overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.15); background: linear-gradient(135deg, #0d1117, #13222a);">
-                    <span aria-hidden="true" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 28px; text-align: center; color: #dceaf1; font-size: clamp(22px, 3vw, 32px); font-weight: 700; letter-spacing: 1px;">ГАЗОДИЗЕЛЬ</span>
-                    <span style="position: absolute; top: 12px; left: 12px; background: rgba(3, 5, 7, 0.85); color: #00f2fe; padding: 4px 10px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; border: 1px solid rgba(0, 242, 254, 0.3);">// AVTOECOSYS.RU</span>
-                </a>
+                <a class="dx-cover" href="https://avtoecosys.ru/" target="_blank" rel="noopener noreferrer" aria-label="Открыть сайт Газодизель"><span class="dx-cover__label">// AVTOECOSYS.RU</span><div class="dx-window" aria-hidden="true"><div class="dx-window__bar"><i></i><i></i><i></i><span>BITRIX / B2B</span></div><div class="dx-window__body"><span class="dx-ui-line dx-ui-line--wide"></span><span class="dx-ui-line"></span><span class="dx-ui-line dx-ui-line--short"></span><div class="dx-ui-tiles"><span></span><span></span><span></span></div></div></div><span class="dx-cover__note">Концептуальная схема</span></a>
                 <div class="project-info" style="padding: 24px;">
                     <span class="project-category" style="color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">1С-Битрикс / Корпоративный сайт</span>
                     <h3 style="margin: 0 0 10px 0; font-size: 1.5rem; font-weight: 700;"><a href="https://avtoecosys.ru/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Газодизель <span style="font-size: 1rem; color: #00f2fe;">↗</span></a></h3>
@@ -184,10 +194,7 @@
 
             <!-- Дополнительный проект 5 -->
             <div class="project-card" style="background: #0d1117; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.3s ease, border-color 0.3s ease;">
-                <a href="https://mandarinsan.ru/" target="_blank" rel="noopener noreferrer" style="display: block; position: relative; width: 100%; height: 220px; overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.15); background: linear-gradient(135deg, #0d1117, #13222a);">
-                    <span aria-hidden="true" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 28px; text-align: center; color: #dceaf1; font-size: clamp(22px, 3vw, 32px); font-weight: 700; letter-spacing: 1px;">MANDARIN SUN</span>
-                    <span style="position: absolute; top: 12px; left: 12px; background: rgba(3, 5, 7, 0.85); color: #00f2fe; padding: 4px 10px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; border: 1px solid rgba(0, 242, 254, 0.3);">// MANDARINSAN.RU</span>
-                </a>
+                <a class="dx-cover dx-cover--education" href="https://mandarinsan.ru/" target="_blank" rel="noopener noreferrer" aria-label="Открыть сайт Mandarin Sun"><span class="dx-cover__label">// MANDARINSAN.RU</span><div class="dx-window" aria-hidden="true"><div class="dx-window__bar"><i></i><i></i><i></i><span>TILDA / EDUCATION</span></div><div class="dx-window__body"><span class="dx-ui-line dx-ui-line--wide"></span><span class="dx-ui-line"></span><span class="dx-ui-line dx-ui-line--short"></span><div class="dx-ui-tiles"><span></span><span></span><span></span></div></div></div><span class="dx-cover__note">Концептуальная схема</span></a>
                 <div class="project-info" style="padding: 24px;">
                     <span class="project-category" style="color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Tilda / Образовательный сайт</span>
                     <h3 style="margin: 0 0 10px 0; font-size: 1.5rem; font-weight: 700;"><a href="https://mandarinsan.ru/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Mandarin Sun <span style="font-size: 1rem; color: #00f2fe;">↗</span></a></h3>
@@ -198,10 +205,7 @@
 
             <!-- Дополнительный проект 6 -->
             <div id="project-mandarin-office" class="project-card" style="background: #0d1117; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.3s ease, border-color 0.3s ease;">
-                <div style="display: block; position: relative; width: 100%; height: 220px; overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.15); background: linear-gradient(135deg, #0d1117, #13222a);">
-                    <span aria-hidden="true" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 28px; text-align: center; color: #dceaf1; font-size: clamp(22px, 3vw, 32px); font-weight: 700; letter-spacing: 1px;">MANDARIN<br>SUN OFFICE</span>
-                    <span style="position: absolute; top: 12px; left: 12px; background: rgba(3, 5, 7, 0.85); color: #00f2fe; padding: 4px 10px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; border: 1px solid rgba(0, 242, 254, 0.3);">// TELEGRAM / ALFACRM</span>
-                </div>
+                <div class="dx-cover dx-cover--bot" role="img" aria-label="Концептуальная схема Telegram-бота Mandarin Sun Office"><span class="dx-cover__label">// TELEGRAM / ALFACRM</span><div class="dx-chat" aria-hidden="true"><span class="dx-chat__bar">◉ Mandarin Sun Office</span><span class="dx-chat__bubble">Проверка статуса занятий</span><span class="dx-chat__bubble dx-chat__bubble--right"><strong>✓</strong> Уведомление отправлено</span></div><span class="dx-cover__note">Концептуальная иллюстрация</span></div>
                 <div class="project-info" style="padding: 24px;">
                     <span class="project-category" style="color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Telegram-бот / CRM-автоматизация</span>
                     <h3 style="margin: 0 0 10px 0; font-size: 1.5rem; font-weight: 700;">Mandarin Sun Office</h3>
@@ -239,7 +243,19 @@
         </div>
     </section>
 
-    <!-- БЛОК: ТАРИФЫ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ БЛОК: ТЕХНОЛОГИИ -->
+<section class="dx-section" id="technologies" aria-labelledby="technologies-title">
+<div class="section-container"><p class="section-tag">// Технологии</p>
+<h2 class="section-title" id="technologies-title">Инструменты<br>под задачи проекта</h2>
+<p class="dx-lead">Работаем с фронтендом, конструкторами сайтов, CMS и интеграциями. Выбор технологий зависит от задачи, а не наоборот.</p>
+<div class="dx-stack"><div class="dx-stack__item"><span class="dx-stack__icon" aria-hidden="true">WEB</span><div><strong>HTML / CSS / JavaScript</strong><small>Адаптивные интерфейсы</small></div></div>
+<div class="dx-stack__item"><span class="dx-stack__icon" aria-hidden="true">TLD</span><div><strong>Tilda</strong><small>Коммерческие страницы</small></div></div>
+<div class="dx-stack__item"><span class="dx-stack__icon" aria-hidden="true">1C</span><div><strong>1С-Битрикс</strong><small>Доработка сайтов</small></div></div>
+<div class="dx-stack__item"><span class="dx-stack__icon" aria-hidden="true">BOT</span><div><strong>Telegram Bot API</strong><small>Сценарии и уведомления</small></div></div>
+<div class="dx-stack__item"><span class="dx-stack__icon" aria-hidden="true">CRM</span><div><strong>AlfaCRM / API</strong><small>Интеграции и процессы</small></div></div>
+<div class="dx-stack__item"><span class="dx-stack__icon" aria-hidden="true">GIT</span><div><strong>GitHub / Vercel</strong><small>Версии и публикация</small></div></div></div>
+</div></section>
+<!-- БЛОК: ТАРИФЫ -->
     <section id="pricing" class="pricing-section reveal">
         <div class="section-container">
             <p class="pricing-subtitle">// Стоимость</p>
