@@ -46,3 +46,9 @@
 @media(max-width:1024px) { .dx-service-steps { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:768px) { .dx-service-hero { padding:122px 0 68px; } .dx-service-heading { font-size:clamp(2.1rem,9vw,3rem); } .dx-service-desc { font-size:16px; } .dx-service-steps,.dx-service-case { grid-template-columns:1fr; } .dx-service-panel { padding:23px; } .dx-service-case article { padding:24px; } .dx-service-contact { max-width:none; } .dx-service-mockup { height:175px; } .dx-service-mockup__grid { height:82px; } }
 @media(prefers-reduced-motion:reduce) { .dx-service-related a {transition:none;} }
+
+/* Links within existing homepage cards: no layout or color scheme change. */
+.dx-card a.dx-inline-link { margin:0; display:inline; font-size:inherit; font-weight:inherit; color:inherit; text-decoration:underline; text-decoration-color:rgba(0,242,254,.48); text-underline-offset:3px; }
+.dx-card a.dx-inline-link:hover { color:#00f2fe; }
+.dx-expertise-link { color:#00f2fe; text-decoration:none; font-size:inherit; white-space:normal; }
+.dx-expertise-link:hover { text-decoration:underline; text-underline-offset:4px; }
