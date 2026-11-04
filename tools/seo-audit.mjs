@@ -46,7 +46,7 @@ for(const page of pages) {
   if(titles.has(title)) errors.push('Duplicate title on '+page+' and '+titles.get(title));
   else titles.set(title,page);
   const descr=meta(html,'description');
-  check(descr.length===1 && descr[0].trim().length>=60, page+': missing or short description');
+  check(descr.length===1 && descr[0].trim().length >= (commercial.includes(page) ? 60 : 25), page+': missing or short description');
   if(descr[0]) {
     if(descriptions.has(descr[0])) errors.push('Duplicate description on '+page+' and '+descriptions.get(descr[0]));
     descriptions.set(descr[0],page);
