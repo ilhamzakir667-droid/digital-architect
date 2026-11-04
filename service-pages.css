@@ -1,0 +1,48 @@
+/* Service landing components: additive only; original DIGRIX CSS is not modified. */
+.dx-service-hero { padding: 148px 0 96px; border-bottom: 1px solid rgba(255,255,255,.05); position:relative; overflow:hidden; background:radial-gradient(circle at 78% 18%,rgba(0,242,254,.055),transparent 34%); }
+.dx-service-hero .section-container { position:relative; z-index:1; }
+.dx-breadcrumb { margin:0 0 34px; color:#788d99; font-size:12px; }
+.dx-breadcrumb a { color:#9cbbc4; text-decoration:none; }
+.dx-breadcrumb a:hover { color:#00f2fe; }
+.dx-service-heading { font-size:clamp(2.5rem,5.6vw,5.2rem); line-height:1.08; letter-spacing:-.035em; max-width:900px; margin:0 0 22px; font-weight:600; overflow-wrap:anywhere; }
+.dx-service-heading em { font-style:normal; color:#00f2fe; }
+.dx-service-desc { max-width:760px; line-height:1.75; font-size:18px; color:#a4adb6; margin-bottom:32px; }
+.dx-service-hero .hero-buttons { flex-wrap:wrap; }
+.dx-service-tagline { color:#738b96; font:12px/1.5 monospace; margin-top:28px; }
+.dx-service-panel { border:1px solid rgba(0,242,254,.16); border-radius:20px; background:linear-gradient(130deg,rgba(0,242,254,.06),rgba(255,255,255,.012)); padding:32px; margin-top:32px; }
+.dx-service-panel h3 { font-size:23px; font-weight:600; margin-bottom:13px; }
+.dx-service-panel p { font-size:15px; line-height:1.8; color:#a4adb6; margin-bottom:0; }
+.dx-service-intro { max-width:850px; font-size:16px; line-height:1.8; color:#9cabb5; margin-bottom:38px; }
+.dx-service-steps { display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap:16px; }
+.dx-service-step { background:#0d1117; border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:27px 23px; }
+.dx-service-step span { display:block; color:#00f2fe; font:12px monospace; margin-bottom:22px; }
+.dx-service-step h3 { font-size:17px; margin-bottom:10px; }
+.dx-service-step p { font-size:13px; line-height:1.7; color:#98a5af; }
+.dx-service-case { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.dx-service-case article { padding:30px; border:1px solid rgba(255,255,255,.08); border-radius:18px; background:#0d1117; min-width:0; }
+.dx-service-case small { display:block; margin-bottom:16px; color:#00f2fe; font:12px monospace; }
+.dx-service-case h3 { font-size:23px; margin-bottom:14px; }
+.dx-service-case p { line-height:1.75; color:#9baab5; font-size:14px; margin-bottom:18px; }
+.dx-service-case a { color:#00f2fe; text-decoration:none; font-size:13px; }
+.dx-service-case a:hover { text-decoration:underline; text-underline-offset:4px; }
+.dx-service-faq { max-width:950px; display:grid; gap:14px; }
+.dx-service-faq details { padding:22px 25px; border:1px solid rgba(255,255,255,.09); background:#0d1117; border-radius:14px; }
+.dx-service-faq summary { cursor:pointer; font-size:17px; font-weight:600; list-style:none; display:flex; justify-content:space-between; gap:16px; align-items:center; }
+.dx-service-faq summary::after { content:'+'; font:24px monospace; color:#00f2fe; }
+.dx-service-faq details[open] summary::after { content:'−'; }
+.dx-service-faq summary::-webkit-details-marker { display:none; }
+.dx-service-faq details p { margin-top:16px; font-size:14px; line-height:1.75; color:#9baab5; }
+.dx-service-related { display:flex; flex-wrap:wrap; gap:12px; }
+.dx-service-related a { border:1px solid rgba(0,242,254,.16); border-radius:999px; padding:13px 21px; color:#dfeff2; background:#0d151b; text-decoration:none; font-size:13px; transition:border-color .2s,color .2s; }
+.dx-service-related a:hover { border-color:#00f2fe; color:#00f2fe; }
+.dx-service-contact { display:flex; flex-direction:column; gap:16px; align-items:stretch; max-width:390px; }
+.dx-service-contact .btn { display:block; text-align:center; }
+.dx-service-contact small { color:#8899a5; line-height:1.7; }
+.dx-service-mockup { height:210px; max-width:620px; margin-top:48px; border:1px solid rgba(0,242,254,.17); border-radius:17px; background:linear-gradient(145deg,#0a1b23,#0b0d12); padding:14px; overflow:hidden; box-shadow: 0 22px 80px rgba(0,0,0,.18); }
+.dx-service-mockup__top { padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.07); font:11px/1.4 monospace; color:#7eafb4; }
+.dx-service-mockup__top b { color:#00f2fe; margin-right:12px; }
+.dx-service-mockup__grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:12px; margin-top:18px; height:112px; }
+.dx-service-mockup__grid span { background:linear-gradient(135deg,rgba(0,242,254,.14),rgba(255,255,255,.022)); border:1px solid rgba(0,242,254,.09); border-radius:9px; display:block; }
+@media(max-width:1024px) { .dx-service-steps { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:768px) { .dx-service-hero { padding:122px 0 68px; } .dx-service-heading { font-size:clamp(2.1rem,9vw,3rem); } .dx-service-desc { font-size:16px; } .dx-service-steps,.dx-service-case { grid-template-columns:1fr; } .dx-service-panel { padding:23px; } .dx-service-case article { padding:24px; } .dx-service-contact { max-width:none; } .dx-service-mockup { height:175px; } .dx-service-mockup__grid { height:82px; } }
+@media(prefers-reduced-motion:reduce) { .dx-service-related a {transition:none;} }
