@@ -1,0 +1,69 @@
+name: DIGRIX SEO and live publication checks
+
+on:
+  push:
+    branches:
+      - main
+      - feature/technical-seo-and-audit-2026-11-04
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  static-seo:
+    name: Check metadata, sitemap, internal links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate audit scripts
+        run: |
+          node --check tools/seo-audit.mjs
+          node --check tools/live-seo-check.mjs
+      - name: Audit HTML and SEO files
+        run: node tools/seo-audit.mjs
+
+  public-pages:
+    name: Verify real public site URLs
+    runs-on: ubuntu-latest
+    needs: static-seo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: HTTP status, content, sitemap and robots checks
+        env:
+          STRICT_LIVE: ${{ github.ref == 'refs/heads/main' }}
+        run: node tools/live-seo-check.mjs
+
+  mobile-lighthouse:
+    name: Measure homepage mobile Lighthouse (lab)
+    runs-on: ubuntu-latest
+    needs: static-seo
+    timeout-minutes: 7
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run headless mobile Lighthouse
+        run: |
+          google-chrome --version || chromium --version
+          npx --yes lighthouse@12 https://digrix.tech/ --quiet --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" --only-categories=performance,seo --output=json --output-path=./lighthouse-mobile.json
+      - name: Display lab scores
+        if: always()
+        run: |
+          if [ -f lighthouse-mobile.json ]; then
+            node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync('lighthouse-mobile.json')); console.log(JSON.stringify({url:x.finalDisplayedUrl,performance:Math.round(100*(x.categories.performance?.score||0)),seo:Math.round(100*(x.categories.seo?.score||0)),LCP_ms:x.audits['largest-contentful-paint']?.numericValue,CLS:x.audits['cumulative-layout-shift']?.numericValue,TBT_ms:x.audits['total-blocking-time']?.numericValue},null,2))"
+          else
+            echo "Lighthouse report unavailable: network/Chrome/runtime issue."
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: digrix-mobile-lighthouse
+          path: lighthouse-mobile.json
+          if-no-files-found: ignore
