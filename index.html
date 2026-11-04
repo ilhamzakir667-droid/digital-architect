@@ -479,9 +479,23 @@ let sY = centerY + y1 * (600 / (600 + z2));
         }
 
         for (let i = 0; i < particlesCount; i++) { particles.push(new Particle3D()); }
+        // Keep the original particle appearance while visible.
+        // Avoid repainting hundreds of glyphs when the hero is off screen,
+        // the document is hidden, or the visitor prefers reduced motion.
+        let heroVisible = true;
+        const heroSection = document.querySelector('.hero-section');
+        if ('IntersectionObserver' in window && heroSection) {
+            new IntersectionObserver((entries) => {
+                heroVisible = Boolean(entries[0] && entries[0].isIntersecting);
+            }, { threshold: 0 }).observe(heroSection);
+        }
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
         function animate() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => p.update(0.0018, 0.0022));
+            if (!document.hidden && heroVisible && !reduceMotion.matches) {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => p.update(0.0018, 0.0022));
+            }
             requestAnimationFrame(animate);
         }
         animate();
